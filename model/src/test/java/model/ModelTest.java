@@ -47,7 +47,15 @@ public class ModelTest {
         Assert.assertEquals("Bonjour le monde", this.model.getHelloWorld().getMessage());
         this.model.loadHelloWorld("DE");
         Assert.assertEquals("Hallo Welt", this.model.getHelloWorld().getMessage());
-        this.model.loadHelloWorld("ID");
+        this.model.loadHelloWorld("SP");
+        Assert.assertEquals("Salamat pagi dunia", this.model.getHelloWorld().getMessage());
+        this.model.loadHelloWorld("IT");
+        Assert.assertEquals("Salamat pagi dunia", this.model.getHelloWorld().getMessage());
+        this.model.loadHelloWorld("BB");
+        Assert.assertEquals("Salamat pagi dunia", this.model.getHelloWorld().getMessage());
+        this.model.loadHelloWorld("RU");
+        Assert.assertEquals("Salamat pagi dunia", this.model.getHelloWorld().getMessage());
+        this.model.loadHelloWorld("CH");
         Assert.assertEquals("Salamat pagi dunia", this.model.getHelloWorld().getMessage());
     }
 }

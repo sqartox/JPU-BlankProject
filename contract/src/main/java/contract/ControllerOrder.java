@@ -1,5 +1,7 @@
 package contract;
 
+import java.awt.event.KeyEvent;
+
 /**
  * The Enum ControllerOrder.
  *
@@ -13,6 +15,14 @@ public enum ControllerOrder {
 	Francais,
 	/** The Deutch. */
 	Deutsch,
-	/** The Indonesia. */
-	Indonesia
+	/** The Spanish. */
+	Spanish,
+	/** The Italian. */
+	Italian,
+	/** The Beauf. */
+	Beauf,
+	/** The Russian. */
+	Russian,
+	/** The Chinese. */
+	Chinese
 }

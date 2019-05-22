@@ -13,6 +13,7 @@ import view.View;
  * The Class Main.
  * 
  * Test merge
+ * This is another test
  *
  * @author Jean-Aymeric Diet
  */
@@ -28,7 +29,6 @@ public abstract class Main {
 	
 	//This is a comment
     public static void main(final String[] args) {
-    	final Model patate = new Model();
         final Model model = new Model();
         final View view = new View(model);
         final Controller controller = new Controller(view, model);

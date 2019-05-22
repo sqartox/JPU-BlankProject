@@ -11,6 +11,8 @@ import view.View;
 
 /**
  * The Class Main.
+ * 
+ * Test merge
  *
  * @author Jean-Aymeric Diet
  */

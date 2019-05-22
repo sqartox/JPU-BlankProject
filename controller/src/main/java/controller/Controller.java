@@ -77,14 +77,26 @@ public final class Controller implements IController {
 			case English:
 				this.model.loadHelloWorld("GB");
 				break;
-			case Francais:
+			case French:
 				this.model.loadHelloWorld("FR");
 				break;
 			case Deutsch:
 				this.model.loadHelloWorld("DE");
 				break;
-			case Indonesia:
-				this.model.loadHelloWorld("ID");
+			case Spanish:
+				this.model.loadHelloWorld("SP");
+				break;
+			case Italian:
+				this.model.loadHelloWorld("IT");
+				break;
+			case Beauf:
+				this.model.loadHelloWorld("BB");
+				break;
+			case Russian:
+				this.model.loadHelloWorld("RU");
+				break;
+			case Chinese:
+				this.model.loadHelloWorld("CH");
 				break;
 			default:
 				break;

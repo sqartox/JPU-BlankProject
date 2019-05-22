@@ -25,6 +25,8 @@ public abstract class Main {
      *            the arguments
      */
 	
+	
+	//This is a comment
     public static void main(final String[] args) {
         final Model model = new Model();
         final View view = new View(model);

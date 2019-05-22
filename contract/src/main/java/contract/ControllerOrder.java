@@ -3,6 +3,8 @@ package contract;
 /**
  * The Enum ControllerOrder.
  *
+ *Test for GitHub
+ *
  * @author Jean-Aymeric Diet
  */
 public enum ControllerOrder {

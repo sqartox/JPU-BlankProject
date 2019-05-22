@@ -14,7 +14,7 @@ public enum ControllerOrder {
 	/** The English. */
 	English,
 	/** The French. */
-	Francais,
+	French,
 	/** The Deutch. */
 	Deutsch,
 	/** The Spanish. */

@@ -7,7 +7,7 @@ public class Stone extends MobileElements {
 	private static boolean destructible;
 	
 	static {
-		sprite_name = "stone";
+		sprite_name = "Stone";
 		explosive = false;
 		falling = true;
 		destructible = false;

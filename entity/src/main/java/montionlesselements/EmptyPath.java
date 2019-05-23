@@ -7,7 +7,7 @@ public class EmptyPath extends MotionlessElements {
 	private static boolean destructible;
 	
 	static {
-		sprite_name = "empty_path";
+		sprite_name = "Black";
 		explosive = false;
 		falling = false;
 		destructible = false;

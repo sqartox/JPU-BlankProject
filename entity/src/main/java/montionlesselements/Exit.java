@@ -7,7 +7,7 @@ public class Exit extends MotionlessElements {
 	private static boolean destructible;
 	
 	static {
-		sprite_name = "exit";
+		sprite_name = "Door";
 		explosive = false;
 		falling = false;
 		destructible = false;

@@ -7,7 +7,7 @@ public class IndoorWall extends MotionlessElements {
 	private static boolean destructible;
 	
 	static {
-		sprite_name = "empty_path";
+		sprite_name = "Wall";
 		explosive = false;
 		falling = false;
 		destructible = true;

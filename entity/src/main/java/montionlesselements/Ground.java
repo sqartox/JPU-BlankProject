@@ -7,7 +7,7 @@ public class Ground extends MotionlessElements {
 	private static boolean destructible;
 	
 	static {
-		sprite_name = "ground";
+		sprite_name = "Background";
 		explosive = false;
 		falling = false;
 		destructible = true;

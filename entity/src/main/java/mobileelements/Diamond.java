@@ -7,7 +7,7 @@ public class Diamond extends MobileElements {
 	private static boolean destructible;
 	
 	static {
-		sprite_name = "empty_path";
+		sprite_name = "Diamond";
 		explosive = true;
 		falling = true;
 		destructible = true;

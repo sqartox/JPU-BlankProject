@@ -7,7 +7,7 @@ public class Opponent extends MobileElements {
 	private static boolean destructible;
 	
 	static {
-		sprite_name = "opponent";
+		sprite_name = "...";
 		explosive = false;
 		falling = false;
 		destructible = true;

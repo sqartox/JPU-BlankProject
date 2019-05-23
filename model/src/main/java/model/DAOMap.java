@@ -76,7 +76,7 @@ class DAOMap extends DAOEntity<Map> {
 			call.execute();
 			final ResultSet resultSet = call.getResultSet();
 			if (resultSet.first()) {
-				map = new Map(id, resultSet.getString("level"));
+				map = new Map(id, resultSet.getString("code"), resultSet.getString("level"));
 			}
 			return map;
 		} catch (final SQLException e) {
@@ -85,13 +85,13 @@ class DAOMap extends DAOEntity<Map> {
 		return null;
 	}
 
-	@Override
+	/*@Override
 	public Map find(String code) {
 		// TODO Auto-generated method stub
 		return null;
-	}
+	}*/
 
-	/*@Override
+	@Override
 	public Map find(final String code) {
 		Map map = new Map();
 
@@ -102,13 +102,13 @@ class DAOMap extends DAOEntity<Map> {
 			call.execute();
 			final ResultSet resultSet = call.getResultSet();
 			if (resultSet.first()) {
-				map = new Map(code, resultSet.getString("level"));
+				map = new Map(resultSet.getInt("id"), code, resultSet.getString("level"));
 			}
 			return map;
 		} catch (final SQLException e) {
 			e.printStackTrace();
 		}
 		return null;
-	}*/
+	}
 
 }

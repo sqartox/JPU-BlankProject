@@ -12,20 +12,25 @@ import montionlesselements.Wall;
 
 public class Map extends Entity {
 	private int id;
+	private String key;
 	private String level;
 	private Elements[][] mapObject;
-
-	public Map(final int id, final String message) {
-		this.setId(id);
-		this.setMapDesign(message);
-		this.createMap();
-	}
 
 	/**
 	 * Instantiates a new hello world.
 	 */
+	public Map(final int id, final String key, final String message) {
+		this.setId(id);
+		this.setKey(key);
+		this.setMapDesign(level);
+		this.createMap();
+	}
+	
+	/**
+	 * Instantiates a new hello world.
+	 */
 	public Map() {
-		this(0, "");
+		this(0, "", "");
 	}
 
 	/**
@@ -44,6 +49,24 @@ public class Map extends Entity {
 	 */
 	public void setId(final int id) {
 		this.id = id;
+	}
+	
+	/**
+	 * Gets the id.
+	 *
+	 * @return the id
+	 */
+	public String getKey() {
+		return this.key;
+	}
+
+	/**
+	 * Sets the id.
+	 *
+	 * @param id the new id
+	 */
+	public void setKey(final String key) {
+		this.key = key;
 	}
 
 	/**

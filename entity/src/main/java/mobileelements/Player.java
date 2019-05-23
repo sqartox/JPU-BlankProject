@@ -13,8 +13,8 @@ public class Player extends MobileElements {
 		destructible = true;
 	}
 	
-	public Player() {
-		super(sprite_name, explosive, falling, destructible);
+	public Player(int x, int y) {
+		super(sprite_name, x, y, explosive, falling, destructible);
 		
 		this.loadSprite(sprite_name);
 	}

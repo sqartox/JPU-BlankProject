@@ -1,4 +1,4 @@
-package montionlesselements;
+package motionlesselements;
 
 public class Exit extends MotionlessElements {
 	private static String sprite_name;

@@ -1,19 +1,19 @@
-package montionlesselements;
+package motionlesselements;
 
-public class Wall extends MotionlessElements {
+public class Dirt extends MotionlessElements {
 	private static String sprite_name;
 	private static boolean explosive;
 	private static boolean falling;
 	private static boolean destructible;
 	
 	static {
-		sprite_name = "Wall";
+		sprite_name = "Dirt";
 		explosive = false;
 		falling = false;
-		destructible = false;
+		destructible = true;
 	}
 	
-	public Wall(int x, int y) {
+	public Dirt(int x, int y) {
 		super(sprite_name, x, y, explosive, falling, destructible);
 		
 		this.loadSprite(sprite_name);

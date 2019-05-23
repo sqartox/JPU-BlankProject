@@ -13,8 +13,8 @@ public class Stone extends MobileElements {
 		destructible = false;
 	}
 	
-	public Stone() {
-		super(sprite_name, explosive, falling, destructible);
+	public Stone(int x, int y) {
+		super(sprite_name, x, y, explosive, falling, destructible);
 		
 		this.loadSprite(sprite_name);
 	}

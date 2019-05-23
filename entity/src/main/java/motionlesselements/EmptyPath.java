@@ -1,19 +1,19 @@
-package montionlesselements;
+package motionlesselements;
 
-public class IndoorWall extends MotionlessElements {
+public class EmptyPath extends MotionlessElements {
 	private static String sprite_name;
 	private static boolean explosive;
 	private static boolean falling;
 	private static boolean destructible;
 	
 	static {
-		sprite_name = "Wall";
+		sprite_name = "Black";
 		explosive = false;
 		falling = false;
-		destructible = true;
+		destructible = false;
 	}
 	
-	public IndoorWall(int x, int y) {
+	public EmptyPath(int x, int y) {
 		super(sprite_name, x, y, explosive, falling, destructible);
 		
 		this.loadSprite(sprite_name);

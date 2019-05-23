@@ -13,8 +13,8 @@ public class Diamond extends MobileElements {
 		destructible = true;
 	}
 	
-	public Diamond() {
-		super(sprite_name, explosive, falling, destructible);
+	public Diamond(int x, int y) {
+		super(sprite_name, x, y, explosive, falling, destructible);
 		
 		this.loadSprite(sprite_name);
 	}

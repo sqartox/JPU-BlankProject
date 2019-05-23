@@ -13,8 +13,8 @@ public class Opponent extends MobileElements {
 		destructible = true;
 	}
 	
-	public Opponent() {
-		super(sprite_name, explosive, falling, destructible);
+	public Opponent(int x, int y) {
+		super(sprite_name, x, y, explosive, falling, destructible);
 		
 		this.loadSprite(sprite_name);
 	}

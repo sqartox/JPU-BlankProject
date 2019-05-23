@@ -4,11 +4,11 @@ import mobileelements.Diamond;
 import mobileelements.Opponent;
 import mobileelements.Player;
 import mobileelements.Stone;
-import montionlesselements.EmptyPath;
-import montionlesselements.Exit;
-import montionlesselements.Ground;
-import montionlesselements.IndoorWall;
-import montionlesselements.Wall;
+import motionlesselements.EmptyPath;
+import motionlesselements.Exit;
+import motionlesselements.Ground;
+import motionlesselements.IndoorWall;
+import motionlesselements.Wall;
 
 public class Map extends Entity {
 	private int id;
@@ -119,19 +119,19 @@ public class Map extends Entity {
 	                    	mapObject[x][y] = new Ground(x, y);
 	                        break;
 	                    case 'P':
-	                    	mapObject[x][y] = new Player();
+	                    	mapObject[x][y] = new Player(x, y);
 	                        break;
 	                    case 'S':
-	                    	mapObject[x][y] = new Stone();
+	                    	mapObject[x][y] = new Stone(x, y);
 	                        break;
 	                    case 'R':
-	                    	mapObject[x][y] = new Opponent();
+	                    	mapObject[x][y] = new Opponent(x, y);
 	                        break;
 	                    case 'N':
 	                    	mapObject[x][y] = new EmptyPath(x, y);
 	                        break;
 	                    case 'D':
-	                    	mapObject[x][y] = new Diamond();
+	                    	mapObject[x][y] = new Diamond(x, y);
 	                        break;
 	                    case 'E':
 	                    	mapObject[x][y] = new Exit(x, y);

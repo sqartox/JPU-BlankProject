@@ -1,4 +1,4 @@
-package montionlesselements;
+package motionlesselements;
 
 import entity.Elements;
 

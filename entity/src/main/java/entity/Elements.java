@@ -6,11 +6,13 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
-public abstract class Elements {
+public abstract class Elements extends Entity{
 	private static String SPRITE_FOLDER_PATH = "../";
 	
 	private String sprite_name;
 	private boolean moving;
+	private int x;
+	private int y;
 	private boolean animate;
 	private boolean explosive;
 	private boolean falling;
@@ -27,6 +29,9 @@ public abstract class Elements {
 		this.destructible = destructible;
 	}
 	
+	Elements(){
+		
+	}
 	
 	//Get Sprite path
 	public static String getSpriteFolderPath() {
@@ -54,7 +59,25 @@ public abstract class Elements {
 	public void setMoving(boolean moving) {
 		this.moving = moving;
 	}
+	
+	//Get x position
+	public int getX() {
+		return x;
+	}
 
+	public void setX(int x){
+		this.x = x;
+	}
+
+	//Get y position
+	public int getY() {
+		return y;
+	}
+		
+	public void setY(int y){
+		this.y = y;
+	}
+		
 	//Get if Element is animated
 	public boolean isAnimate() {
 		return animate;
@@ -69,7 +92,6 @@ public abstract class Elements {
 		return explosive;
 	}
 
-	
 	public void setExplosive(boolean explosive) {
 		this.explosive = explosive;
 	}

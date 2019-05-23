@@ -1,12 +1,19 @@
 package entity;
 
-import mobileelements.*;
-import montionlesselements.*;
+import mobileelements.Diamond;
+import mobileelements.Opponent;
+import mobileelements.Player;
+import mobileelements.Stone;
+import montionlesselements.EmptyPath;
+import montionlesselements.Exit;
+import montionlesselements.Ground;
+import montionlesselements.IndoorWall;
+import montionlesselements.Wall;
 
-public class Map extends Entity {
+public class Map extends Elements {
 	private int id;
 	private String level;
-	private Entity[][] mapObject;
+	private Elements[][] mapObject;
 
 	public Map(final int id, final String message) {
 		this.setId(id);
@@ -77,36 +84,36 @@ public class Map extends Entity {
 	        System.out.println(getLinesOfMap());
 	        System.out.println(getWidthOfMap());
 	        if (getLinesOfMap() >= 1 && getWidthOfMap() >= 1) {
-	            this.mapObject = new Entity[this.getWidthOfMap()][this.getLinesOfMap()];
+	            this.mapObject = new Elements[this.getWidthOfMap()][this.getLinesOfMap()];
 	            for (int y = 0; y < getLinesOfMap(); y++) {
 	                String[] finalMap = map.split("\n");
 	                for (int x = 0; x < getWidthOfMap(); x++) {
 	                    switch (finalMap[y].toCharArray()[x]) {
 	                    case 'W':
-	                    	mapObject[x][y] = new Wall(x, y);
+	                    	mapObject[x][y] = new Wall();
 	                        break;
 	                    case 'G':
-	                    	mapObject[x][y] = new Ground(x, y);
+	                    	mapObject[x][y] = new Ground();
 	                        break;
 	                    case 'P':
-	                    	mapObject[x][y] = new Player(x, y);
+	                    	mapObject[x][y] = new Player();
 	                        break;
 	                    case 'S':
-	                    	mapObject[x][y] = new Stone(x, y);
+	                    	mapObject[x][y] = new Stone();
 	                        break;
 	                    case 'R':
-	                    	mapObject[x][y] = new Opponent(x, y);
+	                    	mapObject[x][y] = new Opponent();
 	                        break;
 	                    case 'N':
-	                    	mapObject[x][y] = new EmptyPath(x, y);
+	                    	mapObject[x][y] = new EmptyPath();
 	                        break;
 	                    case 'D':
-	                    	mapObject[x][y] = new Diamond(x, y);
+	                    	mapObject[x][y] = new Diamond();
 	                        break;
 	                    case 'E':
-	                    	mapObject[x][y] = new Exit(x, y);
+	                    	mapObject[x][y] = new Exit();
 	                    case 'I':
-	                    	mapObject[x][y] = new IndoorWall(x, y);
+	                    	mapObject[x][y] = new IndoorWall();
 	                        break;
 	                    default:
 	                        break;

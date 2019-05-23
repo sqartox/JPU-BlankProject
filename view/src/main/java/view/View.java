@@ -55,6 +55,8 @@ public final class View implements IView, Runnable {
 				return ControllerOrder.Russian;
 			case KeyEvent.VK_C:
 				return ControllerOrder.Chinese;
+			case KeyEvent.VK_NUMPAD1:
+				return ControllerOrder.Map1;
 			default:
 				return ControllerOrder.English;
 		}

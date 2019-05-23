@@ -98,6 +98,9 @@ public final class Controller implements IController {
 			case Chinese:
 				this.model.loadHelloWorld("CH");
 				break;
+			case Map1:
+				this.model.loadHelloWorld("M1");
+				break;
 			default:
 				break;
 		}

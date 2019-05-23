@@ -10,22 +10,9 @@ import java.awt.event.KeyEvent;
  * @author Jean-Aymeric Diet
  */
 public enum ControllerOrder {
-
-	/** The English. */
-	English,
-	/** The French. */
-	French,
-	/** The Deutch. */
-	Deutsch,
-	/** The Spanish. */
-	Spanish,
-	/** The Italian. */
-	Italian,
-	/** The Beauf. */
-	Beauf,
-	/** The Russian. */
-	Russian,
-	/** The Chinese. */
-	Chinese,
-	Map1
+	Map1,
+	Map2,
+	Map3,
+	Map4,
+	Map5
 }

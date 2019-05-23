@@ -74,7 +74,7 @@ public final class Controller implements IController {
 	 */
 	public void orderPerform(final ControllerOrder controllerOrder) {
 		switch (controllerOrder) {
-			case English:
+			/*case English:
 				this.model.loadHelloWorld("GB");
 				break;
 			case French:
@@ -97,6 +97,9 @@ public final class Controller implements IController {
 				break;
 			case Chinese:
 				this.model.loadHelloWorld("CH");
+				break;*/
+			case Map1:
+				this.model.loadMap("M1");
 				break;
 			default:
 				break;

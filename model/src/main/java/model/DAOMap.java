@@ -5,6 +5,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import entity.HelloWorld;
 import entity.Map;
 
 /**
@@ -89,5 +90,25 @@ class DAOMap extends DAOEntity<Map> {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	/*@Override
+	public Map find(final String code) {
+		Map map = new Map();
+
+		try {
+			final String sql = "{call mapByCode(?)}";
+			final CallableStatement call = this.getConnection().prepareCall(sql);
+			call.setString(1, code);
+			call.execute();
+			final ResultSet resultSet = call.getResultSet();
+			if (resultSet.first()) {
+				map = new Map(code, resultSet.getString("level"));
+			}
+			return map;
+		} catch (final SQLException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}*/
 
 }

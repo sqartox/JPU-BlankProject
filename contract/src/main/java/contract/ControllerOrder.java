@@ -1,7 +1,5 @@
 package contract;
 
-import java.awt.event.KeyEvent;
-
 /**
  * The Enum ControllerOrder.
  *
@@ -26,5 +24,8 @@ public enum ControllerOrder {
 	/** The Russian. */
 	Russian,
 	/** The Chinese. */
-	Chinese
+	Chinese,
+	/** The 1st Map. */
+	Map1,
+	
 }

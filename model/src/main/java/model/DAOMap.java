@@ -84,4 +84,10 @@ class DAOMap extends DAOEntity<Map> {
 		return null;
 	}
 
+	@Override
+	public Map find(String code) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

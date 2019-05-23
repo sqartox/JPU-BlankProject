@@ -10,7 +10,7 @@ import montionlesselements.Ground;
 import montionlesselements.IndoorWall;
 import montionlesselements.Wall;
 
-public class Map extends Elements {
+public class Map extends Entity {
 	private int id;
 	private String level;
 	private Elements[][] mapObject;

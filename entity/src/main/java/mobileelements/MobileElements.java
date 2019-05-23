@@ -1,8 +1,8 @@
 package mobileelements;
 
-import entity.Ellements;
+import entity.Elements;
 
-public abstract class MobileElements extends Ellements {
+public abstract class MobileElements extends Elements {
 	private final static boolean movable = true;
 	private final static boolean animated = true;
 	

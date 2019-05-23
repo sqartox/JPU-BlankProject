@@ -1,8 +1,8 @@
 package montionlesselements;
 
-import entity.Ellements;
+import entity.Elements;
 
-public abstract class MotionlessElements extends Ellements {
+public abstract class MotionlessElements extends Elements {
 	private final static boolean movable = false;
 	private final static boolean animated = false;
 	

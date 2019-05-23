@@ -6,7 +6,7 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
-public abstract class Ellements {
+public abstract class Elements {
 	private static String SPRITE_FOLDER_PATH = "../";
 	
 	private String sprite_name;
@@ -18,7 +18,7 @@ public abstract class Ellements {
 	
 	
 	
-	public Ellements(String sprite_name, boolean moving, boolean animate, boolean explosive, boolean falling, boolean destructible){
+	public Elements(String sprite_name, boolean moving, boolean animate, boolean explosive, boolean falling, boolean destructible){
 		this.sprite_name = sprite_name;
 		this.moving = moving;
 		this.animate = animate;

@@ -27,6 +27,10 @@ public abstract class Elements extends Entity{
 		this.destructible = destructible;
 	}
 	
+	public Elements(){
+		
+	}
+	
 	
 	//Get Sprite path
 	public static String getSpriteFolderPath() {

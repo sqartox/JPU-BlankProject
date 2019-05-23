@@ -10,7 +10,7 @@ import motionlesselements.Ground;
 import motionlesselements.IndoorWall;
 import motionlesselements.Wall;
 
-public class Map extends Entity {
+public class Map extends Elements {
 	private int id;
 	private String key;
 	private String level;
@@ -22,7 +22,7 @@ public class Map extends Entity {
 	public Map(final int id, final String key, final String message) {
 		this.setId(id);
 		this.setKey(key);
-		this.setMapDesign(level);
+		this.setMapDesign(message);
 		this.createMap();
 	}
 	

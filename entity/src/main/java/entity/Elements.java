@@ -18,7 +18,7 @@ public abstract class Elements extends Entity{
 	
 	
 	
-	public Elements(String sprite_name, boolean moving, boolean animate, boolean explosive, boolean falling, boolean destructible){
+	public Elements(String sprite_name,int x, int y, boolean moving, boolean animate, boolean explosive, boolean falling, boolean destructible){
 		this.sprite_name = sprite_name;
 		this.moving = moving;
 		this.animate = animate;

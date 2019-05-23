@@ -13,8 +13,8 @@ public class Wall extends MotionlessElements {
 		destructible = false;
 	}
 	
-	public Wall() {
-		super(sprite_name, explosive, falling, destructible);
+	public Wall(int x, int y) {
+		super(sprite_name, x, y, explosive, falling, destructible);
 		
 		this.loadSprite(sprite_name);
 	}

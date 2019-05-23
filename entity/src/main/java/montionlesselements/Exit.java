@@ -13,8 +13,8 @@ public class Exit extends MotionlessElements {
 		destructible = false;
 	}
 	
-	public Exit() {
-		super(sprite_name, explosive, falling, destructible);
+	public Exit(int x, int y) {
+		super(sprite_name, x, y, explosive, falling, destructible);
 		
 		this.loadSprite(sprite_name);
 	}

@@ -13,8 +13,8 @@ public class Ground extends MotionlessElements {
 		destructible = true;
 	}
 	
-	public Ground() {
-		super(sprite_name, explosive, falling, destructible);
+	public Ground(int x, int y) {
+		super(sprite_name, x, y, explosive, falling, destructible);
 		
 		this.loadSprite(sprite_name);
 	}

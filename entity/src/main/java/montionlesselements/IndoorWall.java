@@ -13,8 +13,8 @@ public class IndoorWall extends MotionlessElements {
 		destructible = true;
 	}
 	
-	public IndoorWall() {
-		super(sprite_name, explosive, falling, destructible);
+	public IndoorWall(int x, int y) {
+		super(sprite_name, x, y, explosive, falling, destructible);
 		
 		this.loadSprite(sprite_name);
 	}

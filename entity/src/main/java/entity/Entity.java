@@ -6,7 +6,7 @@ package entity;
  * @author Jean-Aymeric Diet
  */
 public abstract class Entity {
-	public Entity(String sprite, int x, int y) {
+	public Entity(Elements elements, int x, int y) {
 		
 	}
 	

@@ -13,8 +13,8 @@ public class Dirt extends MotionlessElements {
 		destructible = true;
 	}
 	
-	public Dirt() {
-		super(sprite_name, explosive, falling, destructible);
+	public Dirt(int x, int y) {
+		super(sprite_name, x, y, explosive, falling, destructible);
 		
 		this.loadSprite(sprite_name);
 	}

@@ -13,8 +13,8 @@ public class EmptyPath extends MotionlessElements {
 		destructible = false;
 	}
 	
-	public EmptyPath() {
-		super(sprite_name, explosive, falling, destructible);
+	public EmptyPath(int x, int y) {
+		super(sprite_name, x, y, explosive, falling, destructible);
 		
 		this.loadSprite(sprite_name);
 	}

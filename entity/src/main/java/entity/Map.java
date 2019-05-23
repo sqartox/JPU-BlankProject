@@ -113,10 +113,10 @@ public class Map extends Entity {
 	                for (int x = 0; x < getWidthOfMap(); x++) {
 	                    switch (finalMap[y].toCharArray()[x]) {
 	                    case 'W':
-	                    	mapObject[x][y] = new Wall();
+	                    	mapObject[x][y] = new Wall(x, y);
 	                        break;
 	                    case 'G':
-	                    	mapObject[x][y] = new Ground();
+	                    	mapObject[x][y] = new Ground(x, y);
 	                        break;
 	                    case 'P':
 	                    	mapObject[x][y] = new Player();
@@ -128,15 +128,15 @@ public class Map extends Entity {
 	                    	mapObject[x][y] = new Opponent();
 	                        break;
 	                    case 'N':
-	                    	mapObject[x][y] = new EmptyPath();
+	                    	mapObject[x][y] = new EmptyPath(x, y);
 	                        break;
 	                    case 'D':
 	                    	mapObject[x][y] = new Diamond();
 	                        break;
 	                    case 'E':
-	                    	mapObject[x][y] = new Exit();
+	                    	mapObject[x][y] = new Exit(x, y);
 	                    case 'I':
-	                    	mapObject[x][y] = new IndoorWall();
+	                    	mapObject[x][y] = new IndoorWall(x, y);
 	                        break;
 	                    default:
 	                        break;

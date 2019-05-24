@@ -112,30 +112,30 @@ public class Map extends Elements {
 	                String[] finalMap = map.split("\n");
 	                for (int x = 0; x < getWidthOfMap(); x++) {
 	                    switch (finalMap[y].toCharArray()[x]) {
-	                    case 'W':
+	                    case 'w':
 	                    	mapObject[x][y] = new Wall(x, y);
 	                        break;
-	                    case 'G':
+	                    case 'g':
 	                    	mapObject[x][y] = new Ground(x, y);
 	                        break;
-	                    case 'P':
+	                    case 'p':
 	                    	mapObject[x][y] = new Player(x, y);
 	                        break;
-	                    case 'S':
+	                    case 's':
 	                    	mapObject[x][y] = new Stone(x, y);
 	                        break;
-	                    case 'R':
+	                    case 'r':
 	                    	mapObject[x][y] = new Opponent(x, y);
 	                        break;
-	                    case 'N':
+	                    case 'n':
 	                    	mapObject[x][y] = new EmptyPath(x, y);
 	                        break;
-	                    case 'D':
+	                    case 'd':
 	                    	mapObject[x][y] = new Diamond(x, y);
 	                        break;
-	                    case 'E':
+	                    case 'e':
 	                    	mapObject[x][y] = new Exit(x, y);
-	                    case 'I':
+	                    case 'i':
 	                    	mapObject[x][y] = new IndoorWall(x, y);
 	                        break;
 	                    default:

@@ -6,8 +6,8 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
-public abstract class Elements extends Entity{
-	private static String SPRITE_FOLDER_PATH = "../";
+public abstract class Elements{
+	private static String SPRITE_FOLDER_PATH = "../main/resources/sprite/";
 	
 	private String sprite_name;
 	private boolean moving;
@@ -15,8 +15,6 @@ public abstract class Elements extends Entity{
 	private boolean explosive;
 	private boolean falling;
 	private boolean destructible;
-	
-	
 	
 	public Elements(String sprite_name,int x, int y, boolean moving, boolean animate, boolean explosive, boolean falling, boolean destructible){
 		this.sprite_name = sprite_name;
@@ -99,9 +97,8 @@ public abstract class Elements extends Entity{
 	//Load Sprite
 	public BufferedImage loadSprite(String sprite_name) {
 		BufferedImage sprite = null;
-		
 		try {
-			sprite = ImageIO.read(new File(getSpritePath()));
+			sprite = ImageIO.read(new File("C:\\Users\\felic\\git\\JPU-BlankProject\\entity\\src\\main\\resources\\sprite\\" + sprite_name + ".png"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

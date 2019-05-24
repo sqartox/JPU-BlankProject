@@ -38,7 +38,7 @@ public final class Controller implements IController {
 	 * @see contract.IController#control()
 	 */
 	public void control() {
-		this.view.printMessage("Select the map with the numpad 1-5");
+		this.view.printMessage("Choose Map : NUMPAD 1 - 5");
 	}
 
 	/**

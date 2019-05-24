@@ -21,10 +21,12 @@ public interface IModel {
 	/**
 	 * Load the message.
 	 *
-	 * @param code
+	 * @param i
 	 *          the code
 	 */
-	void loadMap(int id);
+	//void loadHelloWorld(String code);
+	
+	void loadMap(int i);
 
 	/**
 	 * Gets the observable.

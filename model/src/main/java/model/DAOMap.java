@@ -12,7 +12,8 @@ import entity.Map;
  *
  * @author Jean-Aymeric Diet
  */
-class DAOMap extends DAOEntity<Map> {
+
+class DAOMap extends DAOElements<Map> {
 
 	/**
 	 * Instantiates a new DAO hello world.

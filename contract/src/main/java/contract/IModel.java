@@ -24,12 +24,12 @@ public interface IModel {
 	/**
 	 * Load the message.
 	 *
-	 * @param code
+	 * @param i
 	 *          the code
 	 */
 	//void loadHelloWorld(String code);
 	
-	void loadMap(String code);
+	void loadMap(int i);
 
 	/**
 	 * Gets the observable.

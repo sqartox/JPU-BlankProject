@@ -1,10 +1,13 @@
 package view;
 
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.util.Observable;
 import java.util.Observer;
 
 import javax.swing.JPanel;
+
+import entity.Map;
 
 /**
  * The Class ViewPanel.
@@ -17,6 +20,8 @@ class ViewPanel extends JPanel implements Observer {
 	private ViewFrame					viewFrame;
 	/** The Constant serialVersionUID. */
 	private static final long	serialVersionUID	= -998294702363713521L;
+	
+	private static int DEFAULT_SPRITE_SIZE = 16;
 
 	/**
 	 * Instantiates a new view panel.

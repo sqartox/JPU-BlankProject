@@ -27,8 +27,6 @@ public final class Model extends Observable implements IModel {
 
 	private void setMap(final Map map) {
 		this.map = map;
-		this.setChanged();
-		this.notifyObservers();
 	}
 
 	@Override

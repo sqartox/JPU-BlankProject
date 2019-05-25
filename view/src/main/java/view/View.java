@@ -22,8 +22,7 @@ public final class View implements IView, Runnable {
 	/**
 	 * Instantiates a new view.
 	 *
-	 * @param model
-	 *          the model
+	 * @param model the model
 	 */
 	public View(final IModel model) {
 		this.viewFrame = new ViewFrame(model);
@@ -33,8 +32,7 @@ public final class View implements IView, Runnable {
 	/**
 	 * Key code to controller order.
 	 *
-	 * @param keyCode
-	 *          the key code
+	 * @param keyCode the key code
 	 * @return the controller order
 	 */
 	protected static ControllerOrder keyCodeToControllerOrder(final int keyCode) {
@@ -54,20 +52,10 @@ public final class View implements IView, Runnable {
 		}
 	}
 
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see contract.IView#printMessage(java.lang.String)
-	 */
 	public void printMessage(final String message) {
 		this.viewFrame.printMessage(message);
 	}
 
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see java.lang.Runnable#run()
-	 */
 	public void run() {
 		this.viewFrame.setVisible(true);
 	}
@@ -75,11 +63,9 @@ public final class View implements IView, Runnable {
 	/**
 	 * Sets the controller.
 	 *
-	 * @param controller
-	 *          the new controller
+	 * @param controller the new controller
 	 */
 	public void setController(final IController controller) {
 		this.viewFrame.setController(controller);
 	}
-	//Test for GitHub
 }

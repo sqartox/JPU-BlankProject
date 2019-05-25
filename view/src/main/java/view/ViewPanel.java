@@ -64,7 +64,21 @@ class ViewPanel extends JPanel implements Observer {
 	 */
 	@Override
 	protected void paintComponent(final Graphics graphics) {
+		super.paintComponent(graphics);
 		graphics.clearRect(0, 0, this.getWidth(), this.getHeight());
-		graphics.drawString(this.getViewFrame().getModel().getMap().getMapDesign(), 500, 500);
+		((Graphics2D) graphics).scale(4.5 , 4.5);
+		// graphics.drawString(this.getViewFrame().getModel().getMap().getMapDesign(),
+		// 0, 0);
+
+		Map map = this.getViewFrame().getModel().getMap();
+
+		for (int y = 0; y < this.getViewFrame().getModel().getMap().getWidthOfMap(); y++) {
+			for (int x = 0; x < this.getViewFrame().getModel().getMap().getLinesOfMap(); x++) {
+				// FIXME: We currently need to swap the 'x' and 'y' coords in order to display
+				// the playfield in the right order.
+				graphics.drawImage(map.getMapObjects(y, x).loadSprite(map.getMapObjects(y, x).getSpriteName()),
+						y * DEFAULT_SPRITE_SIZE, x * DEFAULT_SPRITE_SIZE, this);
+			}
+		}
 	}
 }

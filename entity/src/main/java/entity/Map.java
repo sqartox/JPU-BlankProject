@@ -23,7 +23,7 @@ public class Map extends Elements {
 		this.setMapDesign(message);
 		this.createMap();
 	}
-	
+
 	/**
 	 * Instantiates a new hello world.
 	 */
@@ -82,47 +82,51 @@ public class Map extends Elements {
 	}
 
 	public void createMap() {
-		 String map = this.getMapDesign();
-	        System.out.println(map);
-	        System.out.println(getLinesOfMap());
-	        System.out.println(getWidthOfMap());
-	        if (getLinesOfMap() >= 1 && getWidthOfMap() >= 1) {
-	            this.mapObject = new Elements[this.getWidthOfMap()][this.getLinesOfMap()];
-	            for (int y = 0; y < getLinesOfMap(); y++) {
-	                String[] finalMap = map.split("\n");
-	                for (int x = 0; x < getWidthOfMap(); x++) {
-	                    switch (finalMap[y].toCharArray()[x]) {
-	                    case 'w':
-	                    	mapObject[x][y] = new Wall(x, y);
-	                        break;
-	                    case 'g':
-	                    	mapObject[x][y] = new Ground(x, y);
-	                        break;
-	                    case 'p':
-	                    	mapObject[x][y] = new Player(x, y);
-	                        break;
-	                    case 's':
-	                    	mapObject[x][y] = new Stone(x, y);
-	                        break;
-	                    case 'r':
-	                    	mapObject[x][y] = new Opponent(x, y);
-	                        break;
-	                    case 'n':
-	                    	mapObject[x][y] = new EmptyPath(x, y);
-	                        break;
-	                    case 'd':
-	                    	mapObject[x][y] = new Diamond(x, y);
-	                        break;
-	                    case 'e':
-	                    	mapObject[x][y] = new Exit(x, y);
-	                    case 'i':
-	                    	mapObject[x][y] = new IndoorWall(x, y);
-	                        break;
-	                    default:
-	                        break;
-	                    }
-	                }
-	            }
-	        }
-	    }
+		String map = this.getMapDesign();
+		System.out.println(map);
+		System.out.println(getLinesOfMap());
+		System.out.println(getWidthOfMap());
+		if (getLinesOfMap() >= 1 && getWidthOfMap() >= 1) {
+			this.mapObject = new Elements[this.getWidthOfMap()][this.getLinesOfMap()];
+			for (int y = 0; y < getLinesOfMap(); y++) {
+				String[] finalMap = map.split("\n");
+				for (int x = 0; x < getWidthOfMap(); x++) {
+					switch (finalMap[y].toCharArray()[x]) {
+					case 'w':
+						mapObject[x][y] = new Wall(x, y);
+						break;
+					case 'g':
+						mapObject[x][y] = new Ground(x, y);
+						break;
+					case 'p':
+						mapObject[x][y] = new Player(x, y);
+						break;
+					case 's':
+						mapObject[x][y] = new Stone(x, y);
+						break;
+					case 'r':
+						mapObject[x][y] = new Opponent(x, y);
+						break;
+					case 'n':
+						mapObject[x][y] = new EmptyPath(x, y);
+						break;
+					case 'd':
+						mapObject[x][y] = new Diamond(x, y);
+						break;
+					case 'e':
+						mapObject[x][y] = new Exit(x, y);
+					case 'i':
+						mapObject[x][y] = new IndoorWall(x, y);
+						break;
+					default:
+						break;
+					}
+				}
+			}
+		}
+	}
+
+	public Elements getMapObjects(int x, int y) {
+		return this.mapObject[x][y];
+	}
 }

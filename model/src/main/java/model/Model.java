@@ -4,7 +4,7 @@ import java.sql.SQLException;
 import java.util.Observable;
 
 import contract.IModel;
-import entity.Map;
+import element.Map;
 
 /**
  * The Class Model.
@@ -32,7 +32,7 @@ public final class Model extends Observable implements IModel {
 	@Override
 	public void loadMap(int id) {
 		try {
-			final DAOMap daoMap = new DAOMap(DBConnection.getInstance().getConnection());
+			final DAOMap<Map> daoMap = new DAOMap<Map>(DBConnection.getInstance().getConnection());
 			this.setMap(daoMap.find(id));
 		} catch (final SQLException e) {
 			e.printStackTrace();

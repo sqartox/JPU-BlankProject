@@ -2,7 +2,7 @@ package contract;
 
 import java.util.Observable;
 
-import entity.Map;
+import element.Map;
 
 /**
  * The Interface IModel.

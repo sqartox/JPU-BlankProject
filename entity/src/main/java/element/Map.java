@@ -1,19 +1,17 @@
-package entity;
+package element;
 
-import mobileelements.Diamond;
-import mobileelements.Opponent;
-import mobileelements.Player;
-import mobileelements.Stone;
-import motionlesselements.EmptyPath;
-import motionlesselements.Exit;
-import motionlesselements.Ground;
-import motionlesselements.IndoorWall;
-import motionlesselements.Wall;
+import mobileelement.Stone;
+import motionlesselement.EmptyPath;
+import motionlesselement.Exit;
+import motionlesselement.Ground;
+import motionlesselement.IndoorWall;
+import motionlesselement.Wall;
 
-public class Map extends Elements {
+public class Map {
 	private int id;
 	private String level;
-	private Elements[][] mapObject;
+
+	private Element[][] mapObject;
 
 	/**
 	 * Instantiates a new hello world.
@@ -87,36 +85,36 @@ public class Map extends Elements {
 		System.out.println(getHeight());
 		System.out.println(getWidth());
 		if (getHeight() >= 1 && getWidth() >= 1) {
-			this.mapObject = new Elements[this.getWidth()][this.getHeight()];
+			this.mapObject = new Element[this.getWidth()][this.getHeight()];
 			for (int y = 0; y < getHeight(); y++) {
 				String[] finalMap = map.split("\n");
 				for (int x = 0; x < getWidth(); x++) {
 					switch (finalMap[y].toCharArray()[x]) {
 					case 'w':
-						mapObject[x][y] = new Wall(x, y);
+						mapObject[x][y] = new Wall();
 						break;
 					case 'g':
-						mapObject[x][y] = new Ground(x, y);
+						mapObject[x][y] = new Ground();
 						break;
 					case 'p':
-						mapObject[x][y] = new Player(x, y);
+						//mapObject[x][y] = new Player();
 						break;
 					case 's':
-						mapObject[x][y] = new Stone(x, y);
+						mapObject[x][y] = new Stone();
 						break;
 					case 'r':
-						mapObject[x][y] = new Opponent(x, y);
+						//mapObject[x][y] = new Opponent();
 						break;
 					case 'n':
-						mapObject[x][y] = new EmptyPath(x, y);
+						mapObject[x][y] = new EmptyPath();
 						break;
 					case 'd':
-						mapObject[x][y] = new Diamond(x, y);
+						//mapObject[x][y] = new Diamond();
 						break;
 					case 'e':
-						mapObject[x][y] = new Exit(x, y);
+						mapObject[x][y] = new Exit();
 					case 'i':
-						mapObject[x][y] = new IndoorWall(x, y);
+						mapObject[x][y] = new IndoorWall();
 						break;
 					default:
 						break;
@@ -126,7 +124,7 @@ public class Map extends Elements {
 		}
 	}
 
-	public Elements getMapObjects(int x, int y) {
+	public Element getMapObjects(int x, int y) {
 		return this.mapObject[x][y];
 	}
 }

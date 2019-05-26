@@ -18,7 +18,7 @@ public final class Model extends Observable implements IModel {
 	 * Instantiates a new model.
 	 */
 	public Model() {
-		this.loadMap(1);
+		this.map = new Map();
 	}
 
 	public Map getMap() {

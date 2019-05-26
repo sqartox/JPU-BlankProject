@@ -137,6 +137,7 @@ class ViewFrame extends JFrame implements KeyListener {
 		this.setExtendedState(JFrame.MAXIMIZED_BOTH);
 		this.setUndecorated(true);
 		this.setLocationRelativeTo(null);
+		this.setVisible(true);
 	}
 
 	/**

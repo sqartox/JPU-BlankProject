@@ -2,12 +2,14 @@ package element;
 
 public abstract class Element {
 
-	private Sprite sprite;
-	private Transparency transparency;
+	protected Sprite sprite;
+	protected Transparency transparency;
+	protected Position position;
 
-	public Element(final Sprite sprite, final Transparency transparency) {
+	public Element(final Sprite sprite, final Transparency transparency, Position position) {
 		this.setSprite(sprite);
 		this.setTranparency(transparency);
+		this.setPosition(position);
 	}
 
 	public Sprite getSprite() {
@@ -24,5 +26,13 @@ public abstract class Element {
 
 	public void setTranparency(Transparency tranparency) {
 		this.transparency = tranparency;
+	}
+
+	public Position getPosition() {
+		return position;
+	}
+
+	public void setPosition(Position position) {
+		this.position = position;
 	}
 }

@@ -30,11 +30,11 @@ public class Position {
 		this.y = (y + this.maxY) % this.maxY;
 	}
 
-	protected void setMaxX(final int maxX) {
+	public void setMaxX(final int maxX) {
 		this.maxX = maxX;
 	}
 
-	protected void setMaxY(final int maxY) {
+	public void setMaxY(final int maxY) {
 		this.maxY = maxY;
 	}
 

@@ -20,6 +20,7 @@ class ViewFrame extends JFrame implements KeyListener {
 
 	/** The model. */
 	private IModel						model;
+	
 
 	/** The controller. */
 	private IController				controller;
@@ -130,7 +131,7 @@ class ViewFrame extends JFrame implements KeyListener {
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setResizable(false);
 		this.addKeyListener(this);
-		this.setContentPane(new ViewPanel(this));
+		this.setContentPane(panel);
 		this.setLocationRelativeTo(null);
 		this.setExtendedState(JFrame.MAXIMIZED_BOTH); 
 		this.setUndecorated(true);

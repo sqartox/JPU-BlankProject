@@ -1,16 +1,19 @@
 package motionlesselement;
 
+import element.Position;
 import element.Sprite;
 import element.Transparency;
 
 public class Dirt extends MotionlessElement {
 
 		private static final Sprite SPRITE = new Sprite("Dirt");
-
-	    /**
-	     * Instantiates a new Dirt Bloc.
-	     */
+		private static final Transparency TRANSPARENCY = Transparency.TRANSPARENT;
+		
+		public Dirt(Position position) {
+			super(SPRITE, TRANSPARENCY, position);
+		}
+		
 	    public Dirt() {
-	        super(SPRITE, Transparency.TRANSPARENT);
+	        super(SPRITE, TRANSPARENCY, null);
 	    }
 }

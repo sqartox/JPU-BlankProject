@@ -65,17 +65,17 @@ public class Map extends Elements {
 	 */
 	public void setMapDesign(final String message) {
 		this.level = message.replace("\r", "");
-		getLinesOfMap();
-		getWidthOfMap();
+		getHeight();
+		getWidth();
 	}
 
-	public int getLinesOfMap() {
+	public int getHeight() {
 		int lines = this.level.split("\n").length;
 //		System.out.println("Lines: " + lines);
 		return lines;
 	}
 
-	public int getWidthOfMap() {
+	public int getWidth() {
 		String[] map = this.getMapDesign().split("\n");
 //		System.out.println("Width: " + (map[0].length() - 1));
 		return (map[0].length());
@@ -84,13 +84,13 @@ public class Map extends Elements {
 	public void createMap() {
 		String map = this.getMapDesign();
 		System.out.println(map);
-		System.out.println(getLinesOfMap());
-		System.out.println(getWidthOfMap());
-		if (getLinesOfMap() >= 1 && getWidthOfMap() >= 1) {
-			this.mapObject = new Elements[this.getWidthOfMap()][this.getLinesOfMap()];
-			for (int y = 0; y < getLinesOfMap(); y++) {
+		System.out.println(getHeight());
+		System.out.println(getWidth());
+		if (getHeight() >= 1 && getWidth() >= 1) {
+			this.mapObject = new Elements[this.getWidth()][this.getHeight()];
+			for (int y = 0; y < getHeight(); y++) {
 				String[] finalMap = map.split("\n");
-				for (int x = 0; x < getWidthOfMap(); x++) {
+				for (int x = 0; x < getWidth(); x++) {
 					switch (finalMap[y].toCharArray()[x]) {
 					case 'w':
 						mapObject[x][y] = new Wall(x, y);

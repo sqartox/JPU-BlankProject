@@ -76,8 +76,8 @@ class ViewPanel extends JPanel implements Observer {
 
 		Map map = this.getViewFrame().getModel().getMap();
 
-		for (int y = 0; y < this.getViewFrame().getModel().getMap().getWidth(); y++) {
-			for (int x = 0; x < this.getViewFrame().getModel().getMap().getHeight(); x++) {
+		for (int y = 0; y < map.getWidth(); y++) {
+			for (int x = 0; x < map.getHeight(); x++) {
 				Sprite sprite = map.getMapObjects(y, x).getSprite();
 				graphics.drawImage(sprite.loadSprite(sprite.getSpriteName()), y * DEFAULT_SPRITE_SIZE,
 						x * DEFAULT_SPRITE_SIZE, this);

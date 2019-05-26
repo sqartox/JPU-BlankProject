@@ -1,5 +1,8 @@
 package element;
 
+import mobileelement.Diamond;
+import mobileelement.Opponent;
+import mobileelement.Player;
 import mobileelement.Stone;
 import motionlesselement.EmptyPath;
 import motionlesselement.Exit;
@@ -91,30 +94,30 @@ public class Map {
 				for (int x = 0; x < getWidth(); x++) {
 					switch (finalMap[y].toCharArray()[x]) {
 					case 'w':
-						mapObject[x][y] = new Wall();
+						mapObject[x][y] = new Wall(x, y);
 						break;
 					case 'g':
-						mapObject[x][y] = new Ground();
+						mapObject[x][y] = new Ground(x, y);
 						break;
 					case 'p':
-						//mapObject[x][y] = new Player();
+						mapObject[x][y] = new Player(x, y);
 						break;
 					case 's':
-						mapObject[x][y] = new Stone();
+						mapObject[x][y] = new Stone(x, y);
 						break;
 					case 'r':
-						//mapObject[x][y] = new Opponent();
+						mapObject[x][y] = new Opponent(x, y);
 						break;
 					case 'n':
-						mapObject[x][y] = new EmptyPath();
+						mapObject[x][y] = new EmptyPath(x, y);
 						break;
 					case 'd':
-						//mapObject[x][y] = new Diamond();
+						mapObject[x][y] = new Diamond(x, y);
 						break;
 					case 'e':
-						mapObject[x][y] = new Exit();
+						mapObject[x][y] = new Exit(x, y);
 					case 'i':
-						mapObject[x][y] = new IndoorWall();
+						mapObject[x][y] = new IndoorWall(x, y);
 						break;
 					default:
 						break;

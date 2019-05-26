@@ -89,9 +89,45 @@ public final class Controller implements IController {
 			case Map5:
 				this.model.loadMap(5);
 				break;
+			case UP:
+				this.model.loadMap(1);
+				break;
+			case RIGHT:
+				this.model.loadMap(2);
+				break;
+			case DOWN:
+				this.model.loadMap(3);
+				break;
+			case LEFT:
+				this.model.loadMap(4);
+				break;
 			default:
 				break;
 		}
 	}
+	
+	/*public final void play() throws InterruptedException {
+        while (this.getModel().getMyVehicle().isAlive()) {
+            Thread.sleep(speed);
+            switch (this.getStackOrder()) {
+                case RIGHT:
+                    this.getModel().getMyVehicle().moveRight();
+                    break;
+                case LEFT:
+                    this.getModel().getMyVehicle().moveLeft();
+                    break;
+                case NOP:
+                default:
+                    this.getModel().getMyVehicle().doNothing();
+                    break;
+            }
+            this.clearStackOrder();
+            if (this.getModel().getMyVehicle().isAlive()) {
+                this.getModel().getMyVehicle().moveDown();
+            }
+            this.getView().followMyVehicle();
+        }
+        this.getView().displayMessage("CRASH !!!!!!!!!.");
+    }*/
 
 }

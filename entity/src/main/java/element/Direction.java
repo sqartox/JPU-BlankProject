@@ -9,5 +9,7 @@ public enum Direction {
     /** Down direction */
     DOWN,
     /** Left direction */
-    LEFT
+    LEFT,
+    /** No direction */
+    NOTHING
 }

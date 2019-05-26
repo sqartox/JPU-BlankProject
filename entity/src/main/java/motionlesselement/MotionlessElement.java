@@ -1,17 +1,16 @@
 package motionlesselement;
 
 import element.Element;
-import element.Position;
 import element.Sprite;
 import element.Transparency;
 
 public abstract class MotionlessElement extends Element {
 	
-	MotionlessElement(Sprite sprite, Transparency transparency, Position position) {
-        super(sprite, transparency, position);
+	MotionlessElement(Sprite sprite, Transparency transparency, int x, int y) {
+        super(sprite, transparency, x, y);
     }
 	
 	MotionlessElement() {
-        super(null, Transparency.TRANSPARENT, null);
+        super(null, Transparency.TRANSPARENT, 0, 0);
     }
 }

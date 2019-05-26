@@ -8,7 +8,7 @@ package contract;
  * @author Jean-Aymeric Diet
  */
 public enum ControllerOrder {
-
+	
 	/** The 1st Map. */
 	Map1,
 	/** The 2nd Map. */
@@ -18,5 +18,13 @@ public enum ControllerOrder {
 	/** The 4th Map. */
 	Map4,
 	/** The 5th Map. */
-	Map5
+	Map5,
+	/** The 2nd Map. */
+	UP,
+	/** The 3rd Map. */
+	RIGHT,
+	/** The 4th Map. */
+	DOWN,
+	/** The 5th Map. */
+	LEFT
 }

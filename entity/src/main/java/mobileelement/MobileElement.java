@@ -2,8 +2,6 @@ package mobileelement;
 
 import element.Direction;
 import element.Element;
-import element.Map;
-import element.Position;
 import element.Sprite;
 import element.Transparency;
 
@@ -12,14 +10,14 @@ public abstract class MobileElement extends Element {
 	protected Direction direction;
 	protected int speed;
 	
-	MobileElement(Sprite sprite, Transparency transparency, Position position, Direction direction, int speed) {
-		super(sprite, transparency, position);
+	MobileElement(Sprite sprite, Transparency transparency, Direction direction, int x, int y, int speed) {
+		super(sprite, transparency, x, y);
 		this.direction = direction;
 		this.speed = speed;
 	}
 	
 	MobileElement() {
-		super(null, Transparency.SOLID, null);
+		super(null, Transparency.SOLID, 0, 0);
 	}
 
 	public Direction getDirection() {
@@ -36,11 +34,6 @@ public abstract class MobileElement extends Element {
 
 	public void setSpeed(int speed) {
 		this.speed = speed;
-	}
-	
-	public void placeInArea(final Map map) {
-		this.position.setMaxX(map.getWidth());
-		this.position.setMaxY(map.getHeight());
 	}
 	
 	public void move() {

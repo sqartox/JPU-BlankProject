@@ -12,7 +12,7 @@ public class Sprite {
 	private String sprite_name;
 
 	public Sprite(final String sprite_name) {
-		this.setSpriteName(sprite_name + ".png");
+		this.setSpriteName(sprite_name);
 		this.loadSprite(sprite_name);
 	}
 
@@ -27,7 +27,7 @@ public class Sprite {
 	public BufferedImage loadSprite(String sprite_name) {
 		BufferedImage sprite = null;
 		try {
-			ImageIO.read(new File("..\\entity\\src\\main\\resources\\sprite\\" + sprite_name));
+			ImageIO.read(new File("..\\entity\\src\\main\\resources\\sprite\\" + sprite_name  + ".png"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

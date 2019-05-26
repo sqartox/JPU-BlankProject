@@ -6,10 +6,10 @@ public abstract class Element {
 	protected Transparency transparency;
 	protected Position position;
 
-	public Element(final Sprite sprite, final Transparency transparency, Position position) {
+	public Element(final Sprite sprite, final Transparency transparency, int x, int y) {
 		this.setSprite(sprite);
 		this.setTranparency(transparency);
-		this.setPosition(position);
+		this.setPosition(x, y);
 	}
 
 	public Sprite getSprite() {
@@ -32,7 +32,7 @@ public abstract class Element {
 		return position;
 	}
 
-	public void setPosition(Position position) {
-		this.position = position;
+	public void setPosition(int x, int y) {
+		this.position = new Position(x, y);
 	}
 }

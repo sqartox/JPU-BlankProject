@@ -41,7 +41,6 @@ public final class Model extends Observable implements IModel {
 		}
 	}
 
-	@Override
 	public Observable getObservable() {
 		return this;
 	}

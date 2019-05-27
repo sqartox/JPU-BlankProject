@@ -18,5 +18,6 @@ public enum ControllerOrder {
 	/** The 4th Map. */
 	Map4,
 	/** The 5th Map. */
-	Map5
+	Map5,
+	NOTHING
 }

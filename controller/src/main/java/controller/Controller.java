@@ -88,6 +88,8 @@ public final class Controller implements IController {
 			case Map5:
 				this.model.loadMap(5);
 				break;
+			case NOTHING:
+				break;
 		}
 	}
 	

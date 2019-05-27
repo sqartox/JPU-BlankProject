@@ -4,7 +4,7 @@ import mobileelement.Diamond;
 import mobileelement.Opponent;
 import mobileelement.Player;
 import mobileelement.Stone;
-import motionlesselement.EmptyPath;
+import motionlesselement.Dirt;
 import motionlesselement.Exit;
 import motionlesselement.Ground;
 import motionlesselement.IndoorWall;
@@ -97,7 +97,7 @@ public class Map {
 						mapObjects[x][y] = new Wall(x, y);
 						break;
 					case 'g':
-						mapObjects[x][y] = new Ground(x, y);
+						mapObjects[x][y] = new Dirt(x, y);
 						break;
 					case 'p':
 						mapObjects[x][y] = new Player(1, x, y);
@@ -109,7 +109,7 @@ public class Map {
 						mapObjects[x][y] = new Opponent(x, y);
 						break;
 					case 'n':
-						mapObjects[x][y] = new EmptyPath(x, y);
+						mapObjects[x][y] = new Ground(x, y);
 						break;
 					case 'd':
 						mapObjects[x][y] = new Diamond(x, y);

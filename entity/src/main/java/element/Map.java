@@ -22,7 +22,7 @@ public class Map {
 	public Map(final int id, final String message) {
 		this.setId(id);
 		this.setMapDesign(message);
-		this.createMap();
+		this.setMapObjects();
 	}
 
 	/**
@@ -82,7 +82,7 @@ public class Map {
 		return (map[0].length());
 	}
 
-	public void createMap() {
+	public void setMapObjects() {
 		String map = this.getMapDesign();
 		System.out.println(map);
 		System.out.println(getHeight());

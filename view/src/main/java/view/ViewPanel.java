@@ -70,7 +70,7 @@ class ViewPanel extends JPanel implements Observer {
 	protected void paintComponent(final Graphics graphics) {
 		super.paintComponent(graphics);
 		graphics.clearRect(0, 0, this.getWidth(), this.getHeight());
-		((Graphics2D) graphics).scale(4.5, 4.5);
+		((Graphics2D) graphics).scale(2.4, 3.1);
 		// graphics.drawString(this.getViewFrame().getModel().getMap().getMapDesign(),
 		// 0, 0);
 

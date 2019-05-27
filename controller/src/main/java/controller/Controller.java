@@ -108,7 +108,7 @@ public final class Controller implements IController {
 			break;
 		}
 	}
-
+//Main while
 	public final void play() throws InterruptedException {
 		Map map = this.model.getMap();
 		while (map.getPlayer().isAlive()) {

@@ -5,7 +5,7 @@ import element.Transparency;
 
 public class IndoorWall extends MotionlessElement {
 
-	private static final Sprite SPRITE = new Sprite("Wall");
+	private static final Sprite SPRITE = new Sprite("indoor");
 	private static final Transparency TRANSPARENCY = Transparency.SOLID;
 
 	public IndoorWall(int x, int y) {

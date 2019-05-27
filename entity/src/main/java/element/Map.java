@@ -116,6 +116,7 @@ public class Map {
 						break;
 					case 'e':
 						mapObjects[x][y] = new Exit(x, y);
+						break;
 					case 'i':
 						mapObjects[x][y] = new IndoorWall(x, y);
 						break;

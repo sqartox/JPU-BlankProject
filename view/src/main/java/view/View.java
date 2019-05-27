@@ -8,6 +8,8 @@ import contract.ControllerOrder;
 import contract.IController;
 import contract.IModel;
 import contract.IView;
+import contract.Order;
+import contract.UserOrder;
 
 /**
  * The Class View.
@@ -47,10 +49,19 @@ public final class View implements IView, Runnable {
 			return ControllerOrder.Map4;
 		case KeyEvent.VK_NUMPAD5:
 			return ControllerOrder.Map5;
+		case KeyEvent.VK_UP:
+			return ControllerOrder.UP;
+		case KeyEvent.VK_DOWN:
+			return ControllerOrder.DOWN;
+		case KeyEvent.VK_LEFT:
+			return ControllerOrder.LEFT;
+		case KeyEvent.VK_RIGHT:
+			return ControllerOrder.RIGHT;
 		case KeyEvent.VK_ESCAPE:
 			System.exit(0);
 		default:
 			return ControllerOrder.NOTHING;
+
 		}
 	}
 

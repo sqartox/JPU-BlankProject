@@ -37,4 +37,6 @@ public interface IModel {
 	Observable getObservable();
 
 	Element getMobileByPlayer(int player);
+
+	void modelNotify();
 }

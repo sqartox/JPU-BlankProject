@@ -122,6 +122,7 @@ public class Map {
 					default:
 						break;
 					}
+					mapObjects[x][y].setMap(this);
 				}
 			}
 		}
@@ -134,4 +135,16 @@ public class Map {
 	public Element[][] getMapObjects(){
 		return this.mapObjects;
 	}
+	
+	 public Player getPlayer() {
+	        Element[][] entity = this.getMapObjects();
+	        for (int y = 0; y < getHeight(); y++) {
+	            for (int x = 0; x < getWidth(); x++) {
+	                if (entity[x][y] instanceof Player) {
+	                    return (Player) entity[x][y];
+	                }
+	            }
+	        }
+	        return null;
+	    }
 }

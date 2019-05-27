@@ -20,5 +20,9 @@ public enum ControllerOrder {
 	/** The 5th Map. */
 	Map5,
 	/** No action performed */
-	NOTHING
+	NOTHING,
+	UP,
+	DOWN,
+	LEFT,
+	RIGHT
 }

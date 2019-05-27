@@ -36,41 +36,6 @@ public abstract class MobileElement extends Element {
 		this.speed = speed;
 	}
 	
-	public void move() {
-		switch (this.direction) {
-			case UP:
-				this.moveUp();
-				break;
-			case RIGHT:
-				this.moveRight();
-				break;
-			case DOWN:
-				this.moveDown();
-				break;
-			case LEFT:
-				this.moveLeft();
-				break;
-			default:
-				break;
-		}
-	}
-
-	private void moveUp() {
-		this.position.setY(this.position.getY() - this.speed);
-	}
-
-	private void moveRight() {
-		this.position.setX(this.position.getX() + this.speed);
-	}
-
-	private void moveDown() {
-		this.position.setY(this.position.getY() + this.speed);
-	}
-
-	private void moveLeft() {
-		this.position.setX(this.position.getX() - this.speed);
-	}
-	
 	public boolean isPlayer(final int player) {
 		return false;
 	}

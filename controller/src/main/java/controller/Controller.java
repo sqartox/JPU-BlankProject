@@ -6,7 +6,7 @@ import contract.IModel;
 import contract.IView;
 import contract.UserOrder;
 import element.Direction;
-import mobileelement.MobileElement;
+import element.Element;
 
 /**
  * The Class Controller.
@@ -90,32 +90,22 @@ public final class Controller implements IController {
 				break;
 			case NOTHING:
 				break;
-		}
-	}
-	
-	public void orderPerform(final UserOrder userOrder) {
-		final MobileElement player = model.getMobileByPlayer(userOrder.getPlayer());
-		if (player != null) {
-			Direction direction;
-			switch (userOrder.getOrder()) {
-				case UP:
-					direction = Direction.UP;
-					break;
-				case RIGHT:
-					direction = Direction.RIGHT;
-					break;
-				case DOWN:
-					direction = Direction.DOWN;
-					break;
-				case LEFT:
-					direction = Direction.LEFT;
-					break;
-				case NOTHING:
-				default:
-					direction = model.getMobileByPlayer(userOrder.getPlayer()).getDirection();
-					break;
-			}
-			player.setDirection(direction);
+			case UP:
+				this.model.getMap().getPlayer().movePlayer("UP");
+				this.model.modelNotify();
+				break;
+			case DOWN:
+				this.model.getMap().getPlayer().movePlayer("DOWN");
+				this.model.modelNotify();
+				break;
+			case LEFT:
+				this.model.getMap().getPlayer().movePlayer("LEFT");
+				this.model.modelNotify();
+				break;
+			case RIGHT:
+				this.model.getMap().getPlayer().movePlayer("RIGHT");
+				this.model.modelNotify();
+				break;
 		}
 	}
 

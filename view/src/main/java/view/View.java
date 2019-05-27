@@ -8,8 +8,6 @@ import contract.ControllerOrder;
 import contract.IController;
 import contract.IModel;
 import contract.IView;
-import contract.Order;
-import contract.UserOrder;
 
 /**
  * The Class View.
@@ -61,7 +59,6 @@ public final class View implements IView, Runnable {
 			System.exit(0);
 		default:
 			return ControllerOrder.NOTHING;
-
 		}
 	}
 

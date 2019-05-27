@@ -2,9 +2,9 @@ package contract;
 
 public class UserOrder {
 	private final int player;
-	private final Order order;
+	private final ControllerOrder order;
 
-	public UserOrder(final int player, final Order order) {
+	public UserOrder(final int player, final ControllerOrder order) {
 		this.player = player;
 		this.order = order;
 	}
@@ -13,7 +13,7 @@ public class UserOrder {
 		return this.player;
 	}
 
-	public Order getOrder() {
+	public ControllerOrder getOrder() {
 		return this.order;
 	}
 }

@@ -41,7 +41,7 @@ public abstract class Element {
 		this.position = new Position(x, y);
 	}
 
-	//Change position
+	// Change position
 	public void changePosition(int x, int y) {
 		int currentX = this.getPosition().getX();
 		int currentY = this.getPosition().getY();

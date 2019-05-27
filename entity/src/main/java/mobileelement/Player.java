@@ -30,20 +30,27 @@ public class Player extends MobileElement {
 	public boolean isPlayer(final int player) {
 		return this.player == player;	}
 	
-	public void movePlayer(String direction) {
+	public void movePlayer(Direction direction) {
 		switch(direction) {
-		case "UP":
+		case UP:
 			this.changePosition(0, -1);
 			break;
-		case "DOWN":
+		case DOWN:
 			this.changePosition(0, +1);
 			break;
-		case "LEFT":
+		case LEFT:
 			this.changePosition(-1, 0);
 			break;
-		case "RIGHT":
+		case RIGHT:
 			this.changePosition(+1, 0);
 			break;
+		case NOTHING:
+			this.changePosition(0, 0);
+			break;
 		}
+	}
+
+	public boolean isAlive() {
+		return true;
 	}
 }

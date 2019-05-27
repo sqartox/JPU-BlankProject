@@ -4,9 +4,8 @@ import contract.ControllerOrder;
 import contract.IController;
 import contract.IModel;
 import contract.IView;
-import contract.UserOrder;
 import element.Direction;
-import element.Element;
+import element.Map;
 
 /**
  * The Class Controller.
@@ -61,11 +60,10 @@ public final class Controller implements IController {
 	}
 
 	/**
-     * Order perform.
-     *
-     * @param controllerOrder
-     *            the controller order
-     */
+	 * Order perform.
+	 *
+	 * @param controllerOrder the controller order
+	 */
 	/*
 	 * (non-Javadoc)
 	 *
@@ -73,53 +71,73 @@ public final class Controller implements IController {
 	 */
 	public void orderPerform(final ControllerOrder controllerOrder) {
 		switch (controllerOrder) {
-			case Map1:
-				this.model.loadMap(1);
-				break;
-			case Map2:
-				this.model.loadMap(2);
-				break;
-			case Map3:
-				this.model.loadMap(3);
-				break;
-			case Map4:
-				this.model.loadMap(4);
-				break;
-			case Map5:
-				this.model.loadMap(5);
-				break;
-			case NOTHING:
-				break;
-			case UP:
-				this.model.getMap().getPlayer().movePlayer("UP");
-				this.model.modelNotify();
-				break;
-			case DOWN:
-				this.model.getMap().getPlayer().movePlayer("DOWN");
-				this.model.modelNotify();
-				break;
-			case LEFT:
-				this.model.getMap().getPlayer().movePlayer("LEFT");
-				this.model.modelNotify();
-				break;
-			case RIGHT:
-				this.model.getMap().getPlayer().movePlayer("RIGHT");
-				this.model.modelNotify();
-				break;
+		case Map1:
+			this.model.loadMap(1);
+			this.orderPerform(ControllerOrder.NOTHING);
+			break;
+		case Map2:
+			this.model.loadMap(2);
+			this.orderPerform(ControllerOrder.NOTHING);
+			break;
+		case Map3:
+			this.model.loadMap(3);
+			this.orderPerform(ControllerOrder.NOTHING);
+			break;
+		case Map4:
+			this.model.loadMap(4);
+			this.orderPerform(ControllerOrder.NOTHING);
+			break;
+		case Map5:
+			this.model.loadMap(5);
+			this.orderPerform(ControllerOrder.NOTHING);
+			break;
+		case NOTHING:
+			this.model.getMap().getPlayer().setDirection(Direction.NOTHING);
+			break;
+		case UP:
+			this.model.getMap().getPlayer().setDirection(Direction.UP);
+			break;
+		case DOWN:
+			this.model.getMap().getPlayer().setDirection(Direction.DOWN);
+			break;
+		case LEFT:
+			this.model.getMap().getPlayer().setDirection(Direction.LEFT);
+			break;
+		case RIGHT:
+			this.model.getMap().getPlayer().setDirection(Direction.RIGHT);
+			break;
 		}
 	}
 
-	/*
-	 * public final void play() throws InterruptedException { while
-	 * (this.getModel().getMyVehicle().isAlive()) { Thread.sleep(speed); switch
-	 * (this.getStackOrder()) { case RIGHT:
-	 * this.getModel().getMyVehicle().moveRight(); break; case LEFT:
-	 * this.getModel().getMyVehicle().moveLeft(); break; case NOP: default:
-	 * this.getModel().getMyVehicle().doNothing(); break; } this.clearStackOrder();
-	 * if (this.getModel().getMyVehicle().isAlive()) {
-	 * this.getModel().getMyVehicle().moveDown(); }
-	 * this.getView().followMyVehicle(); }
-	 * this.getView().displayMessage("CRASH !!!!!!!!!."); }
-	 */
+	public final void play() throws InterruptedException {
+		Map map = this.model.getMap();
+		while (map.getPlayer().isAlive()) {
+			map = this.model.getMap();
+			Thread.sleep(10);
+			switch (map.getPlayer().getDirection()) {
+			case RIGHT:
+				map.getPlayer().movePlayer(Direction.RIGHT);
+				this.model.modelNotify();
+				break;
+			case LEFT:
+				map.getPlayer().movePlayer(Direction.LEFT);
+				this.model.modelNotify();
+				break;
+			case UP:
+				map.getPlayer().movePlayer(Direction.UP);
+				this.model.modelNotify();
+				break;
+			case DOWN:
+				map.getPlayer().movePlayer(Direction.DOWN);
+				this.model.modelNotify();
+				break;
+			case NOTHING:
+				break;
+			}
+
+	        this.orderPerform(ControllerOrder.NOTHING);
+		}
+		this.view.printMessage("Blurp !");
+	}
 
 }

@@ -42,12 +42,14 @@ public final class Model extends Observable implements IModel {
 			e.printStackTrace();
 		}
 	}
-	
+
 	@Override
-	public MobileElement getMobileByPlayer(final int player) {
-		for (final Element[] mobile : this.getMap().getMapObjects())) {
-			if (mobile.isPlayer(player)) {
-				return mobile;
+	public Element getMobileByPlayer(final int player) {
+		for (int y = 0; y < this.getMap().getHeight(); y++) {
+			for (int x = 0; x < this.getMap().getWidth(); x++) {
+				if (this.getMap().getMapObjects(x, y).isPlayer(player) == true) {
+					return this.getMap().getMapObjects(x, y);
+				}
 			}
 		}
 		return null;

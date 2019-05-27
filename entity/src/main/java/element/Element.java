@@ -35,4 +35,8 @@ public abstract class Element {
 	public void setPosition(int x, int y) {
 		this.position = new Position(x, y);
 	}
+	
+	public boolean isPlayer(int player) {
+		return false;
+	}
 }

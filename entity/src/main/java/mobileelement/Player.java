@@ -28,6 +28,5 @@ public class Player extends MobileElement {
 	}
 	
 	public boolean isPlayer(final int player) {
-		return false;
-	}
+		return this.player == player;	}
 }

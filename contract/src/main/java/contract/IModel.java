@@ -2,8 +2,8 @@ package contract;
 
 import java.util.Observable;
 
+import element.Element;
 import element.Map;
-import mobileelement.MobileElement;
 
 /**
  * The Interface IModel.
@@ -36,5 +36,5 @@ public interface IModel {
 	 */
 	Observable getObservable();
 
-	MobileElement getMobileByPlayer(int player);
+	Element getMobileByPlayer(int player);
 }

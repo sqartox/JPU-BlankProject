@@ -1,5 +1,8 @@
 package element;
 
+import mobileelement.Diamond;
+import mobileelement.Player;
+import motionlesselement.Exit;
 import motionlesselement.Ground;
 
 public abstract class Element {
@@ -48,9 +51,27 @@ public abstract class Element {
 		Element[][] objects = this.getMap().getMapObjects();
 		this.collision = new Collision(this.map);
 		if (this.collision.checkCollision(currentX + x, currentY + y)) {
+			this.getDiamond(currentX + x, currentY + y);
 			objects[currentX + x][currentY + y] = objects[currentX][currentY];
 			objects[currentX][currentY] = new Ground(currentX, currentY);
 			this.setPosition(currentX + x, currentY + y);
+		}
+	}
+	
+	public boolean checkForExit(int x, int y) {
+		int currentX = this.getPosition().getX();
+		int currentY = this.getPosition().getY();
+		if (this.getMap().getMapObjects(currentX + x, currentY + y) instanceof Exit) {
+			return true;
+		}
+		return false;
+	}
+	
+	public void getDiamond(int x, int y) {
+		Player player = this.getMap().getPlayer();
+		if (this.getMap().getMapObjects(x, y) instanceof Diamond) {
+			player.setDiamondCount(player.getDiamondCount()+1);
+			System.out.println(player.getDiamondCount());
 		}
 	}
 

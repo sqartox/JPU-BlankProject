@@ -15,11 +15,13 @@ public class Map {
 	private String level;
 
 	private Element[][] mapObjects;
+	private int totalDiamonds;
 
 	/**
 	 * Instantiates a new hello world.
 	 */
 	public Map(final int id, final String message) {
+		this.setTotalDiamonds(0);
 		this.setId(id);
 		this.setMapDesign(message);
 		this.setMapObjects();
@@ -113,9 +115,11 @@ public class Map {
 						break;
 					case 'd':
 						mapObjects[x][y] = new Diamond(x, y);
+						this.setTotalDiamonds(this.getTotalDiamonds()+1);
 						break;
 					case 'e':
 						mapObjects[x][y] = new Exit(x, y);
+						break;
 					case 'i':
 						mapObjects[x][y] = new IndoorWall(x, y);
 						break;
@@ -147,4 +151,12 @@ public class Map {
 	        }
 	        return null;
 	    }
+
+	public int getTotalDiamonds() {
+		return totalDiamonds;
+	}
+
+	public void setTotalDiamonds(int totalDiamonds) {
+		this.totalDiamonds = totalDiamonds;
+	}
 }

@@ -10,17 +10,27 @@ public class Player extends MobileElement {
 	private static final Transparency TRANSPARENCY = Transparency.TRANSPARENT;
 	private static final Direction DIRECTION = null;
 	private static final int SPEED = 300;
+	private int diamondCount;
 	
 	private final int player;
 
 	public Player(int player, int x, int y) {
 		super(SPRITE, TRANSPARENCY, DIRECTION, x, y, SPEED);
 		this.player = player;
+		this.diamondCount = 0;
 	}
 
 	public Player(int player) {
 		super();
 		this.player = player;
+	}
+	
+	public int getDiamondCount() {
+		return this.diamondCount;
+	}
+	
+	public void setDiamondCount(int diamondCount) {
+		this.diamondCount = diamondCount;
 	}
 
 	public int getPlayer() {

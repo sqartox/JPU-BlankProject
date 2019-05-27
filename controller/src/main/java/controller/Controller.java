@@ -17,6 +17,8 @@ public final class Controller implements IController {
 
 	/** The model. */
 	private IModel model;
+	
+	private int map;
 
 	/**
 	 * Instantiates a new controller.
@@ -27,6 +29,7 @@ public final class Controller implements IController {
 	public Controller(final IView view, final IModel model) {
 		this.setView(view);
 		this.setModel(model);
+		this.setMap(1);
 	}
 
 	/**
@@ -72,42 +75,71 @@ public final class Controller implements IController {
 	public void orderPerform(final ControllerOrder controllerOrder) {
 		switch (controllerOrder) {
 		case Map1:
-			this.model.loadMap(1);
+			this.model.loadMap(map);
 			this.orderPerform(ControllerOrder.NOTHING);
 			break;
 		case Map2:
-			this.model.loadMap(2);
+			this.model.loadMap(map + 1);
 			this.orderPerform(ControllerOrder.NOTHING);
 			break;
 		case Map3:
-			this.model.loadMap(3);
+			this.model.loadMap(map + 2);
 			this.orderPerform(ControllerOrder.NOTHING);
 			break;
 		case Map4:
-			this.model.loadMap(4);
+			this.model.loadMap(map + 3);
 			this.orderPerform(ControllerOrder.NOTHING);
 			break;
 		case Map5:
-			this.model.loadMap(5);
+			this.model.loadMap(map + 4);
 			this.orderPerform(ControllerOrder.NOTHING);
 			break;
 		case NOTHING:
 			this.model.getMap().getPlayer().setDirection(Direction.NOTHING);
 			break;
 		case UP:
+			if (changeMap(0, -1)) {
+				this.setMap(this.getMap()+1);
+				this.model.loadMap(map);
+				this.orderPerform(ControllerOrder.NOTHING);
+			}
 			this.model.getMap().getPlayer().setDirection(Direction.UP);
 			break;
 		case DOWN:
+			if (changeMap(0, +1)) {
+				this.setMap(this.getMap()+1);
+				this.model.loadMap(map);
+				this.orderPerform(ControllerOrder.NOTHING);
+			}
 			this.model.getMap().getPlayer().setDirection(Direction.DOWN);
 			break;
 		case LEFT:
+			if (changeMap(-1, 0)) {
+				this.setMap(this.getMap()+1);
+				this.model.loadMap(map);
+				this.orderPerform(ControllerOrder.NOTHING);
+			}
 			this.model.getMap().getPlayer().setDirection(Direction.LEFT);
 			break;
 		case RIGHT:
+			if (changeMap(+1, 0)) {
+				this.setMap(this.getMap()+1);
+				this.model.loadMap(map);
+				this.orderPerform(ControllerOrder.NOTHING);
+			}
 			this.model.getMap().getPlayer().setDirection(Direction.RIGHT);
 			break;
 		}
 	}
+	
+	public boolean changeMap(int x, int y) {
+		Map map = this.model.getMap();
+		if (map.getPlayer().getDiamondCount() == map.getTotalDiamonds() && map.getPlayer().checkForExit(x, y)) {
+			return true;
+		}
+		return false;
+	}
+	
 //Main while
 	public final void play() throws InterruptedException {
 		Map map = this.model.getMap();
@@ -138,6 +170,14 @@ public final class Controller implements IController {
 	        this.orderPerform(ControllerOrder.NOTHING);
 		}
 		this.view.printMessage("Blurp !");
+	}
+
+	public int getMap() {
+		return map;
+	}
+
+	public void setMap(int map) {
+		this.map = map;
 	}
 
 }

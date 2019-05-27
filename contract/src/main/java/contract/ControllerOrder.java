@@ -19,12 +19,6 @@ public enum ControllerOrder {
 	Map4,
 	/** The 5th Map. */
 	Map5,
-	/** The 2nd Map. */
-	UP,
-	/** The 3rd Map. */
-	RIGHT,
-	/** The 4th Map. */
-	DOWN,
-	/** The 5th Map. */
-	LEFT
+	/** No action performed */
+	NOTHING
 }

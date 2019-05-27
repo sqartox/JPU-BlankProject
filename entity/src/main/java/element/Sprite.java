@@ -27,7 +27,7 @@ public class Sprite {
 	public BufferedImage loadSprite(String sprite_name) {
 		BufferedImage sprite = null;
 		try {
-			ImageIO.read(new File("..\\entity\\src\\main\\resources\\sprite\\" + sprite_name  + ".png"));
+			sprite = ImageIO.read(new File("..\\entity\\src\\main\\resources\\sprite\\" + sprite_name  + ".png"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

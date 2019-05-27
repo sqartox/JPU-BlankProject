@@ -4,6 +4,9 @@ import contract.ControllerOrder;
 import contract.IController;
 import contract.IModel;
 import contract.IView;
+import contract.UserOrder;
+import element.Direction;
+import mobileelement.MobileElement;
 
 /**
  * The Class Controller.
@@ -11,18 +14,16 @@ import contract.IView;
 public final class Controller implements IController {
 
 	/** The view. */
-	private IView		view;
+	private IView view;
 
 	/** The model. */
-	private IModel	model;
+	private IModel model;
 
 	/**
 	 * Instantiates a new controller.
 	 *
-	 * @param view
-	 *          the view
-	 * @param model
-	 *          the model
+	 * @param view  the view
+	 * @param model the model
 	 */
 	public Controller(final IView view, final IModel model) {
 		this.setView(view);
@@ -30,8 +31,8 @@ public final class Controller implements IController {
 	}
 
 	/**
-     * Control.
-     */
+	 * Control.
+	 */
 	/*
 	 * (non-Javadoc)
 	 *
@@ -42,11 +43,10 @@ public final class Controller implements IController {
 	}
 
 	/**
-     * Sets the view.
-     *
-     * @param pview
-     *            the new view
-     */
+	 * Sets the view.
+	 *
+	 * @param pview the new view
+	 */
 	private void setView(final IView pview) {
 		this.view = pview;
 	}
@@ -54,8 +54,7 @@ public final class Controller implements IController {
 	/**
 	 * Sets the model.
 	 *
-	 * @param model
-	 *          the new model
+	 * @param model the new model
 	 */
 	private void setModel(final IModel model) {
 		this.model = model;
@@ -89,45 +88,46 @@ public final class Controller implements IController {
 			case Map5:
 				this.model.loadMap(5);
 				break;
-			case UP:
-				this.model.loadMap(1);
-				break;
-			case RIGHT:
-				this.model.loadMap(2);
-				break;
-			case DOWN:
-				this.model.loadMap(3);
-				break;
-			case LEFT:
-				this.model.loadMap(4);
-				break;
-			default:
-				break;
 		}
 	}
 	
-	/*public final void play() throws InterruptedException {
-        while (this.getModel().getMyVehicle().isAlive()) {
-            Thread.sleep(speed);
-            switch (this.getStackOrder()) {
-                case RIGHT:
-                    this.getModel().getMyVehicle().moveRight();
-                    break;
-                case LEFT:
-                    this.getModel().getMyVehicle().moveLeft();
-                    break;
-                case NOP:
-                default:
-                    this.getModel().getMyVehicle().doNothing();
-                    break;
-            }
-            this.clearStackOrder();
-            if (this.getModel().getMyVehicle().isAlive()) {
-                this.getModel().getMyVehicle().moveDown();
-            }
-            this.getView().followMyVehicle();
-        }
-        this.getView().displayMessage("CRASH !!!!!!!!!.");
-    }*/
+	public void orderPerform(final UserOrder userOrder) {
+		final MobileElement player = model.getMobileByPlayer(userOrder.getPlayer());
+		if (player != null) {
+			Direction direction;
+			switch (userOrder.getOrder()) {
+				case UP:
+					direction = Direction.UP;
+					break;
+				case RIGHT:
+					direction = Direction.RIGHT;
+					break;
+				case DOWN:
+					direction = Direction.DOWN;
+					break;
+				case LEFT:
+					direction = Direction.LEFT;
+					break;
+				case NOTHING:
+				default:
+					direction = model.getMobileByPlayer(userOrder.getPlayer()).getDirection();
+					break;
+			}
+			player.setDirection(direction);
+		}
+	}
+
+	/*
+	 * public final void play() throws InterruptedException { while
+	 * (this.getModel().getMyVehicle().isAlive()) { Thread.sleep(speed); switch
+	 * (this.getStackOrder()) { case RIGHT:
+	 * this.getModel().getMyVehicle().moveRight(); break; case LEFT:
+	 * this.getModel().getMyVehicle().moveLeft(); break; case NOP: default:
+	 * this.getModel().getMyVehicle().doNothing(); break; } this.clearStackOrder();
+	 * if (this.getModel().getMyVehicle().isAlive()) {
+	 * this.getModel().getMyVehicle().moveDown(); }
+	 * this.getView().followMyVehicle(); }
+	 * this.getView().displayMessage("CRASH !!!!!!!!!."); }
+	 */
 
 }

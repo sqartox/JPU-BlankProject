@@ -70,4 +70,8 @@ public abstract class MobileElement extends Element {
 	private void moveLeft() {
 		this.position.setX(this.position.getX() - this.speed);
 	}
+	
+	public boolean isPlayer(final int player) {
+		return false;
+	}
 }

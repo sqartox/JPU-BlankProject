@@ -5,6 +5,7 @@ import java.util.Observable;
 
 import contract.IModel;
 import element.Map;
+import mobileelement.MobileElement;
 
 /**
  * The Class Model.
@@ -39,6 +40,16 @@ public final class Model extends Observable implements IModel {
 		} catch (final SQLException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	@Override
+	public MobileElement getMobileByPlayer(final int player) {
+		for (final MobileElement mobile : this.getMap().getMapObje)) {
+			if (mobile.isPlayer(player)) {
+				return mobile;
+			}
+		}
+		return null;
 	}
 
 	public Observable getObservable() {

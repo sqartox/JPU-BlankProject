@@ -4,6 +4,7 @@ import java.sql.SQLException;
 import java.util.Observable;
 
 import contract.IModel;
+import element.Element;
 import element.Map;
 import mobileelement.MobileElement;
 
@@ -44,7 +45,7 @@ public final class Model extends Observable implements IModel {
 	
 	@Override
 	public MobileElement getMobileByPlayer(final int player) {
-		for (final MobileElement mobile : this.getMap().getMapObje)) {
+		for (final Element[] mobile : this.getMap().getMapObjects())) {
 			if (mobile.isPlayer(player)) {
 				return mobile;
 			}

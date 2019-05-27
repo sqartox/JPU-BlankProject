@@ -39,7 +39,7 @@ public final class Controller implements IController {
 	 * @see contract.IController#control()
 	 */
 	public void control() {
-		this.view.printMessage("Choose Map : NUMPAD 1 - 5");
+		this.view.printMessage("Welcome to the game Boulder Dash please choose a level between 1 and 5 on the NUMPAD.");
 	}
 
 	/**

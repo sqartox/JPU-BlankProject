@@ -60,7 +60,7 @@ class ViewPanel extends JPanel implements Observer {
 	public void update(final Observable arg0, final Object arg1) {
 		this.repaint();
 	}
-
+//test
 	/*
 	 * (non-Javadoc)
 	 *

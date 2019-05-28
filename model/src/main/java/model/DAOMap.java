@@ -60,7 +60,6 @@ class DAOMap<M extends Map> {
 	 * @see model.DAOEntity#find(int)
 	 */
 	public Map find(final int id) {
-		Map map = new Map();
 
 		try {
 			final String sql = "{call mapById(?)}";
@@ -69,9 +68,8 @@ class DAOMap<M extends Map> {
 			call.execute();
 			final ResultSet resultSet = call.getResultSet();
 			if (resultSet.first()) {
-				map = new Map(id, resultSet.getString("level"));
+				return new Map(id, resultSet.getString("level"));
 			}
-			return map;
 		} catch (final SQLException e) {
 			e.printStackTrace();
 		}

@@ -34,8 +34,7 @@ public final class Model extends Observable implements IModel {
 	@Override
 	public void loadMap(int id) {
 		try {
-			final DAOMap<Map> daoMap = new DAOMap<Map>(DBConnection.getInstance().getConnection());
-			this.setMap(daoMap.find(id));
+			this.setMap(new DAOMap<Map>(DBConnection.getInstance().getConnection()).find(id));
 		} catch (final SQLException e) {
 			e.printStackTrace();
 		}

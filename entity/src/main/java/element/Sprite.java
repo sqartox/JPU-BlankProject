@@ -24,13 +24,12 @@ public class Sprite {
 	}
 	
 	public BufferedImage loadSprite(String sprite_name) {
-		BufferedImage sprite = null;
 		try {
-			sprite = ImageIO.read(new File("..\\entity\\src\\main\\resources\\sprite\\" + sprite_name  + ".png"));
+			return ImageIO.read(new File("..\\entity\\src\\main\\resources\\sprite\\" + sprite_name  + ".png"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 
-		return sprite;
+		return null;
 	}
 }

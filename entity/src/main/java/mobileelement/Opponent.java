@@ -19,18 +19,19 @@ public class Opponent extends MobileElement {
 		super();
 	}
 
-	public void moveOpponent(Direction direction) {
-		switch (direction) {
-		case UP:
+	public void moveOpponent() {
+		int random = (int) (Math.random() * 4 + 1);
+		switch (random) {
+		case 1:
 			this.changePosition(0, -1);
 			break;
-		case DOWN:
+		case 2:
 			this.changePosition(0, +1);
 			break;
-		case LEFT:
+		case 3:
 			this.changePosition(-1, 0);
 			break;
-		case RIGHT:
+		case 4:
 			this.changePosition(+1, 0);
 			break;
 		default:
@@ -38,23 +39,7 @@ public class Opponent extends MobileElement {
 		}
 	}
 
-	public Direction randomDirection() {
-		int random = (int) (Math.random() * 4 + 1);
-		switch (random) {
-		case 1:
-			return Direction.UP;
-		case 2:
-			return Direction.DOWN;
-		case 3:
-			return Direction.LEFT;
-		case 4:
-			return Direction.RIGHT;
-		default:
-			return null;
-		}
-	}
-
 	public void refreshOpponents() {
-		this.moveOpponent(this.randomDirection());
+		this.moveOpponent();
 	}
 }

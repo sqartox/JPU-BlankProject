@@ -91,7 +91,6 @@ public final class Controller implements IController {
 		case UP:
 			if (changeMap(0, -1)) {
 				this.setMap(this.getMap() + 1);
-				this.model.loadMap(map);
 			} else {
 				this.model.getMap().getPlayer().movePlayer(this.model.getMap().getPlayer().chooseDirection(1));
 				this.model.modelNotify();
@@ -100,7 +99,6 @@ public final class Controller implements IController {
 		case DOWN:
 			if (changeMap(0, +1)) {
 				this.setMap(this.getMap() + 1);
-				this.model.loadMap(map);
 			} else {
 				this.model.getMap().getPlayer().movePlayer(this.model.getMap().getPlayer().chooseDirection(2));
 				this.model.modelNotify();
@@ -109,7 +107,6 @@ public final class Controller implements IController {
 		case LEFT:
 			if (changeMap(-1, 0)) {
 				this.setMap(this.getMap() + 1);
-				this.model.loadMap(map);
 			} else {
 				this.model.getMap().getPlayer().movePlayer(this.model.getMap().getPlayer().chooseDirection(3));
 				this.model.modelNotify();
@@ -118,7 +115,6 @@ public final class Controller implements IController {
 		case RIGHT:
 			if (changeMap(+1, 0)) {
 				this.setMap(this.getMap() + 1);
-				this.model.loadMap(map);
 			} else {
 				this.model.getMap().getPlayer().movePlayer(this.model.getMap().getPlayer().chooseDirection(4));
 				this.model.modelNotify();

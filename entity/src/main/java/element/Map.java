@@ -147,11 +147,10 @@ public class Map {
 	}
 
 	public Player getPlayer() {
-		Element[][] entity = this.getMapObjects();
 		for (int y = 0; y < getHeight(); y++) {
 			for (int x = 0; x < getWidth(); x++) {
-				if (entity[x][y] instanceof Player) {
-					return (Player) entity[x][y];
+				if (this.getMapObjects(x, y) instanceof Player) {
+					return (Player) this.getMapObjects(x, y);
 				}
 			}
 		}
@@ -159,11 +158,10 @@ public class Map {
 	}
 
 	public ArrayList<Opponent> getOpponent() {
-		Element[][] entity = this.getMapObjects();
 		for (int y = 0; y < getHeight(); y++) {
 			for (int x = 0; x < getWidth(); x++) {
-				if (entity[x][y] instanceof Opponent) {
-					this.opponent.add((Opponent) entity[x][y]);
+				if (this.getMapObjects(x, y) instanceof Opponent) {
+					this.opponent.add((Opponent) this.getMapObjects(x, y));
 				}
 			}
 		}
@@ -176,11 +174,10 @@ public class Map {
 
 	public ArrayList<Stone> getStone() {
 		this.stone.clear();
-		Element[][] entity = this.getMapObjects();
 		for (int y = 0; y < getHeight(); y++) {
 			for (int x = 0; x < getWidth(); x++) {
-				if (entity[x][y] instanceof Stone) {
-					this.stone.add((Stone) entity[x][y]);
+				if (this.getMapObjects(x, y) instanceof Stone) {
+					this.stone.add((Stone) this.getMapObjects(x, y));
 				}
 			}
 		}

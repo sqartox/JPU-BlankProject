@@ -11,8 +11,6 @@ import java.util.Observer;
 import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 
-import element.Map;
-import element.Position;
 import element.Sprite;
 
 /**
@@ -28,7 +26,7 @@ class ViewPanel extends JPanel implements Observer {
 	private static final long serialVersionUID = -998294702363713521L;
 
 	private static int DEFAULT_SPRITE_SIZE = 16;
-	private static double ZOOM = 4.5;
+	private static double ZOOM = 2;
 
 	/**
 	 * Instantiates a new view panel.
@@ -74,33 +72,36 @@ class ViewPanel extends JPanel implements Observer {
 	 */
 	@Override
 	protected void paintComponent(final Graphics graphics) {
-		Map map = this.getViewFrame().getModel().getMap();
 
-		if (map.getPlayer() != null) {
+		if (this.getViewFrame().getModel().getMap().getPlayer() != null) {
 			graphics.clearRect(0, 0, this.getWidth(), this.getHeight());
-			Position player = map.getPlayer().getPosition();
 			super.paintComponent(graphics);
 			Image img = null;
-	        try {
-	            img = ImageIO.read(new File("..\\entity\\src\\main\\resources\\sprite\\Backgroundd.png"));
-	        } catch (IOException e) {
-	            // TODO Auto-generated catch block
-	            e.printStackTrace();
-	        }
-	        graphics.fillRect(0, 0, getWidth(), getHeight());
-	        graphics.drawImage(img, 0, 0, 1920, 1080, this);
-			((Graphics2D) graphics).translate(-player.getX() * DEFAULT_SPRITE_SIZE * ZOOM + this.getWidth()/2, -player.getY() * DEFAULT_SPRITE_SIZE * ZOOM + this.getHeight()/2);
+			try {
+				img = ImageIO.read(new File("..\\entity\\src\\main\\resources\\sprite\\Backgroundd.png"));
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			graphics.fillRect(0, 0, getWidth(), getHeight());
+			graphics.drawImage(img, 0, 0, 1920, 1080, this);
+			((Graphics2D) graphics).translate(
+					-this.getViewFrame().getModel().getMap().getPlayer().getPosition().getX() * DEFAULT_SPRITE_SIZE
+							* ZOOM + this.getWidth() / 2,
+					-this.getViewFrame().getModel().getMap().getPlayer().getPosition().getY() * DEFAULT_SPRITE_SIZE
+							* ZOOM + this.getHeight() / 2);
 			((Graphics2D) graphics).scale(ZOOM, ZOOM);
-			
-			for (int y = 0; y < map.getWidth(); y++) {
-				for (int x = 0; x < map.getHeight(); x++) {
-					Sprite sprite = map.getMapObjects(y, x).getSprite();
-					graphics.drawImage(sprite.loadSprite(sprite.getSpriteName()), y * DEFAULT_SPRITE_SIZE,
-							x * DEFAULT_SPRITE_SIZE, this);
+
+			for (int y = 0; y < this.getViewFrame().getModel().getMap().getWidth(); y++) {
+				for (int x = 0; x < this.getViewFrame().getModel().getMap().getHeight(); x++) {
+					graphics.drawImage(this.getViewFrame().getModel().getMap().getMapObjects(y, x).getSprite()
+							.loadSprite(this.getViewFrame().getModel().getMap().getMapObjects(y, x).getSprite()
+									.getSpriteName()),
+							y * DEFAULT_SPRITE_SIZE, x * DEFAULT_SPRITE_SIZE, this);
 				}
 			}
 		}
-		
+
 		// graphics.drawString(this.getViewFrame().getModel().getMap().getMapDesign(),
 		// 0, 0);
 	}

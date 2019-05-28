@@ -74,18 +74,11 @@ public abstract class Element {
 				this.objects[currentX][currentY] = new Ground(currentX, currentY);
 				this.setPosition(currentX + x, currentY + y);
 				this.getMap().getThisStone(currentX + x, currentY + y).setIsfalling(true);
-			} else if (this.collision.checkForStoneBellow(currentX, currentY + 1)) {
-				int moveDirection = this.collision.moveStoneOnStone(currentX, currentY);
-				switch (moveDirection) {
-				case 1:
-					this.getMap().getThisStone(currentX + 1, currentY).setIsfalling(false);
-					break;
-				case 2:
-					this.getMap().getThisStone(currentX - 1, currentY).setIsfalling(false);
-					break;
-				case 0:
-					break;
-				}
+			} else {
+				this.getMap().getThisStone(currentX, currentY).setIsfalling(false);
+			}
+			if (this.collision.checkForStoneBellow(currentX, currentY + 1)) {
+				this.collision.moveStoneOnStone(currentX, currentY);
 			}
 		}
 	}
@@ -100,10 +93,9 @@ public abstract class Element {
 	}
 
 	public void getDiamond(int x, int y) {
-		Player player = this.getMap().getPlayer();
 		if (this.getMap().getMapObjects(x, y) instanceof Diamond) {
-			player.setDiamondCount(player.getDiamondCount() + 1);
-			System.out.println(player.getDiamondCount());
+			this.getMap().getPlayer().setDiamondCount(this.getMap().getPlayer().getDiamondCount() + 1);
+			System.out.println(this.getMap().getPlayer().getDiamondCount());
 		}
 	}
 

@@ -132,8 +132,9 @@ public final class Controller implements IController {
 		while (true) {
 			Thread.sleep(100);
 			this.model.getMap().getOpponent().forEach((opponent) -> opponent.refreshOpponents());
-			endOfGame();
+			this.model.getMap().getStone().forEach((stone) -> stone.refreshStones());
 			this.model.modelNotify();
+			endOfGame();
 		}
 	}
 

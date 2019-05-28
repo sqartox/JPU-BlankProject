@@ -3,6 +3,7 @@ package element;
 import mobileelement.Diamond;
 import mobileelement.Opponent;
 import mobileelement.Player;
+import mobileelement.Stone;
 import motionlesselement.Exit;
 import motionlesselement.Ground;
 
@@ -65,8 +66,21 @@ public abstract class Element {
 				this.setPosition(currentX + x, currentY + y);
 			}
 		}
+		if (this instanceof Stone) {
+			if (this.collision.checkStoneCollision(currentX + x, currentY + y,
+					this.getMap().getThisStone(currentX, currentY).getIsFalling())) {
+				objects[currentX + x][currentY + y] = objects[currentX][currentY];
+				objects[currentX][currentY] = new Ground(currentX, currentY);
+				this.setPosition(currentX + x, currentY + y);
+				this.getMap().getThisStone(currentX + x, currentY + y).setIsfalling(true);
+			}
+			else if (this.collision.checkForStoneBellow(currentX, currentY)) {
+				this.collision.moveStoneOnStone(currentX, currentY + 1);
+				this.getMap().getThisStone(currentX, currentY).setIsfalling(false);
+			}
+		}
 	}
-	
+
 	public boolean checkForExit(int x, int y) {
 		int currentX = this.getPosition().getX();
 		int currentY = this.getPosition().getY();
@@ -75,11 +89,11 @@ public abstract class Element {
 		}
 		return false;
 	}
-	
+
 	public void getDiamond(int x, int y) {
 		Player player = this.getMap().getPlayer();
 		if (this.getMap().getMapObjects(x, y) instanceof Diamond) {
-			player.setDiamondCount(player.getDiamondCount()+1);
+			player.setDiamondCount(player.getDiamondCount() + 1);
 			System.out.println(player.getDiamondCount());
 		}
 	}

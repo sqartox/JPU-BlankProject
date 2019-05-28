@@ -166,6 +166,23 @@ public class Map {
 	        }
 	        return opponent;
 	    }
+	
+	public Stone getThisStone(int x, int y) {
+		return (Stone)this.getMapObjects(x, y);
+	}
+	
+	public ArrayList<Stone> getStone() {
+		 ArrayList<Stone> stone = new ArrayList<Stone>();
+		        Element[][] entity = this.getMapObjects();
+		        for (int y = 0; y < getHeight(); y++) {
+		            for (int x = 0; x < getWidth(); x++) {
+		                if (entity[x][y] instanceof Stone) {
+		                    stone.add((Stone)entity[x][y]);
+		                }
+		            }
+		        }
+		        return stone;
+		    }
 
 	public int getTotalDiamonds() {
 		return totalDiamonds;

@@ -10,12 +10,43 @@ public class Stone extends MobileElement {
 	private static final Transparency TRANSPARENCY = Transparency.SOLID;
 	private static final Direction DIRECTION = null;
 	private static final int SPEED = 300;
+	private boolean isfalling;
 
 	public Stone(int x, int y) {
 		super(SPRITE, TRANSPARENCY, DIRECTION, x, y, SPEED);
+		this.setIsfalling(false);
 	}
 
 	public Stone() {
 		super();
 	}
+	
+	public void moveStone(Direction direction) {
+		switch (direction) {
+		case DOWN:
+			this.changePosition(0, +1);
+			break;
+		case LEFT:
+			this.changePosition(-1, 0);
+			break;
+		case RIGHT:
+			this.changePosition(+1, 0);
+			break;
+		default:
+			break;
+		}
+	}
+	
+	public void refreshStones() {
+		this.moveStone(Direction.DOWN);
+	}
+
+	public boolean getIsFalling() {
+		return isfalling;
+	}
+
+	public void setIsfalling(boolean isfalling) {
+		this.isfalling = isfalling;
+	}
+	
 }

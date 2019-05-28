@@ -13,7 +13,7 @@ public class Collision {
 	
 	public boolean checkCollision(int x, int y) {
 		Element element = this.map.getMapObjects(x, y);
-		if ((element instanceof Wall)||(element instanceof IndoorWall)||(element instanceof Stone)){
+		if ((element instanceof Wall)||(element instanceof IndoorWall)||(element instanceof Stone)||(element instanceof Exit)){
 			return false;
 		}
 		return true;

@@ -39,4 +39,5 @@ public interface IModel {
 	Element getMobileByPlayer(int player);
 
 	void modelNotify();
+
 }

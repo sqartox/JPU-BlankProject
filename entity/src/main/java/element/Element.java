@@ -1,6 +1,5 @@
 package element;
 
-import contract.Direction;
 import mobileelement.Diamond;
 import mobileelement.Opponent;
 import mobileelement.Player;
@@ -12,7 +11,6 @@ public abstract class Element {
 	protected Sprite sprite;
 	protected Transparency transparency;
 	protected Position position;
-	protected Direction direction;
 	private Map map;
 	private Collision collision;
 
@@ -88,14 +86,6 @@ public abstract class Element {
 
 	public boolean isPlayer(int player) {
 		return false;
-	}
-
-	public void setDirection(Direction direction) {
-		this.direction = direction;
-	}
-
-	public Direction getDirection() {
-		return this.direction;
 	}
 
 	public Map getMap() {

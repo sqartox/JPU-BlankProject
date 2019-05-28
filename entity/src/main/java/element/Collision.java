@@ -14,7 +14,7 @@ public class Collision {
 	public boolean checkCollision(int x, int y) {
 		Element element = this.map.getMapObjects(x, y);
 		if (element instanceof Opponent) {
-			this.map.getPlayer().setState("Dead");
+			this.map.getPlayer().setState(false);
 		}
 		if ((element instanceof Wall) || (element instanceof IndoorWall) || (element instanceof Stone)
 				|| (element instanceof Exit)) {
@@ -29,7 +29,7 @@ public class Collision {
 			return true;
 		}
 		if (element instanceof Player) {
-			this.map.getPlayer().setState("Dead");
+			this.map.getPlayer().setState(false);
 		}
 		return false;
 	}

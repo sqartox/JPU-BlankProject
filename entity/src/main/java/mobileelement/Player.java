@@ -11,7 +11,7 @@ public class Player extends MobileElement {
 	private static final Direction DIRECTION = null;
 	private static final int SPEED = 300;
 	private int diamondCount;
-	private String state;
+	private boolean state;
 
 	private final int player;
 
@@ -19,7 +19,7 @@ public class Player extends MobileElement {
 		super(SPRITE, TRANSPARENCY, DIRECTION, x, y, SPEED);
 		this.player = player;
 		this.diamondCount = 0;
-		this.setState("Alive");
+		this.setState(true);
 	}
 
 	public Player(int player) {
@@ -64,14 +64,10 @@ public class Player extends MobileElement {
 	}
 
 	public boolean isAlive() {
-		return true;
+		return this.state;
 	}
 
-	public String getState() {
-		return state;
-	}
-
-	public void setState(String state) {
+	public void setState(boolean state) {
 		this.state = state;
 	}
 }

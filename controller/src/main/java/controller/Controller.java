@@ -134,7 +134,7 @@ public final class Controller implements IController {
 		Map map = this.model.getMap();
 		while (true) {
 			map = this.model.getMap();
-			Thread.sleep(25);
+			Thread.sleep(100);
 			map.getOpponent().forEach((opponent) -> opponent.refreshOpponents());
 			endOfGame();
 			this.model.modelNotify();
@@ -142,7 +142,7 @@ public final class Controller implements IController {
 	}
 	
 	public void endOfGame() throws InterruptedException {
-		if (this.model.getMap().getPlayer().getState() == "Dead") {
+		if (this.model.getMap().getPlayer().isAlive() == false) {
 			this.view.printMessage("Blurp !");
 			System.exit(0);
 		}

@@ -1,5 +1,7 @@
 package element;
 
+import java.util.ArrayList;
+
 import mobileelement.Diamond;
 import mobileelement.Opponent;
 import mobileelement.Player;
@@ -115,7 +117,7 @@ public class Map {
 						break;
 					case 'd':
 						mapObjects[x][y] = new Diamond(x, y);
-						this.setTotalDiamonds(this.getTotalDiamonds()+1);
+						this.setTotalDiamonds(this.getTotalDiamonds() + 1);
 						break;
 					case 'e':
 						mapObjects[x][y] = new Exit(x, y);
@@ -135,21 +137,34 @@ public class Map {
 	public Element getMapObjects(int x, int y) {
 		return this.mapObjects[x][y];
 	}
-	
-	public Element[][] getMapObjects(){
+
+	public Element[][] getMapObjects() {
 		return this.mapObjects;
 	}
-	
-	 public Player getPlayer() {
+
+	public Player getPlayer() {
+		Element[][] entity = this.getMapObjects();
+		for (int y = 0; y < getHeight(); y++) {
+			for (int x = 0; x < getWidth(); x++) {
+				if (entity[x][y] instanceof Player) {
+					return (Player) entity[x][y];
+				}
+			}
+		}
+		return null;
+	}
+
+	public ArrayList<Opponent> getOpponent() {
+	 ArrayList<Opponent> opponent = new ArrayList<Opponent>();
 	        Element[][] entity = this.getMapObjects();
 	        for (int y = 0; y < getHeight(); y++) {
 	            for (int x = 0; x < getWidth(); x++) {
-	                if (entity[x][y] instanceof Player) {
-	                    return (Player) entity[x][y];
+	                if (entity[x][y] instanceof Opponent) {
+	                    opponent.add((Opponent)entity[x][y]);
 	                }
 	            }
 	        }
-	        return null;
+	        return opponent;
 	    }
 
 	public int getTotalDiamonds() {

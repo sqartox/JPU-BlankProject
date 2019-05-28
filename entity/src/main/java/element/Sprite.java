@@ -13,7 +13,6 @@ public class Sprite {
 
 	public Sprite(final String sprite_name) {
 		this.setSpriteName(sprite_name);
-		this.loadSprite(sprite_name);
 	}
 
 	public String getSpriteName() {

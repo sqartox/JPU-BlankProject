@@ -2,9 +2,13 @@ package view;
 
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.Image;
+import java.io.File;
+import java.io.IOException;
 import java.util.Observable;
 import java.util.Observer;
 
+import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 
 import element.Map;
@@ -73,9 +77,18 @@ class ViewPanel extends JPanel implements Observer {
 		Map map = this.getViewFrame().getModel().getMap();
 
 		if (map.getPlayer() != null) {
+			graphics.clearRect(0, 0, this.getWidth(), this.getHeight());
 			Position player = map.getPlayer().getPosition();
 			super.paintComponent(graphics);
-			graphics.clearRect(0, 0, this.getWidth(), this.getHeight());
+			Image img = null;
+	        try {
+	            img = ImageIO.read(new File("..\\entity\\src\\main\\resources\\sprite\\Backgroundd.png"));
+	        } catch (IOException e) {
+	            // TODO Auto-generated catch block
+	            e.printStackTrace();
+	        }
+	        graphics.fillRect(0, 0, getWidth(), getHeight());
+	        graphics.drawImage(img, 0, 0, 1920, 1080, this);
 			((Graphics2D) graphics).translate(-player.getX() * DEFAULT_SPRITE_SIZE * ZOOM + this.getWidth()/2, -player.getY() * DEFAULT_SPRITE_SIZE * ZOOM + this.getHeight()/2);
 			((Graphics2D) graphics).scale(ZOOM, ZOOM);
 			

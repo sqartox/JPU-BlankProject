@@ -1,6 +1,7 @@
 package element;
 
 import mobileelement.Diamond;
+import mobileelement.Opponent;
 import mobileelement.Player;
 import motionlesselement.Exit;
 import motionlesselement.Ground;
@@ -50,11 +51,20 @@ public abstract class Element {
 		int currentY = this.getPosition().getY();
 		Element[][] objects = this.getMap().getMapObjects();
 		this.collision = new Collision(this.map);
-		if (this.collision.checkCollision(currentX + x, currentY + y)) {
-			this.getDiamond(currentX + x, currentY + y);
-			objects[currentX + x][currentY + y] = objects[currentX][currentY];
-			objects[currentX][currentY] = new Ground(currentX, currentY);
-			this.setPosition(currentX + x, currentY + y);
+		if (this instanceof Player) {
+			if (this.collision.checkCollision(currentX + x, currentY + y)) {
+				this.getDiamond(currentX + x, currentY + y);
+				objects[currentX + x][currentY + y] = objects[currentX][currentY];
+				objects[currentX][currentY] = new Ground(currentX, currentY);
+				this.setPosition(currentX + x, currentY + y);
+			}
+		}
+		if (this instanceof Opponent) {
+			if (this.collision.checkOpponentCollision(currentX + x, currentY + y)) {
+				objects[currentX + x][currentY + y] = objects[currentX][currentY];
+				objects[currentX][currentY] = new Ground(currentX, currentY);
+				this.setPosition(currentX + x, currentY + y);
+			}
 		}
 	}
 	

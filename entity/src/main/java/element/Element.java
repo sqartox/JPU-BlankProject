@@ -14,6 +14,7 @@ public abstract class Element {
 	protected Position position;
 	private Map map;
 	private Collision collision;
+	private Element[][] objects;
 
 	public Element(final Sprite sprite, final Transparency transparency, int x, int y) {
 		this.setSprite(sprite);
@@ -49,34 +50,42 @@ public abstract class Element {
 	public void changePosition(int x, int y) {
 		int currentX = this.getPosition().getX();
 		int currentY = this.getPosition().getY();
-		Element[][] objects = this.getMap().getMapObjects();
+		this.objects = this.getMap().getMapObjects();
 		this.collision = new Collision(this.map);
 		if (this instanceof Player) {
 			if (this.collision.checkCollision(currentX + x, currentY + y)) {
 				this.getDiamond(currentX + x, currentY + y);
-				objects[currentX + x][currentY + y] = objects[currentX][currentY];
-				objects[currentX][currentY] = new Ground(currentX, currentY);
+				this.objects[currentX + x][currentY + y] = this.objects[currentX][currentY];
+				this.objects[currentX][currentY] = new Ground(currentX, currentY);
 				this.setPosition(currentX + x, currentY + y);
 			}
 		}
 		if (this instanceof Opponent) {
 			if (this.collision.checkOpponentCollision(currentX + x, currentY + y)) {
-				objects[currentX + x][currentY + y] = objects[currentX][currentY];
-				objects[currentX][currentY] = new Ground(currentX, currentY);
+				this.objects[currentX + x][currentY + y] = this.objects[currentX][currentY];
+				this.objects[currentX][currentY] = new Ground(currentX, currentY);
 				this.setPosition(currentX + x, currentY + y);
 			}
 		}
 		if (this instanceof Stone) {
 			if (this.collision.checkStoneCollision(currentX + x, currentY + y,
 					this.getMap().getThisStone(currentX, currentY).getIsFalling())) {
-				objects[currentX + x][currentY + y] = objects[currentX][currentY];
-				objects[currentX][currentY] = new Ground(currentX, currentY);
+				this.objects[currentX + x][currentY + y] = this.objects[currentX][currentY];
+				this.objects[currentX][currentY] = new Ground(currentX, currentY);
 				this.setPosition(currentX + x, currentY + y);
 				this.getMap().getThisStone(currentX + x, currentY + y).setIsfalling(true);
-			}
-			else if (this.collision.checkForStoneBellow(currentX, currentY)) {
-				this.collision.moveStoneOnStone(currentX, currentY + 1);
-				this.getMap().getThisStone(currentX, currentY).setIsfalling(false);
+			} else if (this.collision.checkForStoneBellow(currentX, currentY + 1)) {
+				int moveDirection = this.collision.moveStoneOnStone(currentX, currentY);
+				switch (moveDirection) {
+				case 1:
+					this.getMap().getThisStone(currentX + 1, currentY).setIsfalling(false);
+					break;
+				case 2:
+					this.getMap().getThisStone(currentX - 1, currentY).setIsfalling(false);
+					break;
+				case 0:
+					break;
+				}
 			}
 		}
 	}

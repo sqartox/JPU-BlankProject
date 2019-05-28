@@ -92,29 +92,37 @@ public final class Controller implements IController {
 			if (changeMap(0, -1)) {
 				this.setMap(this.getMap() + 1);
 				this.model.loadMap(map);
+			} else {
+				this.model.getMap().getPlayer().movePlayer(this.model.getMap().getPlayer().chooseDirection(1));
+				this.model.modelNotify();
 			}
-			this.model.getMap().getPlayer().movePlayer(this.model.getMap().getPlayer().chooseDirection(1));
 			break;
 		case DOWN:
 			if (changeMap(0, +1)) {
 				this.setMap(this.getMap() + 1);
 				this.model.loadMap(map);
+			} else {
+				this.model.getMap().getPlayer().movePlayer(this.model.getMap().getPlayer().chooseDirection(2));
+				this.model.modelNotify();
 			}
-			this.model.getMap().getPlayer().movePlayer(this.model.getMap().getPlayer().chooseDirection(2));
 			break;
 		case LEFT:
 			if (changeMap(-1, 0)) {
 				this.setMap(this.getMap() + 1);
 				this.model.loadMap(map);
+			} else {
+				this.model.getMap().getPlayer().movePlayer(this.model.getMap().getPlayer().chooseDirection(3));
+				this.model.modelNotify();
 			}
-			this.model.getMap().getPlayer().movePlayer(this.model.getMap().getPlayer().chooseDirection(3));
 			break;
 		case RIGHT:
 			if (changeMap(+1, 0)) {
 				this.setMap(this.getMap() + 1);
 				this.model.loadMap(map);
+			} else {
+				this.model.getMap().getPlayer().movePlayer(this.model.getMap().getPlayer().chooseDirection(4));
+				this.model.modelNotify();
 			}
-			this.model.getMap().getPlayer().movePlayer(this.model.getMap().getPlayer().chooseDirection(4));
 			break;
 		}
 	}
@@ -130,7 +138,7 @@ public final class Controller implements IController {
 //Main while
 	public final void play() throws InterruptedException {
 		while (true) {
-			Thread.sleep(100);
+			Thread.sleep(400);
 			this.model.getMap().getOpponent().forEach((opponent) -> opponent.refreshOpponents());
 			this.model.getMap().getStone().forEach((stone) -> stone.refreshStones());
 			this.model.modelNotify();

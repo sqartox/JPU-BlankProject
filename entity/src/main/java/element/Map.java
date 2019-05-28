@@ -18,6 +18,8 @@ public class Map {
 
 	private Element[][] mapObjects;
 	private int totalDiamonds;
+	private ArrayList<Stone> stone;
+	private ArrayList<Opponent> opponent;
 
 	/**
 	 * Instantiates a new hello world.
@@ -27,6 +29,8 @@ public class Map {
 		this.setId(id);
 		this.setMapDesign(message);
 		this.setMapObjects();
+		stone = new ArrayList<Stone>();
+		opponent = new ArrayList<Opponent>();
 	}
 
 	/**
@@ -155,34 +159,33 @@ public class Map {
 	}
 
 	public ArrayList<Opponent> getOpponent() {
-	 ArrayList<Opponent> opponent = new ArrayList<Opponent>();
-	        Element[][] entity = this.getMapObjects();
-	        for (int y = 0; y < getHeight(); y++) {
-	            for (int x = 0; x < getWidth(); x++) {
-	                if (entity[x][y] instanceof Opponent) {
-	                    opponent.add((Opponent)entity[x][y]);
-	                }
-	            }
-	        }
-	        return opponent;
-	    }
-	
-	public Stone getThisStone(int x, int y) {
-		return (Stone)this.getMapObjects(x, y);
+		Element[][] entity = this.getMapObjects();
+		for (int y = 0; y < getHeight(); y++) {
+			for (int x = 0; x < getWidth(); x++) {
+				if (entity[x][y] instanceof Opponent) {
+					this.opponent.add((Opponent) entity[x][y]);
+				}
+			}
+		}
+		return opponent;
 	}
-	
+
+	public Stone getThisStone(int x, int y) {
+		return (Stone) this.getMapObjects(x, y);
+	}
+
 	public ArrayList<Stone> getStone() {
-		 ArrayList<Stone> stone = new ArrayList<Stone>();
-		        Element[][] entity = this.getMapObjects();
-		        for (int y = 0; y < getHeight(); y++) {
-		            for (int x = 0; x < getWidth(); x++) {
-		                if (entity[x][y] instanceof Stone) {
-		                    stone.add((Stone)entity[x][y]);
-		                }
-		            }
-		        }
-		        return stone;
-		    }
+		this.stone.clear();
+		Element[][] entity = this.getMapObjects();
+		for (int y = 0; y < getHeight(); y++) {
+			for (int x = 0; x < getWidth(); x++) {
+				if (entity[x][y] instanceof Stone) {
+					this.stone.add((Stone) entity[x][y]);
+				}
+			}
+		}
+		return this.stone;
+	}
 
 	public int getTotalDiamonds() {
 		return totalDiamonds;

@@ -58,21 +58,24 @@ public class Collision {
 		return false;
 	}
 
-	public void moveStoneOnStone(int x, int y) {
+	public int moveStoneOnStone(int x, int y) {
 		Element element = this.map.getMapObjects(x, y);
 		Element elementRight = this.map.getMapObjects(x + 1, y);
-		Element elementDownRight = this.map.getMapObjects(x + 1, y - 1);
+		Element elementDownRight = this.map.getMapObjects(x + 1, y + 1);
 		Element elementLeft = this.map.getMapObjects(x - 1, y);
-		Element elementDownLeft = this.map.getMapObjects(x - 1, y - 1);
+		Element elementDownLeft = this.map.getMapObjects(x - 1, y + 1);
 		if (element instanceof Stone) {
 			if (elementRight instanceof Ground && elementDownRight instanceof Ground) {
 				((Stone) element).moveStone(((Stone) element).chooseDirection(4));
+				return 1;
 			}
 		}
 		if (element instanceof Stone) {
 			if (elementLeft instanceof Ground && elementDownLeft instanceof Ground) {
 				((Stone) element).moveStone(((Stone) element).chooseDirection(3));
+				return 2;
 			}
 		}
+		return 0;
 	}
 }

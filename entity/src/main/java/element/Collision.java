@@ -1,7 +1,12 @@
 package element;
 
-import mobileelement.*;
-import motionlesselement.*;
+import mobileelement.Opponent;
+import mobileelement.Player;
+import mobileelement.Stone;
+import motionlesselement.Exit;
+import motionlesselement.Ground;
+import motionlesselement.IndoorWall;
+import motionlesselement.Wall;
 
 public class Collision {
 

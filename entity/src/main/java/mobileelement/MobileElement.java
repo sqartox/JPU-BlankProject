@@ -1,27 +1,42 @@
 package mobileelement;
 
-import contract.Direction;
+import element.Direction;
 import element.Element;
 import element.Sprite;
 import element.Transparency;
 
 public abstract class MobileElement extends Element {
-	
+
 	protected Direction direction;
 	protected int speed;
-	
+
 	MobileElement(Sprite sprite, Transparency transparency, Direction direction, int x, int y, int speed) {
 		super(sprite, transparency, x, y);
 		this.direction = direction;
 		this.speed = speed;
 	}
-	
+
 	MobileElement() {
 		super(null, Transparency.SOLID, 0, 0);
 	}
 
 	public Direction getDirection() {
 		return direction;
+	}
+
+	public Direction chooseDirection(int choice) {
+		switch (choice) {
+		case 1:
+			return Direction.UP;
+		case 2:
+			return Direction.DOWN;
+		case 3:
+			return Direction.LEFT;
+		case 4:
+			return Direction.RIGHT;
+		default:
+			return Direction.NOTHING;
+		}
 	}
 
 	public void setDirection(Direction direction) {
@@ -35,7 +50,7 @@ public abstract class MobileElement extends Element {
 	public void setSpeed(int speed) {
 		this.speed = speed;
 	}
-	
+
 	public boolean isPlayer(final int player) {
 		return false;
 	}

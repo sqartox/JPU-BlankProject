@@ -1,7 +1,6 @@
 package controller;
 
 import contract.ControllerOrder;
-import contract.Direction;
 import contract.IController;
 import contract.IModel;
 import contract.IView;
@@ -94,28 +93,28 @@ public final class Controller implements IController {
 				this.setMap(this.getMap() + 1);
 				this.model.loadMap(map);
 			}
-			this.model.getMap().getPlayer().movePlayer(Direction.UP);
+			this.model.getMap().getPlayer().movePlayer(this.model.getMap().getPlayer().chooseDirection(1));
 			break;
 		case DOWN:
 			if (changeMap(0, +1)) {
 				this.setMap(this.getMap() + 1);
 				this.model.loadMap(map);
 			}
-			this.model.getMap().getPlayer().movePlayer(Direction.DOWN);
+			this.model.getMap().getPlayer().movePlayer(this.model.getMap().getPlayer().chooseDirection(2));
 			break;
 		case LEFT:
 			if (changeMap(-1, 0)) {
 				this.setMap(this.getMap() + 1);
 				this.model.loadMap(map);
 			}
-			this.model.getMap().getPlayer().movePlayer(Direction.LEFT);
+			this.model.getMap().getPlayer().movePlayer(this.model.getMap().getPlayer().chooseDirection(3));
 			break;
 		case RIGHT:
 			if (changeMap(+1, 0)) {
 				this.setMap(this.getMap() + 1);
 				this.model.loadMap(map);
 			}
-			this.model.getMap().getPlayer().movePlayer(Direction.RIGHT);
+			this.model.getMap().getPlayer().movePlayer(this.model.getMap().getPlayer().chooseDirection(4));
 			break;
 		}
 	}

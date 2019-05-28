@@ -1,6 +1,6 @@
 package mobileelement;
 
-import element.Direction;
+import contract.Direction;
 import element.Element;
 import element.Sprite;
 import element.Transparency;

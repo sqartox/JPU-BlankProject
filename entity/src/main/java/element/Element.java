@@ -1,5 +1,6 @@
 package element;
 
+import contract.Direction;
 import mobileelement.Diamond;
 import mobileelement.Opponent;
 import mobileelement.Player;

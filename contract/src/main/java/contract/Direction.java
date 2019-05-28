@@ -1,4 +1,4 @@
-package element;
+package contract;
 
 public enum Direction {
 	

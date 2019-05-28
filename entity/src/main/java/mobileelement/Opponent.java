@@ -1,8 +1,6 @@
 package mobileelement;
 
 import element.Direction;
-import element.Element;
-import element.Map;
 import element.Sprite;
 import element.Transparency;
 

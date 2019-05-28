@@ -6,7 +6,6 @@ import java.util.Observable;
 import contract.IModel;
 import element.Element;
 import element.Map;
-import mobileelement.MobileElement;
 
 /**
  * The Class Model.

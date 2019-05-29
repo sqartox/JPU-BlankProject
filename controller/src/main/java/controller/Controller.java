@@ -126,7 +126,7 @@ public final class Controller implements IController {
 	}
 
 	public boolean changeMap(int x, int y) {
-		if (this.model.getMap().getPlayer().getDiamondCount() == this.model.getMap().getTotalDiamonds()
+		if (this.model.getMap().getPlayer().getDiamondCount() >= this.model.getMap().getTotalDiamonds()
 				&& this.model.getMap().getPlayer().checkForExit(x, y)) {
 			return true;
 		}

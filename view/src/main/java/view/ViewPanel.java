@@ -24,7 +24,7 @@ class ViewPanel extends JPanel implements Observer {
 	private static final long serialVersionUID = -998294702363713521L;
 
 	private static int DEFAULT_SPRITE_SIZE = 16;
-	private static boolean LARGECAMERA = false;
+	private static boolean LARGECAMERA = true;
 	private double zoom = 2.4;
 	private Image img;
 

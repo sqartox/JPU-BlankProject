@@ -6,9 +6,9 @@ import element.Element;
 import element.Map;
 
 /**
- * The Interface IModel.
- *
- * @author Jean-Aymeric Diet
+ * @author Jean michel crapaud
+ * The class IModel
+ * Saved as file IModel.java
  */
 public interface IModel {
 

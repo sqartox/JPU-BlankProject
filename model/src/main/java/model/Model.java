@@ -8,9 +8,9 @@ import element.Element;
 import element.Map;
 
 /**
- * The Class Model.
- *
- * @author Jean-Aymeric Diet
+ * @author Jean michel crapaud
+ * The class Model
+ * Saved as file Model.java
  */
 public final class Model extends Observable implements IModel {
 	private Map map;
@@ -21,7 +21,12 @@ public final class Model extends Observable implements IModel {
 	public Model() {
 		this.map = new Map();
 	}
-
+	
+	/**
+	 * Gets the map.
+	 *
+	 * @return the map
+	 */
 	public Map getMap() {
 		return this.map;
 	}

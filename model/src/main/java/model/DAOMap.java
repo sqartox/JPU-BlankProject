@@ -7,12 +7,13 @@ import java.sql.SQLException;
 
 import element.Map;
 
-/**
- * The Class DAOHelloWorld.
- *
- * @author Jean-Aymeric Diet
- */
 
+/**
+ * @author Jean michel crapaud
+ * DAOMap
+ * DAOMap.java
+ * @param <M>
+ */
 class DAOMap<M extends Map> {
 
 	private Connection connection;
@@ -31,27 +32,6 @@ class DAOMap<M extends Map> {
 	
 	protected Connection getConnection() {
 		return this.connection;
-	}
-
-	
-	public boolean create(final Map map) {
-		// Not implemented
-		return false;
-	}
-
-	public boolean delete(final Map map) {
-		// Not implemented
-		return false;
-	}
-
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see model.DAOEntity#update(model.Entity)
-	 */
-	public boolean update(final Map map) {
-		// Not implemented
-		return false;
 	}
 
 	/*

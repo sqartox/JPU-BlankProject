@@ -1,9 +1,9 @@
 package contract;
 
 /**
- * The Interface IController.
- *
- * @author Jean-Aymeric Diet
+ * @author Jean michel crapaud
+ * The class IController
+ * Saved as file IController.java
  */
 public interface IController {
 

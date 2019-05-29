@@ -12,9 +12,9 @@ import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 
 /**
- * The Class ViewPanel.
- *
- * @author Jean-Aymeric Diet
+ * @author Jean michel crapaud
+ * The class ViewPanel
+ * Saved as file ViewPanel.java
  */
 class ViewPanel extends JPanel implements Observer {
 

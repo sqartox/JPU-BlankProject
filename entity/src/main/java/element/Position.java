@@ -1,5 +1,10 @@
 package element;
 
+/**
+ * @author Jean michel crapaud
+ * The class Position
+ * Saved as file Position.java
+ */
 public class Position {
 	private int x;
 	private int y;

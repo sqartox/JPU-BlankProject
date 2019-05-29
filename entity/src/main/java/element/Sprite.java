@@ -6,6 +6,11 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
+/**
+ * @author Jean michel crapaud
+ * The class Sprite
+ * Saved as file Sprite.java
+ */
 public class Sprite {
 
 	/** The image name. */

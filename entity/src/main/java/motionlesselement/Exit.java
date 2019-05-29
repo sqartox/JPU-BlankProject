@@ -3,6 +3,11 @@ package motionlesselement;
 import element.Sprite;
 import element.Transparency;
 
+/**
+ * @author Jean michel crapaud
+ * The class Exit
+ * Saved as file Exit.java
+ */
 public class Exit extends MotionlessElement {
 
 	private static final Sprite SPRITE = new Sprite("Door");

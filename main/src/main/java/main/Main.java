@@ -10,12 +10,9 @@ import model.Model;
 import view.View;
 
 /**
- * The Class Main.
- * 
- * Test merge
- * This is another test
- *
- * @author Jean-Aymeric Diet
+ * @author Jean michel crapaud
+ * The class Main
+ * Saved as file Main.java
  */
 public abstract class Main {
 
@@ -27,8 +24,6 @@ public abstract class Main {
      * @throws InterruptedException 
      */
 	
-	
-	//This is a comment
     public static void main(final String[] args) throws InterruptedException {
         final Model model = new Model();
         final View view = new View(model);

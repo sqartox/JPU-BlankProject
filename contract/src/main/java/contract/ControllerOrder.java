@@ -1,11 +1,9 @@
 package contract;
 
 /**
- * The Enum ControllerOrder.
- *
- *Test for GitHub
- *
- * @author Jean-Aymeric Diet
+ * @author Jean michel crapaud
+ * The class ControllerOrder
+ * Saved as file ControllerOrder.java
  */
 public enum ControllerOrder {
 	

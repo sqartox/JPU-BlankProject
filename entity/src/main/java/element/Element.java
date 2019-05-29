@@ -7,6 +7,11 @@ import mobileelement.Stone;
 import motionlesselement.Exit;
 import motionlesselement.Ground;
 
+/**
+ * @author Jean michel crapaud
+ * The class Element
+ * Saved as file Element.java
+ */
 public abstract class Element {
 
 	protected Sprite sprite;
@@ -46,7 +51,10 @@ public abstract class Element {
 		this.position = new Position(x, y);
 	}
 
-	// Change position
+	/**
+	 * @param x
+	 * @param y
+	 */
 	public void changePosition(int x, int y) {
 		int currentX = this.getPosition().getX();
 		int currentY = this.getPosition().getY();
@@ -117,10 +125,16 @@ public abstract class Element {
 		return false;
 	}
 
+	/**
+	 * @return
+	 */
 	public Map getMap() {
 		return this.map;
 	}
 
+	/**
+	 * @param map
+	 */
 	public void setMap(Map map) {
 		this.map = map;
 	}

@@ -1,5 +1,10 @@
 package element;
 
+/**
+ * @author Jean michel crapaud
+ * The class Direction
+ * Saved as file Direction.java
+ */
 public enum Direction {
 	
 	/** Up direction */

@@ -1,9 +1,9 @@
 package contract;
 
 /**
- * The Interface IView.
- *
- * @author Jean-Aymeric Diet
+ * @author Jean michel crapaud
+ * The class IView
+ * Saved as file IView.java
  */
 public interface IView {
 

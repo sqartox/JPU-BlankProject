@@ -5,11 +5,28 @@ import element.Element;
 import element.Sprite;
 import element.Transparency;
 
+/**
+ * @author Jean michel crapaud
+ *
+ */
+/**
+ * @author Jean michel crapaud
+ * The class MobileElement
+ * Saved as file MobileElement.java
+ */
 public abstract class MobileElement extends Element {
 
 	protected Direction direction;
 	protected int speed;
 
+	/**
+	 * @param sprite
+	 * @param transparency
+	 * @param direction
+	 * @param x
+	 * @param y
+	 * @param speed
+	 */
 	MobileElement(Sprite sprite, Transparency transparency, Direction direction, int x, int y, int speed) {
 		super(sprite, transparency, x, y);
 		this.direction = direction;
@@ -20,10 +37,17 @@ public abstract class MobileElement extends Element {
 		super(null, Transparency.SOLID, 0, 0);
 	}
 
+	/**
+	 * @return
+	 */
 	public Direction getDirection() {
 		return direction;
 	}
 
+	/**
+	 * @param choice
+	 * @return
+	 */
 	public Direction chooseDirection(int choice) {
 		switch (choice) {
 		case 1:

@@ -10,9 +10,9 @@ import contract.IModel;
 import contract.IView;
 
 /**
- * The Class View.
- *
- * @author Jean-Aymeric Diet
+ * @author Jean michel crapaud
+ * The class View
+ * Saved as file View.java
  */
 public final class View implements IView, Runnable {
 

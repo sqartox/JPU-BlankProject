@@ -4,6 +4,11 @@ import element.Direction;
 import element.Sprite;
 import element.Transparency;
 
+/**
+ * @author Jean michel crapaud
+ * The class Diamond
+ * Saved as file Diamond.java
+ */
 public class Diamond extends MobileElement {
 
 	private static final Sprite SPRITE = new Sprite("Diamond");

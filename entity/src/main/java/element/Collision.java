@@ -9,6 +9,11 @@ import motionlesselement.Ground;
 import motionlesselement.IndoorWall;
 import motionlesselement.Wall;
 
+/**
+ * @author Jean michel crapaud
+ * The class Collision
+ * Saved as file Collision.java
+ */
 public class Collision {
 
 	private Map map;

@@ -5,9 +5,9 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 /**
- * The Class DBConnection.
- *
- * @author Jean-Aymeric Diet
+ * @author Jean michel crapaud
+ * The class DBConnection
+ * Saved as file DBConnection.java
  */
 final class DBConnection {
 	/** The instance. */

@@ -3,6 +3,11 @@ package motionlesselement;
 import element.Sprite;
 import element.Transparency;
 
+/**
+ * @author Jean michel crapaud
+ * The class Wall
+ * Saved as file Wall.java
+ */
 public class Wall extends MotionlessElement {
 
 	private static final Sprite SPRITE = new Sprite("Wall");

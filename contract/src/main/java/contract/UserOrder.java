@@ -1,5 +1,10 @@
 package contract;
 
+/**
+ * @author Jean michel crapaud
+ * The class UserOrder
+ * Saved as file UserOrder.java
+ */
 public class UserOrder {
 	private final int player;
 	private final ControllerOrder order;

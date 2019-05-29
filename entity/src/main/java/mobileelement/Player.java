@@ -4,6 +4,11 @@ import element.Direction;
 import element.Sprite;
 import element.Transparency;
 
+/**
+ * @author Jean michel crapaud
+ * The class Player
+ * Saved as file Player.java
+ */
 public class Player extends MobileElement {
 
 	private static final Sprite SPRITE = new Sprite("Rockford");

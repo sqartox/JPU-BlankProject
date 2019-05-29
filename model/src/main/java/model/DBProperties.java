@@ -5,9 +5,9 @@ import java.io.InputStream;
 import java.util.Properties;
 
 /**
- * The Class DBProperties.
- *
- * @author Jean-Aymeric Diet
+ * @author Jean michel crapaud
+ * The class DBProperties
+ * Saved as file DBProperties.java
  */
 class DBProperties extends Properties {
 

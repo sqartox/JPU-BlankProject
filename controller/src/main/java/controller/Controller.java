@@ -6,7 +6,9 @@ import contract.IModel;
 import contract.IView;
 
 /**
- * The Class Controller.
+ * @author Jean michel crapaud
+ * The class Controller
+ * Saved as file Controller.java
  */
 public final class Controller implements IController {
 

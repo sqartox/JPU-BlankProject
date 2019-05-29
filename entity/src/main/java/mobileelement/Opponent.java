@@ -4,6 +4,11 @@ import element.Direction;
 import element.Sprite;
 import element.Transparency;
 
+/**
+ * @author Jean michel crapaud
+ * The class Opponent
+ * Saved as file Opponent.java
+ */
 public class Opponent extends MobileElement {
 
 	private static final Sprite SPRITE = new Sprite("Opponent");

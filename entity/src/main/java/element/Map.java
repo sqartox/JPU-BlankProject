@@ -12,6 +12,11 @@ import motionlesselement.Ground;
 import motionlesselement.IndoorWall;
 import motionlesselement.Wall;
 
+/**
+ * @author Jean michel crapaud
+ * The class Map
+ * Saved as file Map.java
+ */
 public class Map {
 	private int id;
 	private String level;

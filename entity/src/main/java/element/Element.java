@@ -53,6 +53,7 @@ public abstract class Element {
 		this.objects = this.getMap().getMapObjects();
 		this.collision = new Collision(this.map);
 		if (this instanceof Player) {
+			this.collision.moveStoneByPlayer(currentX + x, currentY);
 			if (this.collision.checkCollision(currentX + x, currentY + y)) {
 				this.getDiamond(currentX + x, currentY + y);
 				this.objects[currentX + x][currentY + y] = this.objects[currentX][currentY];

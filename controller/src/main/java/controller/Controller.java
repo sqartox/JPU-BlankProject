@@ -135,7 +135,7 @@ public final class Controller implements IController {
 	public final void play() throws InterruptedException {
 		int moveOn = 1;
 		while (true) {
-			Thread.sleep(300);
+			Thread.sleep(200);
 			if (moveOn == 4) {
 				this.model.getMap().getOpponent().forEach((opponent) -> opponent.refreshOpponents());
 				Thread.sleep(25);

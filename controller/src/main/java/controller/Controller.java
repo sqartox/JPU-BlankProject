@@ -135,7 +135,7 @@ public final class Controller implements IController {
 	public final void play() throws InterruptedException {
 		int moveOn = 1;
 		while (true) {
-			Thread.sleep(200);
+			Thread.sleep(300);
 			if (moveOn == 4) {
 				this.model.getMap().getOpponent().forEach((opponent) -> opponent.refreshOpponents());
 				Thread.sleep(25);
@@ -144,16 +144,12 @@ public final class Controller implements IController {
 			} else {
 				moveOn++;
 			}
-			if (moveOn == 4 || moveOn == 2) {
-				this.model.getMap().getStone().forEach((stone) -> stone.refreshStones());
-				this.model.modelNotify();
-			}
-			if (moveOn == 1 || moveOn == 3) {
-				this.model.getMap().getDiamonds().forEach((diamond) -> diamond.refreshDiamonds());
-				this.model.modelNotify();
-			}
+			this.model.getMap().getStone().forEach((stone) -> stone.refreshStones());
+			this.model.getMap().getDiamonds().forEach((diamond) -> diamond.refreshDiamonds());
+			this.model.modelNotify();
 			endOfGame();
 		}
+
 	}
 
 	public void endOfGame() throws InterruptedException {

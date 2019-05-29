@@ -83,11 +83,11 @@ class ViewPanel extends JPanel implements Observer {
 			}
 			graphics.fillRect(0, 0, getWidth(), getHeight());
 			graphics.drawImage(img, 0, 0, 1920, 1080, this);
-				((Graphics2D) graphics).translate(
-						-this.getViewFrame().getModel().getMap().getPlayer().getPosition().getX() * DEFAULT_SPRITE_SIZE
-								* ZOOM + this.getWidth() / 2,
-						-this.getViewFrame().getModel().getMap().getPlayer().getPosition().getY() * DEFAULT_SPRITE_SIZE
-								* ZOOM + this.getHeight() / 2);
+//				((Graphics2D) graphics).translate(
+//						-this.getViewFrame().getModel().getMap().getPlayer().getPosition().getX() * DEFAULT_SPRITE_SIZE
+//								* ZOOM + this.getWidth() / 2,
+//						-this.getViewFrame().getModel().getMap().getPlayer().getPosition().getY() * DEFAULT_SPRITE_SIZE
+//								* ZOOM + this.getHeight() / 2);
 			((Graphics2D) graphics).scale(ZOOM, ZOOM);
 
 			for (int y = 0; y < this.getViewFrame().getModel().getMap().getWidth(); y++) {

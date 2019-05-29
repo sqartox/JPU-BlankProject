@@ -24,7 +24,8 @@ class ViewPanel extends JPanel implements Observer {
 	private static final long serialVersionUID = -998294702363713521L;
 
 	private static int DEFAULT_SPRITE_SIZE = 16;
-	private static double ZOOM = 3.5;
+	private static boolean LARGECAMERA = true;
+	private double zoom = 2.4;
 
 	/**
 	 * Instantiates a new view panel.
@@ -76,19 +77,26 @@ class ViewPanel extends JPanel implements Observer {
 			super.paintComponent(graphics);
 			Image img = null;
 			try {
-				img = ImageIO.read(new File("..\\entity\\src\\main\\resources\\sprite\\Backgroundd.png"));
+				img = ImageIO.read(new File("..\\entity\\src\\main\\resources\\sprite\\Font.png"));
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			graphics.fillRect(0, 0, getWidth(), getHeight());
 			graphics.drawImage(img, 0, 0, 1920, 1080, this);
-//				((Graphics2D) graphics).translate(
-//						-this.getViewFrame().getModel().getMap().getPlayer().getPosition().getX() * DEFAULT_SPRITE_SIZE
-//								* ZOOM + this.getWidth() / 2,
-//						-this.getViewFrame().getModel().getMap().getPlayer().getPosition().getY() * DEFAULT_SPRITE_SIZE
-//								* ZOOM + this.getHeight() / 2);
-			((Graphics2D) graphics).scale(ZOOM, ZOOM);
+			if (LARGECAMERA == false) {
+				this.zoom = 3.5;
+				((Graphics2D) graphics).translate(
+						-this.getViewFrame().getModel().getMap().getPlayer().getPosition().getX() * DEFAULT_SPRITE_SIZE
+								* zoom + this.getWidth() / 2,
+						-this.getViewFrame().getModel().getMap().getPlayer().getPosition().getY() * DEFAULT_SPRITE_SIZE
+								* zoom + this.getHeight() / 2);
+			}
+			if (LARGECAMERA) {
+				this.zoom = 2.4;
+				((Graphics2D) graphics).translate(0, 120);
+			}
+			((Graphics2D) graphics).scale(zoom, zoom);
 
 			for (int y = 0; y < this.getViewFrame().getModel().getMap().getWidth(); y++) {
 				for (int x = 0; x < this.getViewFrame().getModel().getMap().getHeight(); x++) {

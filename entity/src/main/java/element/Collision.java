@@ -65,9 +65,9 @@ public class Collision {
 	
 	public void moveStoneByPlayer(int x, int y) {
 		Element element = this.map.getMapObjects(x, y);
-		Element elementRight = this.map.getMapObjects(x + 1, y);
-		Element elementLeft = this.map.getMapObjects(x - 1, y);
 		if (element instanceof Stone) {
+			Element elementRight = this.map.getMapObjects(x + 1, y);
+			Element elementLeft = this.map.getMapObjects(x - 1, y);
 			if (elementRight instanceof Player && elementLeft instanceof Ground) {
 				((Stone) element).moveStone(((Stone) element).chooseDirection(3));
 			} else if (elementLeft instanceof Player && elementRight instanceof Ground) {

@@ -15,15 +15,13 @@ import motionlesselement.Ground;
 public abstract class Element {
 
 	protected Sprite sprite;
-	protected Transparency transparency;
 	protected Position position;
 	private Map map;
 	private Collision collision;
 	private Element[][] objects;
 
-	public Element(final Sprite sprite, final Transparency transparency, int x, int y) {
+	public Element(final Sprite sprite, int x, int y) {
 		this.setSprite(sprite);
-		this.setTranparency(transparency);
 		this.setPosition(x, y);
 	}
 
@@ -35,18 +33,17 @@ public abstract class Element {
 		this.sprite = sprite;
 	}
 
-	public Transparency getTranparency() {
-		return transparency;
-	}
-
-	public void setTranparency(Transparency tranparency) {
-		this.transparency = tranparency;
-	}
-
+	/**
+	 * @return Position
+	 */
 	public Position getPosition() {
 		return position;
 	}
 
+	/**
+	 * @param x
+	 * @param y
+	 */
 	public void setPosition(int x, int y) {
 		this.position = new Position(x, y);
 	}

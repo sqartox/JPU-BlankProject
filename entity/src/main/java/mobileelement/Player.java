@@ -2,7 +2,6 @@ package mobileelement;
 
 import element.Direction;
 import element.Sprite;
-import element.Transparency;
 
 /**
  * @author Jean michel crapaud
@@ -12,7 +11,9 @@ import element.Transparency;
 public class Player extends MobileElement {
 
 	private static final Sprite SPRITE = new Sprite("Rockford");
-	private static final Transparency TRANSPARENCY = Transparency.TRANSPARENT;
+    private static final Sprite SPRITE_LEFT = new Sprite("Left_Rockford");
+    private static final Sprite SPRITE_RIGHT = new Sprite("Right_Rockford");
+    private static final Sprite SPRITE_DOWN = new Sprite("Down_Rockford");
 	private static final Direction DIRECTION = null;
 	private static final int SPEED = 300;
 	private int diamondCount;
@@ -21,7 +22,7 @@ public class Player extends MobileElement {
 	private final int player;
 
 	public Player(int player, int x, int y) {
-		super(SPRITE, TRANSPARENCY, DIRECTION, x, y, SPEED);
+		super(SPRITE_DOWN, DIRECTION, x, y, SPEED);
 		this.player = player;
 		this.diamondCount = 0;
 		this.setState(true);
@@ -52,18 +53,21 @@ public class Player extends MobileElement {
 		switch (direction) {
 		case UP:
 			this.changePosition(0, -1);
+			this.setSprite(SPRITE);
 			break;
 		case DOWN:
 			this.changePosition(0, +1);
+			this.setSprite(SPRITE_DOWN);
 			break;
 		case LEFT:
 			this.changePosition(-1, 0);
+			this.setSprite(SPRITE_LEFT);
 			break;
 		case RIGHT:
 			this.changePosition(+1, 0);
+			this.setSprite(SPRITE_RIGHT);
 			break;
 		case NOTHING:
-			this.changePosition(0, 0);
 			break;
 		}
 	}

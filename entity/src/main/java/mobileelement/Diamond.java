@@ -2,7 +2,6 @@ package mobileelement;
 
 import element.Direction;
 import element.Sprite;
-import element.Transparency;
 
 /**
  * @author Jean michel crapaud
@@ -12,13 +11,12 @@ import element.Transparency;
 public class Diamond extends MobileElement {
 
 	private static final Sprite SPRITE = new Sprite("Diamond");
-	private static final Transparency TRANSPARENCY = Transparency.TRANSPARENT;
 	private static final Direction DIRECTION = null;
 	private static final int SPEED = 300;
 	private boolean isfalling;
 
 	public Diamond(int x, int y) {
-		super(SPRITE, TRANSPARENCY, DIRECTION, x, y, SPEED);
+		super(SPRITE, DIRECTION, x, y, SPEED);
 		this.setIsfalling(false);
 	}
 

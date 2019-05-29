@@ -3,16 +3,10 @@ package mobileelement;
 import element.Direction;
 import element.Element;
 import element.Sprite;
-import element.Transparency;
 
 /**
- * @author Jean michel crapaud
- *
- */
-/**
- * @author Jean michel crapaud
- * The class MobileElement
- * Saved as file MobileElement.java
+ * @author Jean michel crapaud The class MobileElement Saved as file
+ *         MobileElement.java
  */
 public abstract class MobileElement extends Element {
 
@@ -27,14 +21,14 @@ public abstract class MobileElement extends Element {
 	 * @param y
 	 * @param speed
 	 */
-	MobileElement(Sprite sprite, Transparency transparency, Direction direction, int x, int y, int speed) {
-		super(sprite, transparency, x, y);
+	MobileElement(Sprite sprite, Direction direction, int x, int y, int speed) {
+		super(sprite, x, y);
 		this.direction = direction;
 		this.speed = speed;
 	}
 
 	MobileElement() {
-		super(null, Transparency.SOLID, 0, 0);
+		super(null, 0, 0);
 	}
 
 	/**
@@ -58,8 +52,10 @@ public abstract class MobileElement extends Element {
 			return Direction.LEFT;
 		case 4:
 			return Direction.RIGHT;
-		default:
+		case 5:
 			return Direction.NOTHING;
+		default:
+			return null;
 		}
 	}
 

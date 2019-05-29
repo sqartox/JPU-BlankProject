@@ -133,11 +133,25 @@ public final class Controller implements IController {
 
 //Main while
 	public final void play() throws InterruptedException {
+		int moveOn = 1;
 		while (true) {
-			Thread.sleep(400);
-			this.model.getMap().getOpponent().forEach((opponent) -> opponent.refreshOpponents());
-			this.model.getMap().getStone().forEach((stone) -> stone.refreshStones());
-			this.model.modelNotify();
+			Thread.sleep(300);
+			if (moveOn == 4) {
+				this.model.getMap().getOpponent().forEach((opponent) -> opponent.refreshOpponents());
+				Thread.sleep(25);
+				this.model.modelNotify();
+				moveOn = 1;
+			} else {
+				moveOn++;
+			}
+			if (moveOn == 4 || moveOn == 2) {
+				this.model.getMap().getStone().forEach((stone) -> stone.refreshStones());
+				this.model.modelNotify();
+			}
+			if (moveOn == 1 || moveOn == 3) {
+				this.model.getMap().getDiamonds().forEach((diamond) -> diamond.refreshDiamonds());
+				this.model.modelNotify();
+			}
 			endOfGame();
 		}
 	}

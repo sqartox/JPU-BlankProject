@@ -1,5 +1,6 @@
 package element;
 
+import mobileelement.Diamond;
 import mobileelement.Opponent;
 import mobileelement.Player;
 import mobileelement.Stone;
@@ -37,7 +38,7 @@ public class Collision {
 		return false;
 	}
 
-	public boolean checkStoneCollision(int x, int y, boolean isfalling) {
+	public boolean checkCollisionOnPlayer(int x, int y, boolean isfalling) {
 		if ((this.map.getMapObjects(x, y) instanceof Ground)) {
 			return true;
 		}
@@ -47,14 +48,17 @@ public class Collision {
 		return false;
 	}
 
-	public boolean checkForStoneBellow(int x, int y) {
+	public boolean checkBellow(int x, int y) {
 		if (this.map.getMapObjects(x, y) instanceof Stone) {
+			return true;
+		}
+		if (this.map.getMapObjects(x, y) instanceof Diamond) {
 			return true;
 		}
 		return false;
 	}
 
-	public int moveStoneOnStone(int x, int y) {
+	public void gravityFall(int x, int y) {
 		Element element = this.map.getMapObjects(x, y);
 		Element elementRight = this.map.getMapObjects(x + 1, y);
 		Element elementDownRight = this.map.getMapObjects(x + 1, y + 1);
@@ -63,12 +67,16 @@ public class Collision {
 		if (element instanceof Stone) {
 			if (elementRight instanceof Ground && elementDownRight instanceof Ground) {
 				((Stone) element).moveStone(((Stone) element).chooseDirection(4));
-				return 1;
 			} else if (elementLeft instanceof Ground && elementDownLeft instanceof Ground) {
 				((Stone) element).moveStone(((Stone) element).chooseDirection(3));
-				return 2;
 			}
 		}
-		return 0;
+		if (element instanceof Diamond) {
+			if (elementRight instanceof Ground && elementDownRight instanceof Ground) {
+				((Diamond) element).moveDiamond(((Diamond) element).chooseDirection(4));
+			} else if (elementLeft instanceof Ground && elementDownLeft instanceof Ground) {
+				((Diamond) element).moveDiamond(((Diamond) element).chooseDirection(3));
+			}
+		}
 	}
 }

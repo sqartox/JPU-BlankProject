@@ -68,7 +68,7 @@ public abstract class Element {
 			}
 		}
 		if (this instanceof Stone) {
-			if (this.collision.checkStoneCollision(currentX + x, currentY + y,
+			if (this.collision.checkCollisionOnPlayer(currentX + x, currentY + y,
 					this.getMap().getThisStone(currentX, currentY).getIsFalling())) {
 				this.objects[currentX + x][currentY + y] = this.objects[currentX][currentY];
 				this.objects[currentX][currentY] = new Ground(currentX, currentY);
@@ -77,8 +77,22 @@ public abstract class Element {
 			} else {
 				this.getMap().getThisStone(currentX, currentY).setIsfalling(false);
 			}
-			if (this.collision.checkForStoneBellow(currentX, currentY + 1)) {
-				this.collision.moveStoneOnStone(currentX, currentY);
+			if (this.collision.checkBellow(currentX, currentY + 1)) {
+				this.collision.gravityFall(currentX, currentY);
+			}
+		}
+		if (this instanceof Diamond) {
+			if (this.collision.checkCollisionOnPlayer(currentX + x, currentY + y,
+					this.getMap().getThisDiamond(currentX, currentY).getIsFalling())) {
+				this.objects[currentX + x][currentY + y] = this.objects[currentX][currentY];
+				this.objects[currentX][currentY] = new Ground(currentX, currentY);
+				this.setPosition(currentX + x, currentY + y);
+				this.getMap().getThisDiamond(currentX + x, currentY + y).setIsfalling(true);
+			} else {
+				this.getMap().getThisDiamond(currentX, currentY).setIsfalling(false);
+			}
+			if (this.collision.checkBellow(currentX, currentY + 1)) {
+				this.collision.gravityFall(currentX, currentY);
 			}
 		}
 	}
@@ -95,7 +109,6 @@ public abstract class Element {
 	public void getDiamond(int x, int y) {
 		if (this.getMap().getMapObjects(x, y) instanceof Diamond) {
 			this.getMap().getPlayer().setDiamondCount(this.getMap().getPlayer().getDiamondCount() + 1);
-			System.out.println(this.getMap().getPlayer().getDiamondCount());
 		}
 	}
 

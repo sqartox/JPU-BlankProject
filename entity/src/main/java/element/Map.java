@@ -20,6 +20,7 @@ public class Map {
 	private int totalDiamonds;
 	private ArrayList<Stone> stone;
 	private ArrayList<Opponent> opponent;
+	private ArrayList<Diamond> diamond;
 
 	/**
 	 * Instantiates a new hello world.
@@ -31,6 +32,7 @@ public class Map {
 		this.setMapObjects();
 		stone = new ArrayList<Stone>();
 		opponent = new ArrayList<Opponent>();
+		diamond = new ArrayList<Diamond>();
 	}
 
 	/**
@@ -171,6 +173,10 @@ public class Map {
 	public Stone getThisStone(int x, int y) {
 		return (Stone) this.getMapObjects(x, y);
 	}
+	
+	public Diamond getThisDiamond(int x, int y) {
+		return (Diamond) this.getMapObjects(x, y);
+	}
 
 	public ArrayList<Stone> getStone() {
 		this.stone.clear();
@@ -182,6 +188,18 @@ public class Map {
 			}
 		}
 		return this.stone;
+	}
+	
+	public ArrayList<Diamond> getDiamonds() {
+		this.diamond.clear();
+		for (int y = 0; y < getHeight(); y++) {
+			for (int x = 0; x < getWidth(); x++) {
+				if (this.getMapObjects(x, y) instanceof Diamond) {
+					this.diamond.add((Diamond) this.getMapObjects(x, y));
+				}
+			}
+		}
+		return this.diamond;
 	}
 
 	public int getTotalDiamonds() {

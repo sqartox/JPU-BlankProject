@@ -19,18 +19,10 @@ public class Player extends MobileElement {
 	private int diamondCount;
 	private boolean state;
 
-	private final int player;
-
 	public Player(int player, int x, int y) {
 		super(SPRITE_DOWN, DIRECTION, x, y, SPEED);
-		this.player = player;
 		this.diamondCount = 0;
 		this.setState(true);
-	}
-
-	public Player(int player) {
-		super();
-		this.player = player;
 	}
 
 	public int getDiamondCount() {
@@ -39,14 +31,6 @@ public class Player extends MobileElement {
 
 	public void setDiamondCount(int diamondCount) {
 		this.diamondCount = diamondCount;
-	}
-
-	public int getPlayer() {
-		return player;
-	}
-
-	public boolean isPlayer(final int player) {
-		return this.player == player;
 	}
 
 	public void movePlayer(Direction direction) {

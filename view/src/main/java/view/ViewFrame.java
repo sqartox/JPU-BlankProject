@@ -39,41 +39,6 @@ class ViewFrame extends JFrame implements KeyListener {
 	}
 
 	/**
-	 * Instantiates a new view frame.
-	 *
-	 * @param model the model
-	 * @param gc    the gc
-	 */
-	public ViewFrame(final IModel model, final GraphicsConfiguration gc) {
-		super(gc);
-		this.buildViewFrame(model);
-	}
-
-	/**
-	 * Instantiates a new view frame.
-	 *
-	 * @param model the model
-	 * @param title the title
-	 * @throws HeadlessException the headless exception
-	 */
-	public ViewFrame(final IModel model, final String title) throws HeadlessException {
-		super(title);
-		this.buildViewFrame(model);
-	}
-
-	/**
-	 * Instantiates a new view frame.
-	 *
-	 * @param model the model
-	 * @param title the title
-	 * @param gc    the gc
-	 */
-	public ViewFrame(final IModel model, final String title, final GraphicsConfiguration gc) {
-		super(title, gc);
-		this.buildViewFrame(model);
-	}
-
-	/**
 	 * Gets the controller.
 	 *
 	 * @return the controller

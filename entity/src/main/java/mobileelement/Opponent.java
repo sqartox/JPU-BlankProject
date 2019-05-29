@@ -20,10 +20,6 @@ public class Opponent extends MobileElement {
 		this.setState(true);
 	}
 
-	public Opponent() {
-		super();
-	}
-
 	public void moveOpponent() {
 		int random = (int) (Math.random() * 4 + 1);
 		switch (random) {

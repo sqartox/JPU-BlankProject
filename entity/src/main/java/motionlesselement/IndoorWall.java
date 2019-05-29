@@ -14,8 +14,4 @@ public class IndoorWall extends MotionlessElement {
 	public IndoorWall(int x, int y) {
 		super(SPRITE, x, y);
 	}
-
-	public IndoorWall() {
-		super();
-	}
 }

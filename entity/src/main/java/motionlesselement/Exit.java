@@ -15,8 +15,4 @@ public class Exit extends MotionlessElement {
 		super(SPRITE, x, y);
 	}
 
-	public Exit() {
-		super();
-	}
-
 }

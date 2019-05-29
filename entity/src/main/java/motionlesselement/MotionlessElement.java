@@ -13,8 +13,5 @@ public abstract class MotionlessElement extends Element {
 	MotionlessElement(Sprite sprite, int x, int y) {
         super(sprite, x, y);
     }
-	
-	MotionlessElement() {
-        super(null, 0, 0);
-    }
+
 }

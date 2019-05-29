@@ -16,7 +16,6 @@ import motionlesselement.Wall;
  * @author Jean michel crapaud The class Map Saved as file Map.java
  */
 public class Map {
-	private int id;
 	private String level;
 
 	private Element[][] mapObjects;
@@ -29,7 +28,6 @@ public class Map {
 	 * Instantiates a new hello world.
 	 */
 	public Map(final int id, final String message) {
-		this.setId(id);
 		this.setMapDesign(message);
 		this.setMapObjects();
 		stone = new ArrayList<Stone>();
@@ -42,24 +40,6 @@ public class Map {
 	 */
 	public Map() {
 		this(0, "");
-	}
-
-	/**
-	 * Gets the id.
-	 *
-	 * @return the id
-	 */
-	public int getId() {
-		return this.id;
-	}
-
-	/**
-	 * Sets the id.
-	 *
-	 * @param id the new id
-	 */
-	public void setId(final int id) {
-		this.id = id;
 	}
 
 	/**

@@ -20,10 +20,6 @@ public class Diamond extends MobileElement {
 		this.setIsfalling(false);
 	}
 
-	public Diamond() {
-		super();
-	}
-	
 	public void moveDiamond(Direction direction) {
 		switch (direction) {
 		case DOWN:

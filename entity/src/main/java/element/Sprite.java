@@ -22,10 +22,6 @@ public class Sprite {
 		this.img = this.loadSprite(this.sprite_name);
 	}
 
-	public String getSpriteName() {
-		return sprite_name;
-	}
-
 	public void setSpriteName(String sprite_name) {
 		this.sprite_name = sprite_name;
 	}

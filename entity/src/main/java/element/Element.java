@@ -130,10 +130,6 @@ public abstract class Element {
 		}
 	}
 
-	public boolean isPlayer(int player) {
-		return false;
-	}
-
 	/**
 	 * @return
 	 */

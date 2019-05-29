@@ -14,8 +14,4 @@ public class Dirt extends MotionlessElement {
 		public Dirt(int x, int y) {
 			super(SPRITE, x, y);
 		}
-		
-	    public Dirt() {
-	        super();
-	    }
 }

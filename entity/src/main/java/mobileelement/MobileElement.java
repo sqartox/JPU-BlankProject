@@ -26,18 +26,7 @@ public abstract class MobileElement extends Element {
 		this.direction = direction;
 		this.speed = speed;
 	}
-
-	MobileElement() {
-		super(null, 0, 0);
-	}
-
-	/**
-	 * @return
-	 */
-	public Direction getDirection() {
-		return direction;
-	}
-
+	
 	/**
 	 * @param choice
 	 * @return
@@ -52,26 +41,8 @@ public abstract class MobileElement extends Element {
 			return Direction.LEFT;
 		case 4:
 			return Direction.RIGHT;
-		case 5:
-			return Direction.NOTHING;
 		default:
 			return null;
 		}
-	}
-
-	public void setDirection(Direction direction) {
-		this.direction = direction;
-	}
-
-	public int getSpeed() {
-		return speed;
-	}
-
-	public void setSpeed(int speed) {
-		this.speed = speed;
-	}
-
-	public boolean isPlayer(final int player) {
-		return false;
 	}
 }

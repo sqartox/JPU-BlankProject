@@ -19,10 +19,6 @@ public class Stone extends MobileElement {
 		super(SPRITE, DIRECTION, x, y, SPEED);
 		this.setIsfalling(false);
 	}
-
-	public Stone() {
-		super();
-	}
 	
 	public void moveStone(Direction direction) {
 		switch (direction) {

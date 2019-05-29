@@ -14,8 +14,4 @@ public class Wall extends MotionlessElement {
 	public Wall(int x, int y) {
 		super(SPRITE, x, y);
 	}
-
-	public Wall() {
-		super();
-	}
 }

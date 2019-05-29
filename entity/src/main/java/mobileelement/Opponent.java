@@ -13,9 +13,11 @@ public class Opponent extends MobileElement {
 	private static final Sprite SPRITE = new Sprite("Opponent");
 	private static final Direction DIRECTION = null;
 	private static final int SPEED = 300;
+	private boolean state;
 
 	public Opponent(int x, int y) {
 		super(SPRITE, DIRECTION, x, y, SPEED);
+		this.setState(true);
 	}
 
 	public Opponent() {
@@ -43,6 +45,16 @@ public class Opponent extends MobileElement {
 	}
 
 	public void refreshOpponents() {
-		this.moveOpponent();
+		if (this.isAlive()) {
+			this.moveOpponent();
+		}
+	}
+
+	public boolean isAlive() {
+		return state;
+	}
+
+	public void setState(boolean state) {
+		this.state = state;
 	}
 }

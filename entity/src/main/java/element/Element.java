@@ -8,9 +8,7 @@ import motionlesselement.Exit;
 import motionlesselement.Ground;
 
 /**
- * @author Jean michel crapaud
- * The class Element
- * Saved as file Element.java
+ * @author Jean michel crapaud The class Element Saved as file Element.java
  */
 public abstract class Element {
 
@@ -71,9 +69,15 @@ public abstract class Element {
 				this.objects[currentX + x][currentY + y] = this.objects[currentX][currentY];
 				this.objects[currentX][currentY] = new Ground(currentX, currentY);
 				this.setPosition(currentX + x, currentY + y);
+			} else {
+				Opponent opponent = (Opponent) this;
+				opponent.refreshOpponents();
 			}
 		}
-		if (this instanceof Stone) {
+
+		if (this instanceof Stone)
+
+		{
 			if (this.collision.checkCollisionOnPlayer(currentX + x, currentY + y,
 					this.getMap().getThisStone(currentX, currentY).getIsFalling())) {
 				this.objects[currentX + x][currentY + y] = this.objects[currentX][currentY];
@@ -113,8 +117,16 @@ public abstract class Element {
 	}
 
 	public void getDiamond(int x, int y) {
-		if (this.getMap().getMapObjects(x, y) instanceof Diamond) {
+		Element element = this.getMap().getMapObjects(x, y);
+		if (element instanceof Diamond) {
 			this.getMap().getPlayer().setDiamondCount(this.getMap().getPlayer().getDiamondCount() + 1);
+			System.out.println(this.getMap().getPlayer().getDiamondCount());
+		}
+		if (element instanceof Opponent) {
+			if (((Opponent) element).isAlive() == false){
+				this.getMap().getPlayer().setDiamondCount(this.getMap().getPlayer().getDiamondCount() + 2);
+				System.out.println(this.getMap().getPlayer().getDiamondCount());
+			}
 		}
 	}
 

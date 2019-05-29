@@ -13,16 +13,14 @@ import motionlesselement.IndoorWall;
 import motionlesselement.Wall;
 
 /**
- * @author Jean michel crapaud
- * The class Map
- * Saved as file Map.java
+ * @author Jean michel crapaud The class Map Saved as file Map.java
  */
 public class Map {
 	private int id;
 	private String level;
 
 	private Element[][] mapObjects;
-	private int totalDiamonds;
+	private static int TOTALDIAMONDS = 10;
 	private ArrayList<Stone> stone;
 	private ArrayList<Opponent> opponent;
 	private ArrayList<Diamond> diamond;
@@ -31,7 +29,6 @@ public class Map {
 	 * Instantiates a new hello world.
 	 */
 	public Map(final int id, final String message) {
-		this.setTotalDiamonds(0);
 		this.setId(id);
 		this.setMapDesign(message);
 		this.setMapObjects();
@@ -128,7 +125,6 @@ public class Map {
 						break;
 					case 'd':
 						mapObjects[x][y] = new Diamond(x, y);
-						this.setTotalDiamonds(this.getTotalDiamonds() + 1);
 						break;
 					case 'e':
 						mapObjects[x][y] = new Exit(x, y);
@@ -165,10 +161,14 @@ public class Map {
 	}
 
 	public ArrayList<Opponent> getOpponent() {
+		this.opponent.clear();
 		for (int y = 0; y < getHeight(); y++) {
 			for (int x = 0; x < getWidth(); x++) {
-				if (this.getMapObjects(x, y) instanceof Opponent) {
-					this.opponent.add((Opponent) this.getMapObjects(x, y));
+				Element element = this.getMapObjects(x, y);
+				if (element instanceof Opponent) {
+					if (element.getMap().getThisOpponent(x, y).isAlive()) {
+						this.opponent.add((Opponent) this.getMapObjects(x, y));
+					}
 				}
 			}
 		}
@@ -178,7 +178,11 @@ public class Map {
 	public Stone getThisStone(int x, int y) {
 		return (Stone) this.getMapObjects(x, y);
 	}
-	
+
+	public Opponent getThisOpponent(int x, int y) {
+		return (Opponent) this.getMapObjects(x, y);
+	}
+
 	public Diamond getThisDiamond(int x, int y) {
 		return (Diamond) this.getMapObjects(x, y);
 	}
@@ -194,7 +198,7 @@ public class Map {
 		}
 		return this.stone;
 	}
-	
+
 	public ArrayList<Diamond> getDiamonds() {
 		this.diamond.clear();
 		for (int y = 0; y < getHeight(); y++) {
@@ -208,10 +212,6 @@ public class Map {
 	}
 
 	public int getTotalDiamonds() {
-		return totalDiamonds;
-	}
-
-	public void setTotalDiamonds(int totalDiamonds) {
-		this.totalDiamonds = totalDiamonds;
+		return TOTALDIAMONDS;
 	}
 }

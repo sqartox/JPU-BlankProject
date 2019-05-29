@@ -138,7 +138,7 @@ public final class Controller implements IController {
 		int moveOn = 1;
 		while (true) {
 			Thread.sleep(300);
-			if (moveOn == 4) {
+			if (moveOn == 2) {
 				this.model.getMap().getOpponent().forEach((opponent) -> opponent.refreshOpponents());
 				this.model.modelNotify();
 				moveOn = 1;

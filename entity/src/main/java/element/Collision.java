@@ -10,9 +10,7 @@ import motionlesselement.IndoorWall;
 import motionlesselement.Wall;
 
 /**
- * @author Jean michel crapaud
- * The class Collision
- * Saved as file Collision.java
+ * @author Jean michel crapaud The class Collision Saved as file Collision.java
  */
 public class Collision {
 
@@ -23,11 +21,14 @@ public class Collision {
 	}
 
 	public boolean checkCollision(int x, int y) {
-		if (this.map.getMapObjects(x, y) instanceof Opponent) {
-			this.map.getPlayer().setState(false);
+		Element element = this.map.getMapObjects(x, y);
+		if (element instanceof Opponent) {
+			if (((Opponent) element).isAlive()) {
+				this.map.getPlayer().setState(false);
+			}
 		}
-		if ((this.map.getMapObjects(x, y) instanceof Wall) || (this.map.getMapObjects(x, y) instanceof IndoorWall)
-				|| (this.map.getMapObjects(x, y) instanceof Stone) || (this.map.getMapObjects(x, y) instanceof Exit)) {
+		if ((element instanceof Wall) || (element instanceof IndoorWall) || (element instanceof Stone)
+				|| (element instanceof Exit)) {
 			return false;
 		}
 		return true;
@@ -50,6 +51,9 @@ public class Collision {
 		if (this.map.getMapObjects(x, y) instanceof Player && isfalling) {
 			this.map.getPlayer().setState(false);
 		}
+		if (this.map.getMapObjects(x, y) instanceof Opponent) {
+			this.map.getThisOpponent(x, y).setState(false);
+		}
 		return false;
 	}
 
@@ -62,7 +66,7 @@ public class Collision {
 		}
 		return false;
 	}
-	
+
 	public void moveStoneByPlayer(int x, int y) {
 		Element element = this.map.getMapObjects(x, y);
 		if (element instanceof Stone) {

@@ -140,7 +140,6 @@ public final class Controller implements IController {
 			Thread.sleep(300);
 			if (moveOn == 4) {
 				this.model.getMap().getOpponent().forEach((opponent) -> opponent.refreshOpponents());
-				Thread.sleep(25);
 				this.model.modelNotify();
 				moveOn = 1;
 			} else {

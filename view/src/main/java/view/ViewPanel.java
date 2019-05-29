@@ -24,8 +24,9 @@ class ViewPanel extends JPanel implements Observer {
 	private static final long serialVersionUID = -998294702363713521L;
 
 	private static int DEFAULT_SPRITE_SIZE = 16;
-	private static boolean LARGECAMERA = true;
+	private static boolean LARGECAMERA = false;
 	private double zoom = 2.4;
+	private Image img;
 
 	/**
 	 * Instantiates a new view panel.
@@ -35,6 +36,13 @@ class ViewPanel extends JPanel implements Observer {
 	public ViewPanel(final ViewFrame viewFrame) {
 		this.setViewFrame(viewFrame);
 		viewFrame.getModel().getObservable().addObserver(this);
+		this.img = null;
+		try {
+			img = ImageIO.read(new File("..\\entity\\src\\main\\resources\\sprite\\Font.png"));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	/**
@@ -75,13 +83,6 @@ class ViewPanel extends JPanel implements Observer {
 		if (this.getViewFrame().getModel().getMap().getPlayer() != null) {
 			graphics.clearRect(0, 0, this.getWidth(), this.getHeight());
 			super.paintComponent(graphics);
-			Image img = null;
-			try {
-				img = ImageIO.read(new File("..\\entity\\src\\main\\resources\\sprite\\Font.png"));
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
 			graphics.fillRect(0, 0, getWidth(), getHeight());
 			graphics.drawImage(img, 0, 0, 1920, 1080, this);
 			if (LARGECAMERA == false) {
@@ -100,9 +101,7 @@ class ViewPanel extends JPanel implements Observer {
 
 			for (int y = 0; y < this.getViewFrame().getModel().getMap().getWidth(); y++) {
 				for (int x = 0; x < this.getViewFrame().getModel().getMap().getHeight(); x++) {
-					graphics.drawImage(this.getViewFrame().getModel().getMap().getMapObjects(y, x).getSprite()
-							.loadSprite(this.getViewFrame().getModel().getMap().getMapObjects(y, x).getSprite()
-									.getSpriteName()),
+					graphics.drawImage(this.getViewFrame().getModel().getMap().getMapObjects(y, x).getSprite().getImage(),
 							y * DEFAULT_SPRITE_SIZE, x * DEFAULT_SPRITE_SIZE, this);
 				}
 			}

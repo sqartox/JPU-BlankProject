@@ -15,9 +15,11 @@ public class Sprite {
 
 	/** The image name. */
 	private String sprite_name;
+	private BufferedImage img;
 
 	public Sprite(final String sprite_name) {
 		this.setSpriteName(sprite_name);
+		this.img = this.loadSprite(this.sprite_name);
 	}
 
 	public String getSpriteName() {
@@ -36,5 +38,8 @@ public class Sprite {
 		}
 
 		return null;
+	}
+	public BufferedImage getImage() {
+		return this.img;
 	}
 }

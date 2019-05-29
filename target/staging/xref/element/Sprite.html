@@ -32,16 +32,15 @@
 <a class="jxr_linenumber" name="L24" href="#L24">24</a>  	}
 <a class="jxr_linenumber" name="L25" href="#L25">25</a>  	
 <a class="jxr_linenumber" name="L26" href="#L26">26</a>  	<strong class="jxr_keyword">public</strong> BufferedImage loadSprite(String sprite_name) {
-<a class="jxr_linenumber" name="L27" href="#L27">27</a>  		BufferedImage sprite = <strong class="jxr_keyword">null</strong>;
-<a class="jxr_linenumber" name="L28" href="#L28">28</a>  		<strong class="jxr_keyword">try</strong> {
-<a class="jxr_linenumber" name="L29" href="#L29">29</a>  			sprite = ImageIO.read(<strong class="jxr_keyword">new</strong> File(<span class="jxr_string">"..&#92;&#92;entity&#92;&#92;src&#92;&#92;main&#92;&#92;resources&#92;&#92;sprite&#92;&#92;"</span> + sprite_name  + <span class="jxr_string">".png"</span>));
-<a class="jxr_linenumber" name="L30" href="#L30">30</a>  		} <strong class="jxr_keyword">catch</strong> (IOException e) {
-<a class="jxr_linenumber" name="L31" href="#L31">31</a>  			e.printStackTrace();
-<a class="jxr_linenumber" name="L32" href="#L32">32</a>  		}
-<a class="jxr_linenumber" name="L33" href="#L33">33</a>  
-<a class="jxr_linenumber" name="L34" href="#L34">34</a>  		<strong class="jxr_keyword">return</strong> sprite;
-<a class="jxr_linenumber" name="L35" href="#L35">35</a>  	}
-<a class="jxr_linenumber" name="L36" href="#L36">36</a>  }
+<a class="jxr_linenumber" name="L27" href="#L27">27</a>  		<strong class="jxr_keyword">try</strong> {
+<a class="jxr_linenumber" name="L28" href="#L28">28</a>  			<strong class="jxr_keyword">return</strong> ImageIO.read(<strong class="jxr_keyword">new</strong> File(<span class="jxr_string">"..&#92;&#92;entity&#92;&#92;src&#92;&#92;main&#92;&#92;resources&#92;&#92;sprite&#92;&#92;"</span> + sprite_name  + <span class="jxr_string">".png"</span>));
+<a class="jxr_linenumber" name="L29" href="#L29">29</a>  		} <strong class="jxr_keyword">catch</strong> (IOException e) {
+<a class="jxr_linenumber" name="L30" href="#L30">30</a>  			e.printStackTrace();
+<a class="jxr_linenumber" name="L31" href="#L31">31</a>  		}
+<a class="jxr_linenumber" name="L32" href="#L32">32</a>  
+<a class="jxr_linenumber" name="L33" href="#L33">33</a>  		<strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">null</strong>;
+<a class="jxr_linenumber" name="L34" href="#L34">34</a>  	}
+<a class="jxr_linenumber" name="L35" href="#L35">35</a>  }
 </pre>
 <hr/>
 <div id="footer">Copyright &#169; 2019. All rights reserved.</div>

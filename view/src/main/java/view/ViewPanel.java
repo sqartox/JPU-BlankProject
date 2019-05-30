@@ -82,7 +82,7 @@ class ViewPanel extends JPanel implements Observer {
 	 */
 	@Override
 	protected void paintComponent(final Graphics graphics) {
-		
+
 		if (this.getViewFrame().getModel().getMap().getMapDesign() != mapDesign) {
 			this.getViewFrame().setCount(0);
 		}
@@ -114,11 +114,15 @@ class ViewPanel extends JPanel implements Observer {
 			}
 		}
 		graphics.setColor(new Color(0xFFFFFF));
-		graphics.drawString("Total time: " + String.format ("%.1f", this.getViewFrame().getTotalCount()), 10, -20);
-		graphics.drawString("Level time: " + String.format ("%.1f", this.getViewFrame().getCount()), 10, -5);
+		graphics.drawString("Total time: " + String.format("%.1f", this.getViewFrame().getTotalCount()), 10, -20);
+		graphics.drawString("Level time: " + String.format("%.1f", this.getViewFrame().getCount()), 10, -5);
+		if (this.getViewFrame().getModel().getMap().getPlayer() != null) {
+			graphics.drawString("Current diamonds: "
+					+ this.getViewFrame().getModel().getMap().getPlayer().getDiamondCount() + "/10 (needed)", 610, -5);
+		}
 		// graphics.drawString(this.getViewFrame().getModel().getMap().getMapDesign(),
 		// 0, 0);
-		
+
 		mapDesign = this.getViewFrame().getModel().getMap().getMapDesign();
 	}
 }

@@ -9,13 +9,16 @@ import element.Map;
 
 
 /**
+ * The Class DAOMap.
+ *
  * @author Jean michel crapaud
  * DAOMap
  * DAOMap.java
- * @param <M>
+ * @param <M> the generic type
  */
 class DAOMap<M extends Map> {
 
+	/** The connection. */
 	private Connection connection;
 
 	/**
@@ -30,10 +33,21 @@ class DAOMap<M extends Map> {
 		this.connection = connection;
 	}
 	
+	/**
+	 * Gets the connection.
+	 *
+	 * @return the connection
+	 */
 	protected Connection getConnection() {
 		return this.connection;
 	}
 
+	/**
+	 * Find.
+	 *
+	 * @param id the id
+	 * @return the map
+	 */
 	/*
 	 * (non-Javadoc)
 	 *

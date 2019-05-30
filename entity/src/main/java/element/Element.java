@@ -8,30 +8,60 @@ import motionlesselement.Exit;
 import motionlesselement.Ground;
 
 /**
+ * The Class Element.
+ *
  * @author Jean michel crapaud The class Element Saved as file Element.java
  */
 public abstract class Element {
 
+	/** The sprite. */
 	protected Sprite sprite;
+	
+	/** The position. */
 	protected Position position;
+	
+	/** The map. */
 	private Map map;
+	
+	/** The collision. */
 	private Collision collision;
+	
+	/** The objects. */
 	private Element[][] objects;
 
+	/**
+	 * Instantiates a new element.
+	 *
+	 * @param sprite the sprite
+	 * @param x the x
+	 * @param y the y
+	 */
 	public Element(final Sprite sprite, int x, int y) {
 		this.setSprite(sprite);
 		this.setPosition(x, y);
 	}
 
+	/**
+	 * Gets the sprite.
+	 *
+	 * @return the sprite
+	 */
 	public Sprite getSprite() {
 		return sprite;
 	}
 
+	/**
+	 * Sets the sprite.
+	 *
+	 * @param sprite the new sprite
+	 */
 	public void setSprite(Sprite sprite) {
 		this.sprite = sprite;
 	}
 
 	/**
+	 * Gets the position.
+	 *
 	 * @return Position
 	 */
 	public Position getPosition() {
@@ -39,16 +69,20 @@ public abstract class Element {
 	}
 
 	/**
-	 * @param x
-	 * @param y
+	 * Sets the position.
+	 *
+	 * @param x the x
+	 * @param y the y
 	 */
 	public void setPosition(int x, int y) {
 		this.position = new Position(x, y);
 	}
 
 	/**
-	 * @param x
-	 * @param y
+	 * Change position.
+	 *
+	 * @param x the x
+	 * @param y the y
 	 */
 	public void changePosition(int x, int y) {
 		int currentX = this.getPosition().getX();
@@ -107,6 +141,13 @@ public abstract class Element {
 		}
 	}
 
+	/**
+	 * Check for exit.
+	 *
+	 * @param x the x
+	 * @param y the y
+	 * @return true, if successful
+	 */
 	public boolean checkForExit(int x, int y) {
 		int currentX = this.getPosition().getX();
 		int currentY = this.getPosition().getY();
@@ -116,6 +157,13 @@ public abstract class Element {
 		return false;
 	}
 
+	/**
+	 * Gets the diamond.
+	 *
+	 * @param x the x
+	 * @param y the y
+	 * @return the diamond
+	 */
 	public void getDiamond(int x, int y) {
 		Element element = this.getMap().getMapObjects(x, y);
 		if (element instanceof Diamond) {
@@ -131,14 +179,18 @@ public abstract class Element {
 	}
 
 	/**
-	 * @return
+	 * Gets the map.
+	 *
+	 * @return the map
 	 */
 	public Map getMap() {
 		return this.map;
 	}
 
 	/**
-	 * @param map
+	 * Sets the map.
+	 *
+	 * @param map the new map
 	 */
 	public void setMap(Map map) {
 		this.map = map;

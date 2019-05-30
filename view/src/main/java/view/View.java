@@ -10,6 +10,8 @@ import contract.IModel;
 import contract.IView;
 
 /**
+ * The Class View.
+ *
  * @author Jean michel crapaud
  * The class View
  * Saved as file View.java
@@ -62,10 +64,18 @@ public final class View implements IView, Runnable {
 		}
 	}
 
+	/**
+	 * Prints the message.
+	 *
+	 * @param message the message
+	 */
 	public void printMessage(final String message) {
 		this.viewFrame.printMessage(message);
 	}
 
+	/**
+	 * Run.
+	 */
 	public void run() {
 		this.viewFrame.setVisible(true);
 	}

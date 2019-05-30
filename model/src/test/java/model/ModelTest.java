@@ -4,6 +4,9 @@
  */
 package model;
 
+/**
+ * The Class ModelTest.
+ */
 public class ModelTest {
     /*private Model model;
 

@@ -10,16 +10,31 @@ import motionlesselement.IndoorWall;
 import motionlesselement.Wall;
 
 /**
+ * The Class Collision.
+ *
  * @author Jean michel crapaud The class Collision Saved as file Collision.java
  */
 public class Collision {
 
+	/** The map. */
 	private Map map;
 
+	/**
+	 * Instantiates a new collision.
+	 *
+	 * @param map the map
+	 */
 	public Collision(Map map) {
 		this.map = map;
 	}
 
+	/**
+	 * Check collision.
+	 *
+	 * @param x the x
+	 * @param y the y
+	 * @return true, if successful
+	 */
 	public boolean checkCollision(int x, int y) {
 		Element element = this.map.getMapObjects(x, y);
 		if (element instanceof Opponent) {
@@ -34,6 +49,13 @@ public class Collision {
 		return true;
 	}
 
+	/**
+	 * Check opponent collision.
+	 *
+	 * @param x the x
+	 * @param y the y
+	 * @return true, if successful
+	 */
 	public boolean checkOpponentCollision(int x, int y) {
 		if ((this.map.getMapObjects(x, y) instanceof Ground)) {
 			return true;
@@ -44,6 +66,14 @@ public class Collision {
 		return false;
 	}
 
+	/**
+	 * Check collision on player.
+	 *
+	 * @param x the x
+	 * @param y the y
+	 * @param isfalling the isfalling
+	 * @return true, if successful
+	 */
 	public boolean checkCollisionOnPlayer(int x, int y, boolean isfalling) {
 		if ((this.map.getMapObjects(x, y) instanceof Ground)) {
 			return true;
@@ -57,6 +87,13 @@ public class Collision {
 		return false;
 	}
 
+	/**
+	 * Check bellow.
+	 *
+	 * @param x the x
+	 * @param y the y
+	 * @return true, if successful
+	 */
 	public boolean checkBellow(int x, int y) {
 		if (this.map.getMapObjects(x, y) instanceof Stone) {
 			return true;
@@ -67,6 +104,12 @@ public class Collision {
 		return false;
 	}
 
+	/**
+	 * Move stone by player.
+	 *
+	 * @param x the x
+	 * @param y the y
+	 */
 	public void moveStoneByPlayer(int x, int y) {
 		Element element = this.map.getMapObjects(x, y);
 		if (element instanceof Stone) {
@@ -80,6 +123,12 @@ public class Collision {
 		}
 	}
 
+	/**
+	 * Gravity fall.
+	 *
+	 * @param x the x
+	 * @param y the y
+	 */
 	public void gravityFall(int x, int y) {
 		Element element = this.map.getMapObjects(x, y);
 		Element elementRight = this.map.getMapObjects(x + 1, y);

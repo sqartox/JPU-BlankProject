@@ -13,6 +13,8 @@ import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 
 /**
+ * The Class ViewPanel.
+ *
  * @author Jean michel crapaud The class ViewPanel Saved as file ViewPanel.java
  */
 class ViewPanel extends JPanel implements Observer {
@@ -22,10 +24,19 @@ class ViewPanel extends JPanel implements Observer {
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = -998294702363713521L;
 
+	/** The default sprite size. */
 	private static int DEFAULT_SPRITE_SIZE = 16;
+	
+	/** The largecamera. */
 	private static boolean LARGECAMERA = true;
+	
+	/** The zoom. */
 	private double zoom = 2.4;
+	
+	/** The img. */
 	private Image img;
+	
+	/** The map design. */
 	private String mapDesign;
 
 	/**
@@ -66,6 +77,12 @@ class ViewPanel extends JPanel implements Observer {
 		this.viewFrame = viewFrame;
 	}
 
+	/**
+	 * Update.
+	 *
+	 * @param arg0 the arg 0
+	 * @param arg1 the arg 1
+	 */
 	/*
 	 * (non-Javadoc)
 	 *
@@ -75,6 +92,11 @@ class ViewPanel extends JPanel implements Observer {
 		this.repaint();
 	}
 
+	/**
+	 * Paint component.
+	 *
+	 * @param graphics the graphics
+	 */
 	/*
 	 * (non-Javadoc)
 	 *

@@ -18,6 +18,8 @@ import contract.IController;
 import contract.IModel;
 
 /**
+ * The Class ViewFrame.
+ *
  * @author Jean michel crapaud The class ViewFrame Saved as file ViewFrame.java
  */
 class ViewFrame extends JFrame implements KeyListener {
@@ -30,13 +32,26 @@ class ViewFrame extends JFrame implements KeyListener {
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = -697358409737458175L;
 	
+	/** The count. */
 	private double count;
+	
+	/** The total count. */
 	private double totalCount;
 
+	/**
+	 * Gets the count.
+	 *
+	 * @return the count
+	 */
 	public double getCount() {
 		return count;
 	}
 
+	/**
+	 * Sets the count.
+	 *
+	 * @param count the new count
+	 */
 	public void setCount(double count) {
 		this.count = count;
 	}
@@ -122,6 +137,11 @@ class ViewFrame extends JFrame implements KeyListener {
 		JOptionPane.showMessageDialog(null, message);
 	}
 
+	/**
+	 * Key typed.
+	 *
+	 * @param e the e
+	 */
 	/*
 	 * (non-Javadoc)
 	 *
@@ -131,6 +151,11 @@ class ViewFrame extends JFrame implements KeyListener {
 
 	}
 
+	/**
+	 * Key pressed.
+	 *
+	 * @param e the e
+	 */
 	/*
 	 * (non-Javadoc)
 	 *
@@ -140,6 +165,11 @@ class ViewFrame extends JFrame implements KeyListener {
 		this.getController().orderPerform(View.keyCodeToControllerOrder(e.getKeyCode()));
 	}
 
+	/**
+	 * Key released.
+	 *
+	 * @param e the e
+	 */
 	/*
 	 * (non-Javadoc)
 	 *
@@ -149,10 +179,20 @@ class ViewFrame extends JFrame implements KeyListener {
 
 	}
 
+	/**
+	 * Gets the total count.
+	 *
+	 * @return the total count
+	 */
 	public double getTotalCount() {
 		return totalCount;
 	}
 
+	/**
+	 * Sets the total count.
+	 *
+	 * @param totalCount the new total count
+	 */
 	public void setTotalCount(double totalCount) {
 		this.totalCount = totalCount;
 	}

@@ -10,6 +10,8 @@ import model.Model;
 import view.View;
 
 /**
+ * The Class Main.
+ *
  * @author Jean michel crapaud
  * The class Main
  * Saved as file Main.java
@@ -19,9 +21,8 @@ public abstract class Main {
     /**
      * The main method.
      *
-     * @param args
-     *            the arguments
-     * @throws InterruptedException 
+     * @param args            the arguments
+     * @throws InterruptedException the interrupted exception
      */
 	
     public static void main(final String[] args) throws InterruptedException {

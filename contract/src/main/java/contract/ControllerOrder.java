@@ -1,6 +1,8 @@
 package contract;
 
 /**
+ * The Enum ControllerOrder.
+ *
  * @author Jean michel crapaud
  * The class ControllerOrder
  * Saved as file ControllerOrder.java
@@ -17,10 +19,19 @@ public enum ControllerOrder {
 	Map4,
 	/** The 5th Map. */
 	Map5,
-	/** No action performed */
+	
+	/**  No action performed. */
 	NOTHING,
+	
+	/** The up. */
 	UP,
+	
+	/** The down. */
 	DOWN,
+	
+	/** The left. */
 	LEFT,
+	
+	/** The right. */
 	RIGHT
 }

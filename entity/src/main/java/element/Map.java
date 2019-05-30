@@ -13,19 +13,35 @@ import motionlesselement.IndoorWall;
 import motionlesselement.Wall;
 
 /**
+ * The Class Map.
+ *
  * @author Jean michel crapaud The class Map Saved as file Map.java
  */
 public class Map {
+	
+	/** The level. */
 	private String level;
 
+	/** The map objects. */
 	private Element[][] mapObjects;
+	
+	/** The totaldiamonds. */
 	private static int TOTALDIAMONDS = 10;
+	
+	/** The stone. */
 	private ArrayList<Stone> stone;
+	
+	/** The opponent. */
 	private ArrayList<Opponent> opponent;
+	
+	/** The diamond. */
 	private ArrayList<Diamond> diamond;
 
 	/**
 	 * Instantiates a new hello world.
+	 *
+	 * @param id the id
+	 * @param message the message
 	 */
 	public Map(final int id, final String message) {
 		this.setMapDesign(message);
@@ -62,18 +78,31 @@ public class Map {
 		getWidth();
 	}
 
+	/**
+	 * Gets the height.
+	 *
+	 * @return the height
+	 */
 	public int getHeight() {
 		int lines = this.level.split("\n").length;
 //		System.out.println("Lines: " + lines);
 		return lines;
 	}
 
+	/**
+	 * Gets the width.
+	 *
+	 * @return the width
+	 */
 	public int getWidth() {
 		String[] map = this.getMapDesign().split("\n");
 //		System.out.println("Width: " + (map[0].length() - 1));
 		return (map[0].length());
 	}
 
+	/**
+	 * Sets the map objects.
+	 */
 	public void setMapObjects() {
 		String map = this.getMapDesign();
 		System.out.println(map);
@@ -121,14 +150,31 @@ public class Map {
 		}
 	}
 
+	/**
+	 * Gets the map objects.
+	 *
+	 * @param x the x
+	 * @param y the y
+	 * @return the map objects
+	 */
 	public Element getMapObjects(int x, int y) {
 		return this.mapObjects[x][y];
 	}
 
+	/**
+	 * Gets the map objects.
+	 *
+	 * @return the map objects
+	 */
 	public Element[][] getMapObjects() {
 		return this.mapObjects;
 	}
 
+	/**
+	 * Gets the player.
+	 *
+	 * @return the player
+	 */
 	public Player getPlayer() {
 		for (int y = 0; y < getHeight(); y++) {
 			for (int x = 0; x < getWidth(); x++) {
@@ -140,6 +186,11 @@ public class Map {
 		return null;
 	}
 
+	/**
+	 * Gets the opponent.
+	 *
+	 * @return the opponent
+	 */
 	public ArrayList<Opponent> getOpponent() {
 		this.opponent.clear();
 		for (int y = 0; y < getHeight(); y++) {
@@ -155,18 +206,44 @@ public class Map {
 		return opponent;
 	}
 
+	/**
+	 * Gets the this stone.
+	 *
+	 * @param x the x
+	 * @param y the y
+	 * @return the this stone
+	 */
 	public Stone getThisStone(int x, int y) {
 		return (Stone) this.getMapObjects(x, y);
 	}
 
+	/**
+	 * Gets the this opponent.
+	 *
+	 * @param x the x
+	 * @param y the y
+	 * @return the this opponent
+	 */
 	public Opponent getThisOpponent(int x, int y) {
 		return (Opponent) this.getMapObjects(x, y);
 	}
 
+	/**
+	 * Gets the this diamond.
+	 *
+	 * @param x the x
+	 * @param y the y
+	 * @return the this diamond
+	 */
 	public Diamond getThisDiamond(int x, int y) {
 		return (Diamond) this.getMapObjects(x, y);
 	}
 
+	/**
+	 * Gets the stone.
+	 *
+	 * @return the stone
+	 */
 	public ArrayList<Stone> getStone() {
 		this.stone.clear();
 		for (int y = 0; y < getHeight(); y++) {
@@ -179,6 +256,11 @@ public class Map {
 		return this.stone;
 	}
 
+	/**
+	 * Gets the diamonds.
+	 *
+	 * @return the diamonds
+	 */
 	public ArrayList<Diamond> getDiamonds() {
 		this.diamond.clear();
 		for (int y = 0; y < getHeight(); y++) {
@@ -191,6 +273,11 @@ public class Map {
 		return this.diamond;
 	}
 
+	/**
+	 * Gets the total diamonds.
+	 *
+	 * @return the total diamonds
+	 */
 	public int getTotalDiamonds() {
 		return TOTALDIAMONDS;
 	}

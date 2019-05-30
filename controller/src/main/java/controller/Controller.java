@@ -6,6 +6,8 @@ import contract.IModel;
 import contract.IView;
 
 /**
+ * The Class Controller.
+ *
  * @author Jean michel crapaud
  * The class Controller
  * Saved as file Controller.java
@@ -18,6 +20,7 @@ public final class Controller implements IController {
 	/** The model. */
 	private IModel model;
 
+	/** The map. */
 	private int map;
 
 	/**
@@ -125,6 +128,13 @@ public final class Controller implements IController {
 		}
 	}
 
+	/**
+	 * Change map.
+	 *
+	 * @param x the x
+	 * @param y the y
+	 * @return true, if successful
+	 */
 	public boolean changeMap(int x, int y) {
 		if (this.model.getMap().getPlayer().getDiamondCount() >= this.model.getMap().getTotalDiamonds()
 				&& this.model.getMap().getPlayer().checkForExit(x, y)) {
@@ -133,6 +143,11 @@ public final class Controller implements IController {
 		return false;
 	}
 
+/**
+ * Play.
+ *
+ * @throws InterruptedException the interrupted exception
+ */
 //Main while
 	public final void play() throws InterruptedException {
 		int moveOn = 1;
@@ -153,6 +168,11 @@ public final class Controller implements IController {
 
 	}
 
+	/**
+	 * End of game.
+	 *
+	 * @throws InterruptedException the interrupted exception
+	 */
 	public void endOfGame() throws InterruptedException {
 		if (this.model.getMap().getPlayer().isAlive() == false) {
 			this.view.printMessage("Blurp !");
@@ -160,10 +180,20 @@ public final class Controller implements IController {
 		}
 	}
 
+	/**
+	 * Gets the map.
+	 *
+	 * @return the map
+	 */
 	public int getMap() {
 		return map;
 	}
 
+	/**
+	 * Sets the map.
+	 *
+	 * @param map the new map
+	 */
 	public void setMap(int map) {
 		this.map = map;
 		this.model.loadMap(map);

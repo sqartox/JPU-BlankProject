@@ -7,11 +7,15 @@ import contract.IModel;
 import element.Map;
 
 /**
+ * The Class Model.
+ *
  * @author Jean michel crapaud
  * The class Model
  * Saved as file Model.java
  */
 public final class Model extends Observable implements IModel {
+	
+	/** The map. */
 	private Map map;
 
 	/**
@@ -30,11 +34,21 @@ public final class Model extends Observable implements IModel {
 		return this.map;
 	}
 
+	/**
+	 * Sets the map.
+	 *
+	 * @param map the new map
+	 */
 	private void setMap(final Map map) {
 		this.map = map;
 		this.modelNotify();
 	}
 
+	/**
+	 * Load map.
+	 *
+	 * @param id the id
+	 */
 	@Override
 	public void loadMap(int id) {
 		try {
@@ -44,10 +58,18 @@ public final class Model extends Observable implements IModel {
 		}
 	}
 
+	/**
+	 * Gets the observable.
+	 *
+	 * @return the observable
+	 */
 	public Observable getObservable() {
 		return this;
 	}
 	
+	/**
+	 * Model notify.
+	 */
 	public void modelNotify() {
         setChanged();
         notifyObservers();

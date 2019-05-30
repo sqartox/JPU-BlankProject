@@ -1,6 +1,9 @@
 package contract;
 
+// TODO: Auto-generated Javadoc
 /**
+ * The Interface IView.
+ *
  * @author Jean michel crapaud
  * The class IView
  * Saved as file IView.java

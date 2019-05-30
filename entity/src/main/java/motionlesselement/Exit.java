@@ -20,7 +20,9 @@ public class Exit extends MotionlessElement {
 	 * @param x the x
 	 * @param y the y
 	 */
+	// Exit constructor
 	public Exit(int x, int y) {
+		// Call the Motionless Element constructor to instantiate a new Motionless Element
 		super(SPRITE, x, y);
 	}
 

@@ -20,7 +20,9 @@ public class IndoorWall extends MotionlessElement {
 	 * @param x the x
 	 * @param y the y
 	 */
+	// Indoor Wall constructor
 	public IndoorWall(int x, int y) {
+		// Call the Motionless Element constructor to instantiate a new Motionless Element
 		super(SPRITE, x, y);
 	}
 }

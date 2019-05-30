@@ -26,8 +26,11 @@ public class Sprite {
 	 *
 	 * @param sprite_name the sprite name
 	 */
+	// Sprite constructor
 	public Sprite(final String sprite_name) {
+		// Set the Sprite name
 		this.setSpriteName(sprite_name);
+		// Set the Sprite image
 		this.img = this.loadSprite(this.sprite_name);
 	}
 
@@ -36,6 +39,7 @@ public class Sprite {
 	 *
 	 * @param sprite_name the new sprite name
 	 */
+	// Set the Sprite name
 	public void setSpriteName(String sprite_name) {
 		this.sprite_name = sprite_name;
 	}
@@ -46,6 +50,7 @@ public class Sprite {
 	 * @param sprite_name the sprite name
 	 * @return the buffered image
 	 */
+	// Load the Sprite File
 	public BufferedImage loadSprite(String sprite_name) {
 		try {
 			return ImageIO.read(new File("..\\entity\\src\\main\\resources\\sprite\\" + sprite_name  + ".png"));
@@ -61,6 +66,7 @@ public class Sprite {
 	 *
 	 * @return the image
 	 */
+	// Set the Sprite image
 	public BufferedImage getImage() {
 		return this.img;
 	}

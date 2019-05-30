@@ -6,21 +6,16 @@ import element.Sprite;
 /**
  * The Class Stone.
  *
- * @author Jean michel crapaud
- * The class Stone
- * Saved as file Stone.java
+ * @author Jean michel crapaud The class Stone Saved as file Stone.java
  */
 public class Stone extends MobileElement {
-	
+
 	/** The Constant SPRITE. */
 	private static final Sprite SPRITE = new Sprite("Stone");
-	
+
 	/** The Constant DIRECTION. */
 	private static final Direction DIRECTION = null;
-	
-	/** The Constant SPEED. */
-	private static final int SPEED = 300;
-	
+
 	/** The isfalling. */
 	private boolean isfalling;
 
@@ -30,16 +25,20 @@ public class Stone extends MobileElement {
 	 * @param x the x
 	 * @param y the y
 	 */
+	// Stone constructor
 	public Stone(int x, int y) {
-		super(SPRITE, DIRECTION, x, y, SPEED);
+		// Call the Mobile Element constructor to instantiate a new Mobile Element
+		super(SPRITE, DIRECTION, x, y);
+		// Set the Stone gravity state
 		this.setIsfalling(false);
 	}
-	
+
 	/**
 	 * Move stone.
 	 *
 	 * @param direction the direction
 	 */
+	// Move Stone method
 	public void moveStone(Direction direction) {
 		switch (direction) {
 		case DOWN:
@@ -55,19 +54,13 @@ public class Stone extends MobileElement {
 			break;
 		}
 	}
-	
-	/**
-	 * Refresh stones.
-	 */
-	public void refreshStones() {
-		this.moveStone(Direction.DOWN);
-	}
 
 	/**
 	 * Gets the checks if is falling.
 	 *
 	 * @return the checks if is falling
 	 */
+	// Check if Stone is falling method
 	public boolean getIsFalling() {
 		return isfalling;
 	}
@@ -77,8 +70,17 @@ public class Stone extends MobileElement {
 	 *
 	 * @param isfalling the new isfalling
 	 */
+	//Set the Stone gravity state
 	public void setIsfalling(boolean isfalling) {
 		this.isfalling = isfalling;
 	}
-	
+
+	/**
+	 * Refresh stones.
+	 */
+	//Refresh Stone position Method
+	public void refreshStones() {
+		this.moveStone(Direction.DOWN);
+	}
+
 }

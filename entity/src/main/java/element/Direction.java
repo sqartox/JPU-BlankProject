@@ -9,6 +9,7 @@ package element;
  */
 public enum Direction {
 	
+	// The different possible directions
 	/**  Up direction. */
 	UP,
     

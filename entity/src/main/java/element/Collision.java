@@ -24,6 +24,7 @@ public class Collision {
 	 *
 	 * @param map the map
 	 */
+	// Element constructor
 	public Collision(Map map) {
 		this.map = map;
 	}
@@ -35,13 +36,18 @@ public class Collision {
 	 * @param y the y
 	 * @return true, if successful
 	 */
+	// Check Player Collision
 	public boolean checkCollision(int x, int y) {
+		// Get the Collision Element
 		Element element = this.map.getMapObjects(x, y);
+		// If is an Opponent
 		if (element instanceof Opponent) {
 			if (((Opponent) element).isAlive()) {
+				// Killed Player if the Opponent is alive
 				this.map.getPlayer().setState(false);
 			}
 		}
+		// If is a basic Element
 		if ((element instanceof Wall) || (element instanceof IndoorWall) || (element instanceof Stone)
 				|| (element instanceof Exit)) {
 			return false;
@@ -56,11 +62,15 @@ public class Collision {
 	 * @param y the y
 	 * @return true, if successful
 	 */
+	// Check Opponent Collision
 	public boolean checkOpponentCollision(int x, int y) {
+		// Check Ground Opponent Collision
 		if ((this.map.getMapObjects(x, y) instanceof Ground)) {
 			return true;
 		}
+		// Check Player Opponent Collision
 		if (this.map.getMapObjects(x, y) instanceof Player) {
+			// Killed Player
 			this.map.getPlayer().setState(false);
 		}
 		return false;
@@ -74,10 +84,13 @@ public class Collision {
 	 * @param isfalling the isfalling
 	 * @return true, if successful
 	 */
+	// Check Collision on Player
 	public boolean checkCollisionOnPlayer(int x, int y, boolean isfalling) {
+		// Check Ground Collision
 		if ((this.map.getMapObjects(x, y) instanceof Ground)) {
 			return true;
 		}
+		// Check Player Collision
 		if (this.map.getMapObjects(x, y) instanceof Player && isfalling) {
 			this.map.getPlayer().setState(false);
 		}
@@ -94,10 +107,13 @@ public class Collision {
 	 * @param y the y
 	 * @return true, if successful
 	 */
+	// Check Collision below Element
 	public boolean checkBellow(int x, int y) {
+		// Check Collision below Stone
 		if (this.map.getMapObjects(x, y) instanceof Stone) {
 			return true;
 		}
+		// Check Collision below Diamond
 		if (this.map.getMapObjects(x, y) instanceof Diamond) {
 			return true;
 		}
@@ -110,14 +126,20 @@ public class Collision {
 	 * @param x the x
 	 * @param y the y
 	 */
+	// Check Collision to move Stone by Player
 	public void moveStoneByPlayer(int x, int y) {
 		Element element = this.map.getMapObjects(x, y);
 		if (element instanceof Stone) {
+			// Get the right and left element of the stone
 			Element elementRight = this.map.getMapObjects(x + 1, y);
 			Element elementLeft = this.map.getMapObjects(x - 1, y);
+
+			// Check Collision to move Stone left
 			if (elementRight instanceof Player && elementLeft instanceof Ground) {
 				((Stone) element).moveStone(((Stone) element).chooseDirection(3));
-			} else if (elementLeft instanceof Player && elementRight instanceof Ground) {
+			}
+			// Check Collision to move Stone right
+			else if (elementLeft instanceof Player && elementRight instanceof Ground) {
 				((Stone) element).moveStone(((Stone) element).chooseDirection(4));
 			}
 		}
@@ -129,23 +151,34 @@ public class Collision {
 	 * @param x the x
 	 * @param y the y
 	 */
+	// Check Collision to move Stone or Diamond by gravity
 	public void gravityFall(int x, int y) {
+		// Get the Elements around of the Stone or the Diamond
 		Element element = this.map.getMapObjects(x, y);
 		Element elementRight = this.map.getMapObjects(x + 1, y);
 		Element elementDownRight = this.map.getMapObjects(x + 1, y + 1);
 		Element elementLeft = this.map.getMapObjects(x - 1, y);
 		Element elementDownLeft = this.map.getMapObjects(x - 1, y + 1);
+		
+		// Check Collision to move Stone by gravity
 		if (element instanceof Stone) {
+			// Check the Right falling possibility
 			if (elementRight instanceof Ground && elementDownRight instanceof Ground) {
 				((Stone) element).moveStone(((Stone) element).chooseDirection(4));
-			} else if (elementLeft instanceof Ground && elementDownLeft instanceof Ground) {
+			}
+			// Check the Left falling possibility
+			else if (elementLeft instanceof Ground && elementDownLeft instanceof Ground) {
 				((Stone) element).moveStone(((Stone) element).chooseDirection(3));
 			}
 		}
+		// Check Collision to move Diamond by gravity
 		if (element instanceof Diamond) {
+			// Check the Right falling possibility
 			if (elementRight instanceof Ground && elementDownRight instanceof Ground) {
 				((Diamond) element).moveDiamond(((Diamond) element).chooseDirection(4));
-			} else if (elementLeft instanceof Ground && elementDownLeft instanceof Ground) {
+			}
+			// Check the Left falling possibility
+			else if (elementLeft instanceof Ground && elementDownLeft instanceof Ground) {
 				((Diamond) element).moveDiamond(((Diamond) element).chooseDirection(3));
 			}
 		}

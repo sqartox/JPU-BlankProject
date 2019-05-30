@@ -21,8 +21,11 @@ public class Position {
 	 * @param x the x
 	 * @param y the y
 	 */
+	// Sprite constructor
 	public Position(int x, int y) {
+		// Set the X Element Position
 		this.x = x;
+		// Set the Y Element Position
 		this.y = y;
 	}
 	
@@ -31,6 +34,7 @@ public class Position {
 	 *
 	 * @return the x
 	 */
+	// Get the X Element Position
 	public int getX() {
 		return x;
 	}
@@ -40,6 +44,7 @@ public class Position {
 	 *
 	 * @return the y
 	 */
+	// Get the Y Element Position
 	public int getY() {
 		return y;
 	}

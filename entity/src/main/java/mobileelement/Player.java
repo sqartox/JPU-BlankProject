@@ -27,9 +27,6 @@ public class Player extends MobileElement {
 	/** The Constant DIRECTION. */
 	private static final Direction DIRECTION = null;
 	
-	/** The Constant SPEED. */
-	private static final int SPEED = 300;
-	
 	/** The diamond count. */
 	private int diamondCount;
 	
@@ -43,9 +40,13 @@ public class Player extends MobileElement {
 	 * @param x the x
 	 * @param y the y
 	 */
+	// Player constructor
 	public Player(int player, int x, int y) {
-		super(SPRITE_DOWN, DIRECTION, x, y, SPEED);
+		// Call the Mobile Element constructor to instantiate a new Mobile Element
+		super(SPRITE_DOWN, DIRECTION, x, y);
+		// Set the Player Diamond count
 		this.diamondCount = 0;
+		// Set the Player life state
 		this.setState(true);
 	}
 
@@ -54,6 +55,7 @@ public class Player extends MobileElement {
 	 *
 	 * @return the diamond count
 	 */
+	// Get the Player Diamond count
 	public int getDiamondCount() {
 		return this.diamondCount;
 	}
@@ -63,6 +65,7 @@ public class Player extends MobileElement {
 	 *
 	 * @param diamondCount the new diamond count
 	 */
+	// Set the Player Diamond count
 	public void setDiamondCount(int diamondCount) {
 		this.diamondCount = diamondCount;
 	}
@@ -72,10 +75,13 @@ public class Player extends MobileElement {
 	 *
 	 * @param direction the direction
 	 */
+	// Move Player method
 	public void movePlayer(Direction direction) {
 		switch (direction) {
 		case UP:
+			// Change Player position
 			this.changePosition(0, -1);
+			// Set the good Player's Sprite 
 			this.setSprite(SPRITE);
 			break;
 		case DOWN:
@@ -100,6 +106,7 @@ public class Player extends MobileElement {
 	 *
 	 * @return true, if is alive
 	 */
+	// Check if Player is alive
 	public boolean isAlive() {
 		return this.state;
 	}
@@ -109,6 +116,7 @@ public class Player extends MobileElement {
 	 *
 	 * @param state the new state
 	 */
+	// Set the Player life state
 	public void setState(boolean state) {
 		this.state = state;
 	}

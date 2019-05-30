@@ -36,8 +36,11 @@ public abstract class Element {
 	 * @param x the x
 	 * @param y the y
 	 */
+	// Element constructor
 	public Element(final Sprite sprite, int x, int y) {
+		// Set the Element Sprite
 		this.setSprite(sprite);
+		// Set the Element position
 		this.setPosition(x, y);
 	}
 
@@ -46,6 +49,7 @@ public abstract class Element {
 	 *
 	 * @return the sprite
 	 */
+	// Get the Element Sprite
 	public Sprite getSprite() {
 		return sprite;
 	}
@@ -55,6 +59,7 @@ public abstract class Element {
 	 *
 	 * @param sprite the new sprite
 	 */
+	// Set the Element Sprite
 	public void setSprite(Sprite sprite) {
 		this.sprite = sprite;
 	}
@@ -64,6 +69,7 @@ public abstract class Element {
 	 *
 	 * @return Position
 	 */
+	// Get the Element position
 	public Position getPosition() {
 		return position;
 	}
@@ -74,6 +80,7 @@ public abstract class Element {
 	 * @param x the x
 	 * @param y the y
 	 */
+	// Set the Element position
 	public void setPosition(int x, int y) {
 		this.position = new Position(x, y);
 	}
@@ -84,57 +91,83 @@ public abstract class Element {
 	 * @param x the x
 	 * @param y the y
 	 */
+	// Change the Element position
 	public void changePosition(int x, int y) {
+		// Get the current X and Y pos in the Map
 		int currentX = this.getPosition().getX();
 		int currentY = this.getPosition().getY();
+		// Get the Element at the current pos
 		this.objects = this.getMap().getMapObjects();
+		// Check for collision
 		this.collision = new Collision(this.map);
+		// Player collisions
 		if (this instanceof Player) {
+			// Permit Player to push Stones
 			this.collision.moveStoneByPlayer(currentX + x, currentY);
+			// Check Collisions before moved Player
 			if (this.collision.checkCollision(currentX + x, currentY + y)) {
+				// Check if the Player is on a Diamond
 				this.getDiamond(currentX + x, currentY + y);
+				// Move the Player
 				this.objects[currentX + x][currentY + y] = this.objects[currentX][currentY];
 				this.objects[currentX][currentY] = new Ground(currentX, currentY);
 				this.setPosition(currentX + x, currentY + y);
 			}
 		}
+		
+		// Opponent collisions
 		if (this instanceof Opponent) {
+			// Check Collisions before moved Opponent
 			if (this.collision.checkOpponentCollision(currentX + x, currentY + y)) {
+				// Move the Opponent
 				this.objects[currentX + x][currentY + y] = this.objects[currentX][currentY];
 				this.objects[currentX][currentY] = new Ground(currentX, currentY);
 				this.setPosition(currentX + x, currentY + y);
-			} else {
+			}
+			// Permit to deny a part of of random movements
+			else {
 				Opponent opponent = (Opponent) this;
 				opponent.refreshOpponents();
 			}
 		}
 
-		if (this instanceof Stone)
-
-		{
+		// Stone collisions
+		if (this instanceof Stone) {
+			// Check Collisions and gravity before moved Stone and kill Player
 			if (this.collision.checkCollisionOnPlayer(currentX + x, currentY + y,
 					this.getMap().getThisStone(currentX, currentY).getIsFalling())) {
+				// Move the Stone
 				this.objects[currentX + x][currentY + y] = this.objects[currentX][currentY];
 				this.objects[currentX][currentY] = new Ground(currentX, currentY);
 				this.setPosition(currentX + x, currentY + y);
+				// Set state gravity to true
 				this.getMap().getThisStone(currentX + x, currentY + y).setIsfalling(true);
 			} else {
+				// Set state gravity to false
 				this.getMap().getThisStone(currentX, currentY).setIsfalling(false);
 			}
+			// Check Collisions before moved Stone
 			if (this.collision.checkBellow(currentX, currentY + 1)) {
 				this.collision.gravityFall(currentX, currentY);
 			}
 		}
+
+		// Diamond collisions
 		if (this instanceof Diamond) {
+			// Check Collisions and gravity before moved Diamond and kill Player
 			if (this.collision.checkCollisionOnPlayer(currentX + x, currentY + y,
 					this.getMap().getThisDiamond(currentX, currentY).getIsFalling())) {
+				// Move the Diamond
 				this.objects[currentX + x][currentY + y] = this.objects[currentX][currentY];
 				this.objects[currentX][currentY] = new Ground(currentX, currentY);
 				this.setPosition(currentX + x, currentY + y);
+				// Set state gravity to true
 				this.getMap().getThisDiamond(currentX + x, currentY + y).setIsfalling(true);
 			} else {
+				// Set state gravity to false
 				this.getMap().getThisDiamond(currentX, currentY).setIsfalling(false);
 			}
+			// Check Collisions before moved Diamond
 			if (this.collision.checkBellow(currentX, currentY + 1)) {
 				this.collision.gravityFall(currentX, currentY);
 			}
@@ -148,7 +181,9 @@ public abstract class Element {
 	 * @param y the y
 	 * @return true, if successful
 	 */
+	// Check for Exit position
 	public boolean checkForExit(int x, int y) {
+		// Get the current X and Y pos in the Map
 		int currentX = this.getPosition().getX();
 		int currentY = this.getPosition().getY();
 		if (this.getMap().getMapObjects(currentX + x, currentY + y) instanceof Exit) {
@@ -164,14 +199,19 @@ public abstract class Element {
 	 * @param y the y
 	 * @return the diamond
 	 */
+	// Check for Diamond position and increment Diamond count
 	public void getDiamond(int x, int y) {
 		Element element = this.getMap().getMapObjects(x, y);
+		// Check for Diamond
 		if (element instanceof Diamond) {
+			// Increment Diamond count
 			this.getMap().getPlayer().setDiamondCount(this.getMap().getPlayer().getDiamondCount() + 1);
 			System.out.println(this.getMap().getPlayer().getDiamondCount());
 		}
+		// Check for dead Opponent
 		if (element instanceof Opponent) {
 			if (((Opponent) element).isAlive() == false){
+				// Increment Diamond count if Opponent is dead
 				this.getMap().getPlayer().setDiamondCount(this.getMap().getPlayer().getDiamondCount() + 2);
 				System.out.println(this.getMap().getPlayer().getDiamondCount());
 			}
@@ -183,6 +223,7 @@ public abstract class Element {
 	 *
 	 * @return the map
 	 */
+	// Get the Map
 	public Map getMap() {
 		return this.map;
 	}
@@ -192,6 +233,7 @@ public abstract class Element {
 	 *
 	 * @param map the new map
 	 */
+	// Get the Map
 	public void setMap(Map map) {
 		this.map = map;
 	}

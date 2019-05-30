@@ -14,9 +14,6 @@ public abstract class MobileElement extends Element {
 
 	/** The direction. */
 	protected Direction direction;
-	
-	/** The speed. */
-	protected int speed;
 
 	/**
 	 * Instantiates a new mobile element.
@@ -27,10 +24,12 @@ public abstract class MobileElement extends Element {
 	 * @param y the y
 	 * @param speed the speed
 	 */
-	MobileElement(Sprite sprite, Direction direction, int x, int y, int speed) {
+	//Mobile Element constructor
+	MobileElement(Sprite sprite, Direction direction, int x, int y) {
+		//Call the Element constructor to instantiate a new Mobile Element
 		super(sprite, x, y);
+		//Set the Mobile Element direction
 		this.direction = direction;
-		this.speed = speed;
 	}
 	
 	/**
@@ -39,6 +38,7 @@ public abstract class MobileElement extends Element {
 	 * @param choice the choice
 	 * @return the direction
 	 */
+	//Set Mobiles direction method
 	public Direction chooseDirection(int choice) {
 		switch (choice) {
 		case 1:

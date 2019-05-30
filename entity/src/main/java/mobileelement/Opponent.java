@@ -6,21 +6,16 @@ import element.Sprite;
 /**
  * The Class Opponent.
  *
- * @author Jean michel crapaud
- * The class Opponent
- * Saved as file Opponent.java
+ * @author Jean michel crapaud The class Opponent Saved as file Opponent.java
  */
 public class Opponent extends MobileElement {
 
 	/** The Constant SPRITE. */
 	private static final Sprite SPRITE = new Sprite("Opponent");
-	
+
 	/** The Constant DIRECTION. */
 	private static final Direction DIRECTION = null;
-	
-	/** The Constant SPEED. */
-	private static final int SPEED = 300;
-	
+
 	/** The state. */
 	private boolean state;
 
@@ -30,14 +25,18 @@ public class Opponent extends MobileElement {
 	 * @param x the x
 	 * @param y the y
 	 */
+	// Opponent constructor
 	public Opponent(int x, int y) {
-		super(SPRITE, DIRECTION, x, y, SPEED);
+		// Call the Mobile Element constructor to instantiate a new Mobile Element
+		super(SPRITE, DIRECTION, x, y);
+		// Set the Opponent life state
 		this.setState(true);
 	}
 
 	/**
 	 * Move opponent.
 	 */
+	// Move Opponent method
 	public void moveOpponent() {
 		int random = (int) (Math.random() * 4 + 1);
 		switch (random) {
@@ -59,19 +58,11 @@ public class Opponent extends MobileElement {
 	}
 
 	/**
-	 * Refresh opponents.
-	 */
-	public void refreshOpponents() {
-		if (this.isAlive()) {
-			this.moveOpponent();
-		}
-	}
-
-	/**
 	 * Checks if is alive.
 	 *
 	 * @return true, if is alive
 	 */
+	// Check if Opponent is alive
 	public boolean isAlive() {
 		return state;
 	}
@@ -81,7 +72,18 @@ public class Opponent extends MobileElement {
 	 *
 	 * @param state the new state
 	 */
+	// Set the Opponent life state
 	public void setState(boolean state) {
 		this.state = state;
+	}
+
+	/**
+	 * Refresh opponents.
+	 */
+	// Refresh Opponent position Method
+	public void refreshOpponents() {
+		if (this.isAlive()) {
+			this.moveOpponent();
+		}
 	}
 }

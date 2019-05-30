@@ -1,16 +1,18 @@
 package view;
 
 import java.awt.Cursor;
-import java.awt.GraphicsConfiguration;
 import java.awt.HeadlessException;
 import java.awt.Point;
 import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.image.BufferedImage;
 
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.Timer;
 
 import contract.IController;
 import contract.IModel;
@@ -27,6 +29,17 @@ class ViewFrame extends JFrame implements KeyListener {
 	private IController controller;
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = -697358409737458175L;
+	
+	private double count;
+	private double totalCount;
+
+	public double getCount() {
+		return count;
+	}
+
+	public void setCount(double count) {
+		this.count = count;
+	}
 
 	/**
 	 * Instantiates a new view frame.
@@ -91,6 +104,13 @@ class ViewFrame extends JFrame implements KeyListener {
 		this.setUndecorated(true);
 		this.setLocationRelativeTo(null);
 		this.getContentPane().setCursor(blankCursor);
+		ActionListener taskPerformer = new ActionListener() {
+		      public void actionPerformed(ActionEvent evt) {
+		          count = count + 0.1;
+		          totalCount = totalCount + 0.1;
+		      }
+		  };
+		  new Timer(100, taskPerformer).start();
 	}
 
 	/**
@@ -127,5 +147,13 @@ class ViewFrame extends JFrame implements KeyListener {
 	 */
 	public void keyReleased(final KeyEvent e) {
 
+	}
+
+	public double getTotalCount() {
+		return totalCount;
+	}
+
+	public void setTotalCount(double totalCount) {
+		this.totalCount = totalCount;
 	}
 }

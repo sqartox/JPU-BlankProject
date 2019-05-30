@@ -1,5 +1,6 @@
 package view;
 
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
@@ -12,9 +13,7 @@ import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 
 /**
- * @author Jean michel crapaud
- * The class ViewPanel
- * Saved as file ViewPanel.java
+ * @author Jean michel crapaud The class ViewPanel Saved as file ViewPanel.java
  */
 class ViewPanel extends JPanel implements Observer {
 
@@ -27,6 +26,7 @@ class ViewPanel extends JPanel implements Observer {
 	private static boolean LARGECAMERA = true;
 	private double zoom = 2.4;
 	private Image img;
+	private String mapDesign;
 
 	/**
 	 * Instantiates a new view panel.
@@ -43,6 +43,9 @@ class ViewPanel extends JPanel implements Observer {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		mapDesign = this.getViewFrame().getModel().getMap().getMapDesign();
+		this.getViewFrame().setTotalCount(0);
+		this.getViewFrame().setCount(0);
 	}
 
 	/**
@@ -79,7 +82,10 @@ class ViewPanel extends JPanel implements Observer {
 	 */
 	@Override
 	protected void paintComponent(final Graphics graphics) {
-
+		
+		if (this.getViewFrame().getModel().getMap().getMapDesign() != mapDesign) {
+			this.getViewFrame().setCount(0);
+		}
 		if (this.getViewFrame().getModel().getMap().getPlayer() != null) {
 			graphics.clearRect(0, 0, this.getWidth(), this.getHeight());
 			super.paintComponent(graphics);
@@ -101,13 +107,18 @@ class ViewPanel extends JPanel implements Observer {
 
 			for (int y = 0; y < this.getViewFrame().getModel().getMap().getWidth(); y++) {
 				for (int x = 0; x < this.getViewFrame().getModel().getMap().getHeight(); x++) {
-					graphics.drawImage(this.getViewFrame().getModel().getMap().getMapObjects(y, x).getSprite().getImage(),
+					graphics.drawImage(
+							this.getViewFrame().getModel().getMap().getMapObjects(y, x).getSprite().getImage(),
 							y * DEFAULT_SPRITE_SIZE, x * DEFAULT_SPRITE_SIZE, this);
 				}
 			}
 		}
-
+		graphics.setColor(new Color(0xFFFFFF));
+		graphics.drawString("Total time: " + String.format ("%.1f", this.getViewFrame().getTotalCount()), 10, -20);
+		graphics.drawString("Level time: " + String.format ("%.1f", this.getViewFrame().getCount()), 10, -5);
 		// graphics.drawString(this.getViewFrame().getModel().getMap().getMapDesign(),
 		// 0, 0);
+		
+		mapDesign = this.getViewFrame().getModel().getMap().getMapDesign();
 	}
 }

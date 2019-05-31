@@ -31,19 +31,23 @@ class DBProperties extends Properties {
 	/**
 	 * Instantiates a new DB properties.
 	 */
+	// DBProperties constructor
 	public DBProperties() {
 		InputStream inputStream;
 
 		inputStream = this.getClass().getClassLoader().getResourceAsStream(DBProperties.PROPERTIES_FILE_NAME);
-
+		// Set the database connection properties
 		if (inputStream != null) {
 			try {
 				this.load(inputStream);
 			} catch (final IOException e) {
 				e.printStackTrace();
 			}
+			// Set the database connection url
 			this.setUrl(this.getProperty("url"));
+			// Set the database connection login
 			this.setLogin(this.getProperty("login"));
+			// Set the database connection password
 			this.setPassword(this.getProperty("password"));
 		}
 	}
@@ -53,6 +57,7 @@ class DBProperties extends Properties {
 	 *
 	 * @return the url
 	 */
+	// Get the database connection url
 	public String getUrl() {
 		return this.url;
 	}
@@ -63,6 +68,7 @@ class DBProperties extends Properties {
 	 * @param url
 	 *          the new url
 	 */
+	// Set the database connection url
 	private void setUrl(final String url) {
 		this.url = url;
 	}
@@ -72,6 +78,7 @@ class DBProperties extends Properties {
 	 *
 	 * @return the login
 	 */
+	// Get the database connection login
 	public String getLogin() {
 		return this.login;
 	}
@@ -82,6 +89,7 @@ class DBProperties extends Properties {
 	 * @param login
 	 *          the new login
 	 */
+	// Set the database connection login
 	private void setLogin(final String login) {
 		this.login = login;
 	}
@@ -91,6 +99,7 @@ class DBProperties extends Properties {
 	 *
 	 * @return the password
 	 */
+	// Get the database connection password
 	public String getPassword() {
 		return this.password;
 	}
@@ -101,6 +110,7 @@ class DBProperties extends Properties {
 	 * @param password
 	 *          the new password
 	 */
+	// Set the database connection password
 	private void setPassword(final String password) {
 		this.password = password;
 	}

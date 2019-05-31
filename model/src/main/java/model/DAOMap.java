@@ -22,13 +22,14 @@ class DAOMap<M extends Map> {
 	private Connection connection;
 
 	/**
-	 * Instantiates a new DAO hello world.
+	 * Instantiates a new DAO Map.
 	 *
 	 * @param connection
 	 *          the connection
 	 * @throws SQLException
 	 *           the SQL exception
 	 */
+	// DAOMap constructor
 	public DAOMap(final Connection connection) throws SQLException {
 		this.connection = connection;
 	}
@@ -38,6 +39,7 @@ class DAOMap<M extends Map> {
 	 *
 	 * @return the connection
 	 */
+	// GEt the database connection
 	protected Connection getConnection() {
 		return this.connection;
 	}
@@ -48,20 +50,18 @@ class DAOMap<M extends Map> {
 	 * @param id the id
 	 * @return the map
 	 */
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see model.DAOEntity#find(int)
-	 */
+	// Find Map in database using ID
 	public Map find(final int id) {
-
 		try {
+			// Call the 'mapById' SQL procedure in MySQL
 			final String sql = "{call mapById(?)}";
 			final CallableStatement call = this.getConnection().prepareCall(sql);
 			call.setInt(1, id);
 			call.execute();
+			// Get the call result
 			final ResultSet resultSet = call.getResultSet();
 			if (resultSet.first()) {
+				// Create a new Map
 				return new Map(id, resultSet.getString("level"));
 			}
 		} catch (final SQLException e) {

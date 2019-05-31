@@ -21,7 +21,9 @@ public final class Model extends Observable implements IModel {
 	/**
 	 * Instantiates a new model.
 	 */
+	// Model constructor
 	public Model() {
+		// Create a new game Map
 		this.map = new Map();
 	}
 	
@@ -30,6 +32,7 @@ public final class Model extends Observable implements IModel {
 	 *
 	 * @return the map
 	 */
+	// Get the Map
 	public Map getMap() {
 		return this.map;
 	}
@@ -39,8 +42,11 @@ public final class Model extends Observable implements IModel {
 	 *
 	 * @param map the new map
 	 */
+	// Set the game Map
 	private void setMap(final Map map) {
+		// Refresh graphics
 		this.map = map;
+		// Refresh graphics
 		this.modelNotify();
 	}
 
@@ -49,6 +55,7 @@ public final class Model extends Observable implements IModel {
 	 *
 	 * @param id the id
 	 */
+	// Load a game Map
 	@Override
 	public void loadMap(int id) {
 		try {
@@ -70,8 +77,12 @@ public final class Model extends Observable implements IModel {
 	/**
 	 * Model notify.
 	 */
+
+	// Refresh graphics
 	public void modelNotify() {
+		// Set changes
         setChanged();
+    	// notify changes to the Model
         notifyObservers();
     }
 }

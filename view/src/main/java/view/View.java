@@ -26,7 +26,9 @@ public final class View implements IView, Runnable {
 	 *
 	 * @param model the model
 	 */
+	// View constructor
 	public View(final IModel model) {
+		// Set the View Frame
 		this.viewFrame = new ViewFrame(model);
 		SwingUtilities.invokeLater(this);
 	}
@@ -37,30 +39,34 @@ public final class View implements IView, Runnable {
 	 * @param keyCode the key code
 	 * @return the controller order
 	 */
+	// Translate Key codes to Controller orders
 	protected static ControllerOrder keyCodeToControllerOrder(final int keyCode) {
 		switch (keyCode) {
-		case KeyEvent.VK_NUMPAD1:
-			return ControllerOrder.Map1;
-		case KeyEvent.VK_NUMPAD2:
-			return ControllerOrder.Map2;
-		case KeyEvent.VK_NUMPAD3:
-			return ControllerOrder.Map3;
-		case KeyEvent.VK_NUMPAD4:
-			return ControllerOrder.Map4;
-		case KeyEvent.VK_NUMPAD5:
-			return ControllerOrder.Map5;
-		case KeyEvent.VK_UP:
-			return ControllerOrder.UP;
-		case KeyEvent.VK_DOWN:
-			return ControllerOrder.DOWN;
-		case KeyEvent.VK_LEFT:
-			return ControllerOrder.LEFT;
-		case KeyEvent.VK_RIGHT:
-			return ControllerOrder.RIGHT;
-		case KeyEvent.VK_ESCAPE:
-			System.exit(0);
-		default:
-			return ControllerOrder.NOTHING;
+			// To choose a Map
+			case KeyEvent.VK_NUMPAD1:
+				return ControllerOrder.Map1;
+			case KeyEvent.VK_NUMPAD2:
+				return ControllerOrder.Map2;
+			case KeyEvent.VK_NUMPAD3:
+				return ControllerOrder.Map3;
+			case KeyEvent.VK_NUMPAD4:
+				return ControllerOrder.Map4;
+			case KeyEvent.VK_NUMPAD5:
+				return ControllerOrder.Map5;
+				
+			// To choose the Player direction
+			case KeyEvent.VK_UP:
+				return ControllerOrder.UP;
+			case KeyEvent.VK_DOWN:
+				return ControllerOrder.DOWN;
+			case KeyEvent.VK_LEFT:
+				return ControllerOrder.LEFT;
+			case KeyEvent.VK_RIGHT:
+				return ControllerOrder.RIGHT;
+			case KeyEvent.VK_ESCAPE:
+				System.exit(0);
+			default:
+				return ControllerOrder.NOTHING;
 		}
 	}
 
@@ -69,6 +75,7 @@ public final class View implements IView, Runnable {
 	 *
 	 * @param message the message
 	 */
+	// Print message
 	public void printMessage(final String message) {
 		this.viewFrame.printMessage(message);
 	}
@@ -76,6 +83,7 @@ public final class View implements IView, Runnable {
 	/**
 	 * Run.
 	 */
+	// Set the View Frame visible
 	public void run() {
 		this.viewFrame.setVisible(true);
 	}
@@ -85,6 +93,7 @@ public final class View implements IView, Runnable {
 	 *
 	 * @param controller the new controller
 	 */
+	// Set the View Frame controller
 	public void setController(final IController controller) {
 		this.viewFrame.setController(controller);
 	}

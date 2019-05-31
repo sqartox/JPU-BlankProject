@@ -21,6 +21,7 @@ final class DBConnection {
 	/**
 	 * Instantiates a new DB connection.
 	 */
+	// DBConnection constructor
 	private DBConnection() {
 		this.open();
 	}
@@ -30,10 +31,13 @@ final class DBConnection {
 	 *
 	 * @return single instance of DBConnection
 	 */
+	// Get the unique instance of DBConnection
 	public static synchronized DBConnection getInstance() {
 		if (DBConnection.INSTANCE == null) {
+			// Create a new DBConnection Instance
 			DBConnection.INSTANCE = new DBConnection();
 		}
+		// Return the new DBConnection Instance
 		return DBConnection.INSTANCE;
 	}
 
@@ -42,10 +46,13 @@ final class DBConnection {
 	 *
 	 * @return the boolean
 	 */
+	// Open a DBConnection
 	private Boolean open() {
 		final DBProperties dbProperties = new DBProperties();
 		try {
+			// Get the JDBC drivers
 			Class.forName("com.mysql.jdbc.Driver");
+			// Open the connection
 			this.connection = DriverManager.getConnection(dbProperties.getUrl(), dbProperties.getLogin(), dbProperties.getPassword());
 		} catch (final ClassNotFoundException e) {
 			e.printStackTrace();
@@ -60,6 +67,7 @@ final class DBConnection {
 	 *
 	 * @return the connection
 	 */
+	// Get the DBConnection
 	public Connection getConnection() {
 		return this.connection;
 	}

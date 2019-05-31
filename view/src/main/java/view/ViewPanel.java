@@ -44,17 +44,21 @@ class ViewPanel extends JPanel implements Observer {
 	 *
 	 * @param viewFrame the view frame
 	 */
+	// ViewFrame constructor
 	public ViewPanel(final ViewFrame viewFrame) {
+		// Set the ViewFrame
 		this.setViewFrame(viewFrame);
 		viewFrame.getModel().getObservable().addObserver(this);
 		this.img = null;
 		try {
+			// Load font image
 			img = ImageIO.read(new File("..\\entity\\src\\main\\resources\\sprite\\Font.png"));
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		// Get Map design
 		mapDesign = this.getViewFrame().getModel().getMap().getMapDesign();
+		// Get Timers
 		this.getViewFrame().setTotalCount(0);
 		this.getViewFrame().setCount(0);
 	}
@@ -64,6 +68,7 @@ class ViewPanel extends JPanel implements Observer {
 	 *
 	 * @return the view frame
 	 */
+	// Get the ViewFrame
 	private ViewFrame getViewFrame() {
 		return this.viewFrame;
 	}
@@ -73,6 +78,7 @@ class ViewPanel extends JPanel implements Observer {
 	 *
 	 * @param viewFrame the new view frame
 	 */
+	// Set the ViewFrame
 	private void setViewFrame(final ViewFrame viewFrame) {
 		this.viewFrame = viewFrame;
 	}
@@ -88,6 +94,7 @@ class ViewPanel extends JPanel implements Observer {
 	 *
 	 * @see java.util.Observer#update(java.util.Observable, java.lang.Object)
 	 */
+	// Update ViewPanel
 	public void update(final Observable arg0, final Object arg1) {
 		this.repaint();
 	}
@@ -102,17 +109,22 @@ class ViewPanel extends JPanel implements Observer {
 	 *
 	 * @see javax.swing.JComponent#paintComponent(java.awt.Graphics)
 	 */
+	// Paint all graphics components
 	@Override
 	protected void paintComponent(final Graphics graphics) {
 
 		if (this.getViewFrame().getModel().getMap().getMapDesign() != mapDesign) {
+			// Set Timer to 0 if the map wasn't load
 			this.getViewFrame().setCount(0);
 		}
 		if (this.getViewFrame().getModel().getMap().getPlayer() != null) {
+			// Clear the ViewPanel
 			graphics.clearRect(0, 0, this.getWidth(), this.getHeight());
+			// Set the ViewPanel Properties
 			super.paintComponent(graphics);
 			graphics.fillRect(0, 0, getWidth(), getHeight());
 			graphics.drawImage(img, 0, 0, 1920, 1080, this);
+			// Set the Map camera
 			if (LARGECAMERA == false) {
 				this.zoom = 3.5;
 				((Graphics2D) graphics).translate(
@@ -127,6 +139,7 @@ class ViewPanel extends JPanel implements Observer {
 			}
 			((Graphics2D) graphics).scale(zoom, zoom);
 
+			// Draw all Elements
 			for (int y = 0; y < this.getViewFrame().getModel().getMap().getWidth(); y++) {
 				for (int x = 0; x < this.getViewFrame().getModel().getMap().getHeight(); x++) {
 					graphics.drawImage(
@@ -135,6 +148,7 @@ class ViewPanel extends JPanel implements Observer {
 				}
 			}
 		}
+		// Draw Timer and Score
 		graphics.setColor(new Color(0xFFFFFF));
 		graphics.drawString("Total time: " + String.format("%.1f", this.getViewFrame().getTotalCount()), 10, -20);
 		graphics.drawString("Level time: " + String.format("%.1f", this.getViewFrame().getCount()), 10, -5);
@@ -144,7 +158,8 @@ class ViewPanel extends JPanel implements Observer {
 		}
 		// graphics.drawString(this.getViewFrame().getModel().getMap().getMapDesign(),
 		// 0, 0);
-
+		
+		// Get Map design
 		mapDesign = this.getViewFrame().getModel().getMap().getMapDesign();
 	}
 }

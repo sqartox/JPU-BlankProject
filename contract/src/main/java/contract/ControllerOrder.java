@@ -3,12 +3,13 @@ package contract;
 /**
  * The Enum ControllerOrder.
  *
- * @author Jean michel crapaud
- * The class ControllerOrder
- * Saved as file ControllerOrder.java
+ * @author Jean michel crapaud The class ControllerOrder Saved as file
+ *         ControllerOrder.java
  */
 public enum ControllerOrder {
-	
+
+	// The different possible user orders:
+	// To choose the Map
 	/** The 1st Map. */
 	Map1,
 	/** The 2nd Map. */
@@ -20,18 +21,15 @@ public enum ControllerOrder {
 	/** The 5th Map. */
 	Map5,
 	
-	/**  No action performed. */
+	// To choose the Player direction
+	/** No action performed. */
 	NOTHING,
-	
 	/** The up. */
 	UP,
-	
 	/** The down. */
 	DOWN,
-	
 	/** The left. */
 	LEFT,
-	
 	/** The right. */
 	RIGHT
 }

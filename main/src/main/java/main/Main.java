@@ -26,14 +26,23 @@ public abstract class Main {
      */
 	
     public static void main(final String[] args) throws InterruptedException {
+    	
+		// Load the Game Model
         final Model model = new Model();
+        
+		// Load the Game View
         final View view = new View(model);
+        
+		// Set the controller
         final Controller controller = new Controller(view, model);
         view.setController(controller);
         
+        // Set default Game controller properties
         controller.control();
         controller.orderPerform(ControllerOrder.Map1);
         controller.orderPerform(ControllerOrder.NOTHING);
+        
+        // Start Game
         controller.play();
     }
 }

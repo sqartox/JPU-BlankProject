@@ -16,18 +16,16 @@ public interface IModel {
 	/**
 	 * Gets the hello world.
 	 *
-	 * @return the helloworld entity
+	 * @return the map entity
 	 */
 	Map getMap();
 
 	/**
-	 * Load the message.
+	 * Load the Map.
 	 *
 	 * @param i
 	 *          the code
-	 */
-	//void loadHelloWorld(String code);
-	
+	 */	
 	void loadMap(int i);
 
 	/**

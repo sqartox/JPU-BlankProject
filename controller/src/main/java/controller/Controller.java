@@ -29,8 +29,11 @@ public final class Controller implements IController {
 	 * @param view  the view
 	 * @param model the model
 	 */
+	// Controller constructor
 	public Controller(final IView view, final IModel model) {
+		// Set the View
 		this.setView(view);
+		// Set the Model
 		this.setModel(model);
 	}
 
@@ -43,6 +46,7 @@ public final class Controller implements IController {
 	 * @see contract.IController#control()
 	 */
 	public void control() {
+		// Information message
 		this.view.printMessage("Change map at antytime with numpad: 1-5");
 	}
 
@@ -51,6 +55,7 @@ public final class Controller implements IController {
 	 *
 	 * @param pview the new view
 	 */
+	// Set the View
 	private void setView(final IView pview) {
 		this.view = pview;
 	}
@@ -60,6 +65,7 @@ public final class Controller implements IController {
 	 *
 	 * @param model the new model
 	 */
+	// Set the Model
 	private void setModel(final IModel model) {
 		this.model = model;
 	}
@@ -74,58 +80,74 @@ public final class Controller implements IController {
 	 *
 	 * @see contract.IController#orderPerform(contract.ControllerOrder)
 	 */
+	// Get user orders
 	public void orderPerform(final ControllerOrder controllerOrder) {
 		switch (controllerOrder) {
-		case Map1:
-			this.setMap(1);
-			break;
-		case Map2:
-			this.setMap(2);
-			break;
-		case Map3:
-			this.setMap(3);
-			break;
-		case Map4:
-			this.setMap(4);
-			break;
-		case Map5:
-			this.setMap(5);
-			break;
-		case NOTHING:
-			break;
-		case UP:
-			if (changeMap(0, -1)) {
-				this.setMap(this.getMap() + 1);
-			} else {
-				this.model.getMap().getPlayer().movePlayer(this.model.getMap().getPlayer().chooseDirection(1));
-				this.model.modelNotify();
+			// To choose the Map
+			case Map1:
+				this.setMap(1);
+				break;
+			case Map2:
+				this.setMap(2);
+				break;
+			case Map3:
+				this.setMap(3);
+				break;
+			case Map4:
+				this.setMap(4);
+				break;
+			case Map5:
+				this.setMap(5);
+				break;
+	
+			// To Move Player
+			case NOTHING:
+				break;
+			case UP:
+				if (changeMap(0, -1)) {
+					// Change to next Map
+					this.setMap(this.getMap() + 1);
+				} else {
+					// Move the Player
+					this.model.getMap().getPlayer().movePlayer(this.model.getMap().getPlayer().chooseDirection(1));
+					// Notify changes
+					this.model.modelNotify();
+				}
+				break;
+			case DOWN:
+				if (changeMap(0, +1)) {
+					// Change to next Map
+					this.setMap(this.getMap() + 1);
+				} else {
+					// Move the Player
+					this.model.getMap().getPlayer().movePlayer(this.model.getMap().getPlayer().chooseDirection(2));
+					// Notify changes
+					this.model.modelNotify();
+				}
+				break;
+			case LEFT:
+				if (changeMap(-1, 0)) {
+					// Change to next Map
+					this.setMap(this.getMap() + 1);
+				} else {
+					// Move the Player
+					this.model.getMap().getPlayer().movePlayer(this.model.getMap().getPlayer().chooseDirection(3));
+					// Notify changes
+					this.model.modelNotify();
+				}
+				break;
+			case RIGHT:
+				if (changeMap(+1, 0)) {
+					// Change to next Map
+					this.setMap(this.getMap() + 1);
+				} else {
+					// Move the Player
+					this.model.getMap().getPlayer().movePlayer(this.model.getMap().getPlayer().chooseDirection(4));
+					// Notify changes
+					this.model.modelNotify();
+				}
+				break;
 			}
-			break;
-		case DOWN:
-			if (changeMap(0, +1)) {
-				this.setMap(this.getMap() + 1);
-			} else {
-				this.model.getMap().getPlayer().movePlayer(this.model.getMap().getPlayer().chooseDirection(2));
-				this.model.modelNotify();
-			}
-			break;
-		case LEFT:
-			if (changeMap(-1, 0)) {
-				this.setMap(this.getMap() + 1);
-			} else {
-				this.model.getMap().getPlayer().movePlayer(this.model.getMap().getPlayer().chooseDirection(3));
-				this.model.modelNotify();
-			}
-			break;
-		case RIGHT:
-			if (changeMap(+1, 0)) {
-				this.setMap(this.getMap() + 1);
-			} else {
-				this.model.getMap().getPlayer().movePlayer(this.model.getMap().getPlayer().chooseDirection(4));
-				this.model.modelNotify();
-			}
-			break;
-		}
 	}
 
 	/**
@@ -135,6 +157,7 @@ public final class Controller implements IController {
 	 * @param y the y
 	 * @return true, if successful
 	 */
+	// Change to next Map
 	public boolean changeMap(int x, int y) {
 		if (this.model.getMap().getPlayer().getDiamondCount() >= this.model.getMap().getTotalDiamonds()
 				&& this.model.getMap().getPlayer().checkForExit(x, y)) {
@@ -143,26 +166,32 @@ public final class Controller implements IController {
 		return false;
 	}
 
-/**
- * Play.
- *
- * @throws InterruptedException the interrupted exception
- */
-//Main while
+	/**
+	 * Play.
+	 *
+	 * @throws InterruptedException the interrupted exception
+	 */
+	// Game loop
 	public final void play() throws InterruptedException {
 		int moveOn = 1;
 		while (true) {
 			Thread.sleep(300);
 			if (moveOn == 2) {
+				// Refresh Opponents
 				this.model.getMap().getOpponent().forEach((opponent) -> opponent.refreshOpponents());
+				// Notify changes
 				this.model.modelNotify();
 				moveOn = 1;
 			} else {
 				moveOn++;
 			}
+			// Refresh Stones
 			this.model.getMap().getStone().forEach((stone) -> stone.refreshStones());
+			// Refresh Diamonds
 			this.model.getMap().getDiamonds().forEach((diamond) -> diamond.refreshDiamonds());
+			// Notify changes
 			this.model.modelNotify();
+			// Stop the Game
 			endOfGame();
 		}
 
@@ -173,7 +202,9 @@ public final class Controller implements IController {
 	 *
 	 * @throws InterruptedException the interrupted exception
 	 */
+	// Stop the Game
 	public void endOfGame() throws InterruptedException {
+		// Stop the Game if Player is dead
 		if (this.model.getMap().getPlayer().isAlive() == false) {
 			this.view.printMessage("Blurp !");
 			System.exit(0);
@@ -185,6 +216,7 @@ public final class Controller implements IController {
 	 *
 	 * @return the map
 	 */
+	// Get the Map
 	public int getMap() {
 		return map;
 	}
@@ -194,9 +226,13 @@ public final class Controller implements IController {
 	 *
 	 * @param map the new map
 	 */
+	// Set the Map
 	public void setMap(int map) {
+		// Set the Map
 		this.map = map;
+		// Load the Map
 		this.model.loadMap(map);
+		// Map information message
 		this.view.printMessage("Current level: " + map);
 	}
 

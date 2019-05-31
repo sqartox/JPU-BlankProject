@@ -62,7 +62,9 @@ class ViewFrame extends JFrame implements KeyListener {
 	 * @param model the model
 	 * @throws HeadlessException the headless exception
 	 */
+	// ViewFrame constructor
 	public ViewFrame(final IModel model) throws HeadlessException {
+		// Build the ViewFrame using Map model
 		this.buildViewFrame(model);
 	}
 
@@ -71,6 +73,7 @@ class ViewFrame extends JFrame implements KeyListener {
 	 *
 	 * @return the controller
 	 */
+	// Get ViewFrame controller
 	private IController getController() {
 		return this.controller;
 	}
@@ -80,6 +83,7 @@ class ViewFrame extends JFrame implements KeyListener {
 	 *
 	 * @param controller the new controller
 	 */
+	// Set ViewFrame controller
 	protected void setController(final IController controller) {
 		this.controller = controller;
 	}
@@ -89,6 +93,7 @@ class ViewFrame extends JFrame implements KeyListener {
 	 *
 	 * @return the model
 	 */
+	// Get ViewFrame model
 	protected IModel getModel() {
 		return this.model;
 	}
@@ -98,6 +103,7 @@ class ViewFrame extends JFrame implements KeyListener {
 	 *
 	 * @param model the new model
 	 */
+	// Set ViewFrame model
 	private void setModel(final IModel model) {
 		this.model = model;
 	}
@@ -107,24 +113,34 @@ class ViewFrame extends JFrame implements KeyListener {
 	 *
 	 * @param model the model
 	 */
+	// Build the ViewFrame
 	private void buildViewFrame(final IModel model) {
+		// Create a blank cursor
 		BufferedImage cursorImg = new BufferedImage(16, 16, BufferedImage.TYPE_INT_ARGB);
 		Cursor blankCursor = Toolkit.getDefaultToolkit().createCustomCursor(cursorImg, new Point(0, 0), "blank cursor");
+		// Set ViewFrame model
 		this.setModel(model);
+		// Set default ViewFrame properties
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setResizable(false);
 		this.addKeyListener(this);
 		this.setContentPane(new ViewPanel(this));
+		// Set game in full screen
 		this.setExtendedState(JFrame.MAXIMIZED_BOTH);
 		this.setUndecorated(true);
 		this.setLocationRelativeTo(null);
+		// Set the blank cursor in order to hide it
 		this.getContentPane().setCursor(blankCursor);
+		// Set Timer
 		ActionListener taskPerformer = new ActionListener() {
 		      public void actionPerformed(ActionEvent evt) {
-		          count = count + 0.1;
+		    	  // Set level Timer
+		    	  count = count + 0.1;
+		          // Set global Timer
 		          totalCount = totalCount + 0.1;
 		      }
 		  };
+		  // Start Timer
 		  new Timer(100, taskPerformer).start();
 	}
 
@@ -133,6 +149,7 @@ class ViewFrame extends JFrame implements KeyListener {
 	 *
 	 * @param message the message
 	 */
+	// print message
 	public void printMessage(final String message) {
 		JOptionPane.showMessageDialog(null, message);
 	}
@@ -184,6 +201,7 @@ class ViewFrame extends JFrame implements KeyListener {
 	 *
 	 * @return the total count
 	 */
+	// Get global  Timer
 	public double getTotalCount() {
 		return totalCount;
 	}
@@ -193,6 +211,7 @@ class ViewFrame extends JFrame implements KeyListener {
 	 *
 	 * @param totalCount the new total count
 	 */
+	// Set global Timer
 	public void setTotalCount(double totalCount) {
 		this.totalCount = totalCount;
 	}

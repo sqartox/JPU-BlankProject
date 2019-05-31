@@ -11,10 +11,10 @@ package contract;
 public interface IView {
 
 	/**
-	 * Prints the message.
+	 * Prints the map.
 	 *
 	 * @param message
-	 *          the message
+	 *          the Map level
 	 */
 	void printMessage(final String message);
 	

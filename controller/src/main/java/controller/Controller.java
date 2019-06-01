@@ -185,7 +185,6 @@ public final class Controller implements IController {
 					try {
 						opponent.refreshOpponents();
 					} catch (Exception e) {
-						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
 				});
@@ -200,7 +199,6 @@ public final class Controller implements IController {
 				try {
 					stone.refreshStones();
 				} catch (Exception e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 			});
@@ -209,7 +207,6 @@ public final class Controller implements IController {
 				try {
 					diamond.refreshDiamonds();
 				} catch (Exception e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 			});

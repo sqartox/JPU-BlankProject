@@ -28,7 +28,7 @@ class ViewPanel extends JPanel implements Observer {
 	private static int DEFAULT_SPRITE_SIZE = 16;
 	
 	/** The largecamera. */
-	private static boolean LARGECAMERA = false;
+	private static boolean LARGECAMERA = true;
 	
 	/** The zoom. */
 	private double zoom = 2.4;

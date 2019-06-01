@@ -151,7 +151,7 @@ public final class Controller implements IController {
 				}
 				break;
 			default :
-				throw new Exception("Invalid Map id : Please select a map beetween 1 and 5.");
+				throw new Exception("Invalid order.");
 			}
 		
 	}

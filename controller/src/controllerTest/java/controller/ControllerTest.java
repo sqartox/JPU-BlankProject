@@ -15,7 +15,6 @@ import contract.IView;
 
 public class ControllerTest {
 
-	private Controller controller;
 	private IView view;
 	private IModel model;
 	
@@ -31,7 +30,7 @@ public class ControllerTest {
 
 	@Before
 	public void setUp() throws Exception {
-		this.controller = new Controller(view, model);
+		new Controller(view, model);
 		this.orderPerform = ControllerOrder.NOTHING;
 	}
 
@@ -51,7 +50,7 @@ public class ControllerTest {
 			new Controller(view, model);
 //			fail("Should throw exception when Y position < 0");
 		} catch (final Exception e) {
-			final String expected = "Invalid Map id : Please select a map beetween 1 and 5.";
+			final String expected = "Invalid order.";
 			assertEquals(expected, e.getMessage());
 		}
 	}

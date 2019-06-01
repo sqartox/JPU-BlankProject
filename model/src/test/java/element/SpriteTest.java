@@ -39,12 +39,14 @@ public class SpriteTest {
 
 	@Test
 	public void testLoadSprite() {
+		// A finir
 		final Sprite expected = this.sprite;
 		assertEquals(expected, this.sprite);
 	}
 
 	@Test
 	public void testGetImage(){
+		// A finir
 		final BufferedImage expected = this.sprite.getImage();
 		assertEquals(expected, this.sprite.getImage());
 	}

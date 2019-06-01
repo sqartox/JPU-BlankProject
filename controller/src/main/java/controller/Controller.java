@@ -150,7 +150,10 @@ public final class Controller implements IController {
 					this.model.modelNotify();
 				}
 				break;
+			default :
+				throw new Exception("Invalid Map id : Please select a map beetween 1 and 5.");
 			}
+		
 	}
 
 	/**

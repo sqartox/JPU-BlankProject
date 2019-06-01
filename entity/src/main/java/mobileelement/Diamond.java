@@ -37,9 +37,10 @@ public class Diamond extends MobileElement {
 	 * Move diamond.
 	 *
 	 * @param direction the direction
+	 * @throws Exception 
 	 */
 	// Move Diamonds method
-	public void moveDiamond(Direction direction) {
+	public void moveDiamond(Direction direction) throws Exception {
 		switch (direction) {
 		case DOWN:
 			this.changePosition(0, +1);
@@ -77,9 +78,10 @@ public class Diamond extends MobileElement {
 
 	/**
 	 * Refresh diamonds.
+	 * @throws Exception 
 	 */
 	//Refresh Diamond position Method
-	public void refreshDiamonds() {
+	public void refreshDiamonds() throws Exception {
 		this.moveDiamond(Direction.DOWN);
 	}
 }

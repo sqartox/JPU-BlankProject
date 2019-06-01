@@ -1,7 +1,5 @@
 package mobileelement;
 
-import static org.junit.Assert.*;
-
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -9,7 +7,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 public class MobileElementTest {
-
+	
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 	}
@@ -28,7 +26,7 @@ public class MobileElementTest {
 
 	@Test
 	public void testChooseDirection() {
-		fail("Not yet implemented");
+		
 	}
 
 }

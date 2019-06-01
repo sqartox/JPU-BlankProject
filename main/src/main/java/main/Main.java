@@ -22,10 +22,10 @@ public abstract class Main {
      * The main method.
      *
      * @param args            the arguments
-     * @throws InterruptedException the interrupted exception
+     * @throws Exception 
      */
 	
-    public static void main(final String[] args) throws InterruptedException {
+    public static void main(final String[] args) throws Exception {
     	
 		// Load the Game Model
         final Model model = new Model();

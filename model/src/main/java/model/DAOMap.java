@@ -49,9 +49,10 @@ class DAOMap<M extends Map> {
 	 *
 	 * @param id the id
 	 * @return the map
+	 * @throws Exception 
 	 */
 	// Find Map in database using ID
-	public Map find(final int id) {
+	public Map find(final int id) throws Exception {
 		try {
 			// Call the 'mapById' SQL procedure in MySQL
 			final String sql = "{call mapById(?)}";

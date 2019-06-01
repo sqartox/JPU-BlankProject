@@ -1,5 +1,7 @@
 package controller;
 
+import java.sql.SQLException;
+
 import contract.ControllerOrder;
 import contract.IController;
 import contract.IModel;
@@ -74,6 +76,7 @@ public final class Controller implements IController {
 	 * Order perform.
 	 *
 	 * @param controllerOrder the controller order
+	 * @throws Exception 
 	 */
 	/*
 	 * (non-Javadoc)
@@ -81,7 +84,7 @@ public final class Controller implements IController {
 	 * @see contract.IController#orderPerform(contract.ControllerOrder)
 	 */
 	// Get user orders
-	public void orderPerform(final ControllerOrder controllerOrder) {
+	public void orderPerform(final ControllerOrder controllerOrder) throws Exception {
 		switch (controllerOrder) {
 			// To choose the Map
 			case Map1:
@@ -178,7 +181,14 @@ public final class Controller implements IController {
 			Thread.sleep(300);
 			if (moveOn == 2) {
 				// Refresh Opponents
-				this.model.getMap().getOpponent().forEach((opponent) -> opponent.refreshOpponents());
+				this.model.getMap().getOpponent().forEach((opponent) -> {
+					try {
+						opponent.refreshOpponents();
+					} catch (Exception e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				});
 				// Notify changes
 				this.model.modelNotify();
 				moveOn = 1;
@@ -186,9 +196,23 @@ public final class Controller implements IController {
 				moveOn++;
 			}
 			// Refresh Stones
-			this.model.getMap().getStone().forEach((stone) -> stone.refreshStones());
+			this.model.getMap().getStone().forEach((stone) -> {
+				try {
+					stone.refreshStones();
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			});
 			// Refresh Diamonds
-			this.model.getMap().getDiamonds().forEach((diamond) -> diamond.refreshDiamonds());
+			this.model.getMap().getDiamonds().forEach((diamond) -> {
+				try {
+					diamond.refreshDiamonds();
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			});
 			// Notify changes
 			this.model.modelNotify();
 			// Stop the Game
@@ -225,9 +249,11 @@ public final class Controller implements IController {
 	 * Sets the map.
 	 *
 	 * @param map the new map
+	 * @throws Exception 
+	 * @throws SQLException 
 	 */
 	// Set the Map
-	public void setMap(int map) {
+	public void setMap(int map) throws SQLException, Exception {
 		// Set the Map
 		this.map = map;
 		// Load the Map

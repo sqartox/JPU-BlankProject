@@ -1,5 +1,6 @@
 package contract;
 
+import java.sql.SQLException;
 import java.util.Observable;
 
 import element.Map;
@@ -25,8 +26,10 @@ public interface IModel {
 	 *
 	 * @param i
 	 *          the code
+	 * @throws Exception 
+	 * @throws SQLException 
 	 */	
-	void loadMap(int i);
+	void loadMap(int i) throws SQLException, Exception;
 
 	/**
 	 * Gets the observable.

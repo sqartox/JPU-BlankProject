@@ -125,9 +125,10 @@ public class Collision {
 	 *
 	 * @param x the x
 	 * @param y the y
+	 * @throws Exception 
 	 */
 	// Check Collision to move Stone by Player
-	public void moveStoneByPlayer(int x, int y) {
+	public void moveStoneByPlayer(int x, int y) throws Exception {
 		Element element = this.map.getMapObjects(x, y);
 		if (element instanceof Stone) {
 			// Get the right and left element of the stone
@@ -150,9 +151,10 @@ public class Collision {
 	 *
 	 * @param x the x
 	 * @param y the y
+	 * @throws Exception 
 	 */
 	// Check Collision to move Stone or Diamond by gravity
-	public void gravityFall(int x, int y) {
+	public void gravityFall(int x, int y) throws Exception {
 		// Get the Elements around of the Stone or the Diamond
 		Element element = this.map.getMapObjects(x, y);
 		Element elementRight = this.map.getMapObjects(x + 1, y);

@@ -35,9 +35,10 @@ public class Opponent extends MobileElement {
 
 	/**
 	 * Move opponent.
+	 * @throws Exception 
 	 */
 	// Move Opponent method
-	public void moveOpponent() {
+	public void moveOpponent() throws Exception {
 		int random = (int) (Math.random() * 4 + 1);
 		switch (random) {
 		case 1:
@@ -79,9 +80,10 @@ public class Opponent extends MobileElement {
 
 	/**
 	 * Refresh opponents.
+	 * @throws Exception 
 	 */
 	// Refresh Opponent position Method
-	public void refreshOpponents() {
+	public void refreshOpponents() throws Exception {
 		if (this.isAlive()) {
 			this.moveOpponent();
 		}

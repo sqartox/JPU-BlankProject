@@ -42,9 +42,10 @@ public class Map {
 	 *
 	 * @param id      the id
 	 * @param message the message
+	 * @throws Exception 
 	 */
 	// Map constructor
-	public Map(final int id, final String message) {
+	public Map(final int id, final String message) throws Exception {
 		// Set the level Map design
 		this.setMapDesign(message);
 		// Set the different Map objects
@@ -59,8 +60,9 @@ public class Map {
 
 	/**
 	 * Instantiates a new hello world.
+	 * @throws Exception 
 	 */// Map bis
-	public Map() {
+	public Map() throws Exception {
 		this(0, "");
 	}
 
@@ -113,9 +115,10 @@ public class Map {
 
 	/**
 	 * Sets the map objects.
+	 * @throws Exception 
 	 */
 	// Set the different Map objects
-	public void setMapObjects() {
+	public void setMapObjects() throws Exception {
 		// Get the level Map design
 		String map = this.getMapDesign();
 		System.out.println(map);

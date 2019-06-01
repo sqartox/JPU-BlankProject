@@ -94,9 +94,10 @@ public abstract class Element {
 	 *
 	 * @param x the x
 	 * @param y the y
+	 * @throws Exception 
 	 */
 	// Change the Element position
-	public void changePosition(int x, int y) {
+	public void changePosition(int x, int y) throws Exception {
 		// Get the current X and Y pos in the Map
 		int currentX = this.getPosition().getX();
 		int currentY = this.getPosition().getY();
@@ -202,9 +203,10 @@ public abstract class Element {
 	 * @param x the x
 	 * @param y the y
 	 * @return the diamond
+	 * @throws Exception 
 	 */
 	// Check for Diamond position and increment Diamond count
-	public void getDiamond(int x, int y) {
+	public void getDiamond(int x, int y) throws Exception {
 		Element element = this.getMap().getMapObjects(x, y);
 		// Check for Diamond
 		if (element instanceof Diamond) {

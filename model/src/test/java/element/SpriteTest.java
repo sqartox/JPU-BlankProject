@@ -1,8 +1,12 @@
 package element;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+
+import javax.imageio.ImageIO;
 
 import org.junit.After;
 import org.junit.AfterClass;
@@ -38,17 +42,8 @@ public class SpriteTest {
 	}
 
 	@Test
-	public void testLoadSprite() {
-		// A finir
-		final Sprite expected = this.sprite;
-		assertEquals(expected, this.sprite);
+	public void testGetImage() throws IOException{
+		final BufferedImage expected_sprite_image = ImageIO.read(new File("..\\entity\\src\\main\\resources\\sprite\\Down_Rockford.png"));
+		assertEquals(expected_sprite_image, this.sprite.getImage());
 	}
-
-	@Test
-	public void testGetImage(){
-		// A finir
-		final BufferedImage expected = this.sprite.getImage();
-		assertEquals(expected, this.sprite.getImage());
-	}
-
 }

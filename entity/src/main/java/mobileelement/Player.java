@@ -39,12 +39,16 @@ public class Player extends MobileElement {
 	 * @param player the player
 	 * @param x the x
 	 * @param y the y
+	 * @throws Exception 
 	 */
 	// Player constructor
-	public Player(int player, int x, int y) {
+	public Player(int player, int x, int y) throws Exception {
 		// Call the Mobile Element constructor to instantiate a new Mobile Element
 		super(SPRITE_DOWN, DIRECTION, x, y);
 		// Set the Player Diamond count
+		if( diamondCount < 0) {
+			throw new Exception("Diamond count out of range");
+		}
 		this.diamondCount = 0;
 		// Set the Player life state
 		this.setState(true);
@@ -64,9 +68,10 @@ public class Player extends MobileElement {
 	 * Sets the diamond count.
 	 *
 	 * @param diamondCount the new diamond count
+	 * @throws Exception 
 	 */
 	// Set the Player Diamond count
-	public void setDiamondCount(int diamondCount) {
+	public void setDiamondCount(int diamondCount){
 		this.diamondCount = diamondCount;
 	}
 
@@ -74,9 +79,10 @@ public class Player extends MobileElement {
 	 * Move player.
 	 *
 	 * @param direction the direction
+	 * @throws Exception 
 	 */
 	// Move Player method
-	public void movePlayer(Direction direction) {
+	public void movePlayer(Direction direction) throws Exception {
 		switch (direction) {
 		case UP:
 			// Change Player position

@@ -20,9 +20,10 @@ public final class Model extends Observable implements IModel {
 
 	/**
 	 * Instantiates a new model.
+	 * @throws Exception 
 	 */
 	// Model constructor
-	public Model() {
+	public Model() throws Exception {
 		// Create a new game Map
 		this.map = new Map();
 	}
@@ -54,15 +55,13 @@ public final class Model extends Observable implements IModel {
 	 * Load map.
 	 *
 	 * @param id the id
+	 * @throws Exception 
+	 * @throws SQLException 
 	 */
 	// Load a game Map
 	@Override
-	public void loadMap(int id) {
-		try {
+	public void loadMap(int id) throws SQLException, Exception {
 			this.setMap(new DAOMap<Map>(DBConnection.getInstance().getConnection()).find(id));
-		} catch (final SQLException e) {
-			e.printStackTrace();
-		}
 	}
 
 	/**

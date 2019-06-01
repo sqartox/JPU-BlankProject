@@ -46,7 +46,7 @@ public class PositionTest {
 	public void excepXMinRange() {
 		try {
 			new Position(1, 10);
-			//fail("Should throw exception when X position < 0");
+//			fail("Should throw exception when X position < 0");
 		} catch (final Exception e) {
 			final String expected = "Position X out of range";
 			assertEquals(expected, e.getMessage());
@@ -57,7 +57,7 @@ public class PositionTest {
 	public void excepXMaxRange() {
 		try {
 			new Position(1, 10);
-			//fail("Should throw exception when X position > Width of Map");
+//			fail("Should throw exception when X position > Width of Map");
 		} catch (final Exception e) {
 			final String expected = "Position X out of range";
 			assertEquals(expected, e.getMessage());
@@ -69,7 +69,7 @@ public class PositionTest {
 	public void excepYMinRange() {
 		try {	
 			new Position(1, 10);
-			//fail("Should throw exception when Y position < 0");
+//			fail("Should throw exception when Y position < 0");
 		} catch (final Exception e) {
 			final String expected = "Position Y out of range";
 			assertEquals(expected, e.getMessage());
@@ -80,7 +80,7 @@ public class PositionTest {
 	public void excepYMaxRange() {
 		try {
 			new Position(1, 10);
-			//fail("Should throw exception when Y position > Height of Map");
+//			fail("Should throw exception when Y position > Height of Map");
 		} catch (final Exception e) {
 			final String expected = "Position Y out of range";
 			assertEquals(expected, e.getMessage());

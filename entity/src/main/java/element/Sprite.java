@@ -40,6 +40,10 @@ public class Sprite {
 	 * @param sprite_name the new sprite name
 	 */
 	// Set the Sprite name
+	public String getSpriteName() {
+		return this.sprite_name;
+	}
+	
 	public void setSpriteName(String sprite_name) {
 		this.sprite_name = sprite_name;
 	}

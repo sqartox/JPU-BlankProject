@@ -20,12 +20,20 @@ public class Position {
 	 *
 	 * @param x the x
 	 * @param y the y
+	 * @throws Exception 
 	 */
 	// Sprite constructor
-	public Position(int x, int y) {
+	public Position(int x, int y) throws Exception {
 		// Set the X Element Position
+		if((x < 0) || (x > 50)){
+			throw new Exception("Position X out of range");
+		}
 		this.x = x;
+		
 		// Set the Y Element Position
+		if((y < 0) || (y > 22)) {
+			throw new Exception("Position Y out of range");
+		}
 		this.y = y;
 	}
 	

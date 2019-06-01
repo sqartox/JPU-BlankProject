@@ -82,7 +82,11 @@ public abstract class Element {
 	 */
 	// Set the Element position
 	public void setPosition(int x, int y) {
-		this.position = new Position(x, y);
+		try {
+			this.position = new Position(x, y);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	/**

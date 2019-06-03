@@ -26,16 +26,16 @@ class ViewPanel extends JPanel implements Observer {
 
 	/** The default sprite size. */
 	private static int DEFAULT_SPRITE_SIZE = 16;
-	
+
 	/** The largecamera. */
 	private static boolean LARGECAMERA = true;
-	
+
 	/** The zoom. */
 	private double zoom = 2.4;
-	
+
 	/** The img. */
 	private Image img;
-	
+
 	/** The map design. */
 	private String mapDesign;
 
@@ -112,11 +112,11 @@ class ViewPanel extends JPanel implements Observer {
 	// Paint all graphics components
 	@Override
 	protected void paintComponent(final Graphics graphics) {
-
 		if (this.getViewFrame().getModel().getMap().getMapDesign() != mapDesign) {
-			// Set Timer to 0 if the map wasn't load
+			// Set Timer to 0 if the map changed
 			this.getViewFrame().setCount(0);
 		}
+		
 		if (this.getViewFrame().getModel().getMap().getPlayer() != null) {
 			// Clear the ViewPanel
 			graphics.clearRect(0, 0, this.getWidth(), this.getHeight());
@@ -147,19 +147,45 @@ class ViewPanel extends JPanel implements Observer {
 							y * DEFAULT_SPRITE_SIZE, x * DEFAULT_SPRITE_SIZE, this);
 				}
 			}
+			graphics.setColor(new Color(0xFF0000));
+
 		}
-		// Draw Timer and Score
-		graphics.setColor(new Color(0xFFFFFF));
-		graphics.drawString("Total time: " + String.format("%.1f", this.getViewFrame().getTotalCount()), 10, -20);
-		graphics.drawString("Level time: " + String.format("%.1f", this.getViewFrame().getCount()), 10, -5);
-		if (this.getViewFrame().getModel().getMap().getPlayer() != null) {
-			graphics.drawString("Current diamonds: "
-					+ this.getViewFrame().getModel().getMap().getPlayer().getDiamondCount() + "/10 (needed)", 610, -5);
-		}
-		// graphics.drawString(this.getViewFrame().getModel().getMap().getMapDesign(),
-		// 0, 0);
 		
-		// Get Map design
-		mapDesign = this.getViewFrame().getModel().getMap().getMapDesign();
+		// Draw Timer and Score
+		if (LARGECAMERA == false) {
+			if (this.getViewFrame().getModel().getMap().getPlayer() != null) {
+				graphics.drawString("Total time: " + String.format("%.1f", this.getViewFrame().getTotalCount()),
+						(int) Math.round(this.getViewFrame().getModel().getMap().getPlayer().getPosition().getX()
+								* DEFAULT_SPRITE_SIZE - this.getWidth() / 7.2),
+						(int) Math.round(this.getViewFrame().getModel().getMap().getPlayer().getPosition().getY()
+								* DEFAULT_SPRITE_SIZE - this.getHeight() / 8));
+				graphics.drawString("Level time: " + String.format("%.1f", this.getViewFrame().getCount()),
+						(int) Math.round(this.getViewFrame().getModel().getMap().getPlayer().getPosition().getX()
+								* DEFAULT_SPRITE_SIZE - this.getWidth() / 7.2),
+						(int) Math.round(this.getViewFrame().getModel().getMap().getPlayer().getPosition().getY()
+								* DEFAULT_SPRITE_SIZE - this.getHeight() / 8 + 15));
+				graphics.drawString(
+						"Current diamonds: " + this.getViewFrame().getModel().getMap().getPlayer().getDiamondCount()
+								+ "/10 (needed)",
+						(int) Math.round(this.getViewFrame().getModel().getMap().getPlayer().getPosition().getX()
+								* DEFAULT_SPRITE_SIZE + this.getWidth() / 21),
+						(int) Math.round(this.getViewFrame().getModel().getMap().getPlayer().getPosition().getY()
+								* DEFAULT_SPRITE_SIZE - this.getHeight() / 8));
+				// Get Map design
+				this.mapDesign = this.getViewFrame().getModel().getMap().getMapDesign();
+			}
+		} else if (LARGECAMERA == true) {
+			if (this.getViewFrame().getModel().getMap().getPlayer() != null) {
+				graphics.drawString("Total time: " + String.format("%.1f", this.getViewFrame().getTotalCount()), 10,
+						-20);
+				graphics.drawString("Level time: " + String.format("%.1f", this.getViewFrame().getCount()), 10, -5);
+				graphics.drawString("Current diamonds: "
+						+ this.getViewFrame().getModel().getMap().getPlayer().getDiamondCount() + "/10 (needed)", 610,
+						-5);
+				// Get Map design
+				this.mapDesign = this.getViewFrame().getModel().getMap().getMapDesign();
+
+			}
+		}
 	}
 }

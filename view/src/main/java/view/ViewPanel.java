@@ -147,7 +147,7 @@ class ViewPanel extends JPanel implements Observer {
 							y * DEFAULT_SPRITE_SIZE, x * DEFAULT_SPRITE_SIZE, this);
 				}
 			}
-			graphics.setColor(new Color(0xFF0000));
+			graphics.setColor(new Color(0x4240ff));//Blue : 0x4240ff
 
 		}
 		

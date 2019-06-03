@@ -40,9 +40,9 @@ public class Map {
 	/**
 	 * Instantiates a new hello world.
 	 *
-	 * @param id      the id
+	 * @param id 		the id
 	 * @param message the message
-	 * @throws Exception 
+	 * @throws Exception
 	 */
 	// Map constructor
 	public Map(final int id, final String message) throws Exception {
@@ -60,7 +60,8 @@ public class Map {
 
 	/**
 	 * Instantiates a new hello world.
-	 * @throws Exception 
+	 * 
+	 * @throws Exception
 	 */// Map bis
 	public Map() throws Exception {
 		this(0, "");
@@ -115,7 +116,8 @@ public class Map {
 
 	/**
 	 * Sets the map objects.
-	 * @throws Exception 
+	 * 
+	 * @throws Exception
 	 */
 	// Set the different Map objects
 	public void setMapObjects() throws Exception {

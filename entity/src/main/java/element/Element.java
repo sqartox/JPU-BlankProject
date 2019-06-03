@@ -90,7 +90,7 @@ public abstract class Element {
 	}
 
 	/**
-	 * Change position.
+	 * Change position by checking collision depending type of element .
 	 *
 	 * @param x the x
 	 * @param y the y
@@ -180,7 +180,7 @@ public abstract class Element {
 	}
 
 	/**
-	 * Check for exit.
+	 * Check for exit around Player.
 	 *
 	 * @param x the x
 	 * @param y the y
@@ -198,7 +198,7 @@ public abstract class Element {
 	}
 
 	/**
-	 * Gets the diamond.
+	 * Gets the diamond position and increment Diamond count when player got a new diamond.
 	 *
 	 * @param x the x
 	 * @param y the y

@@ -1,7 +1,8 @@
-package controller;
-
+package view;
 
 import static org.junit.Assert.assertEquals;
+
+import java.awt.event.KeyEvent;
 
 import org.junit.After;
 import org.junit.AfterClass;
@@ -11,9 +12,9 @@ import org.junit.Test;
 
 import contract.ControllerOrder;
 
-public class ControllerTest {
+public class ViewTest {
 	
-	private ControllerOrder userOrder;
+	private int userOrder;
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
@@ -25,7 +26,7 @@ public class ControllerTest {
 
 	@Before
 	public void setUp() throws Exception {
-		this.setUserOrder(ControllerOrder.NOTHING);
+		this.userOrder = KeyEvent.VK_NUMPAD1;
 	}
 
 	@After
@@ -33,26 +34,21 @@ public class ControllerTest {
 	}
 
 	@Test
-	public void testOrderPerform() {
-		final ControllerOrder expected = ControllerOrder.NOTHING;
-		assertEquals(expected, this.getUserOrder());
+	public void testKeyCodeToControllerOrder() {
+		final ControllerOrder expected = ControllerOrder.Map1;
+		assertEquals(expected, View.keyCodeToControllerOrder(userOrder));
 	}
 	
+	
 	@Test
-	public void testUserOrder() {
+	public void excepKeyCodeToControllerOrder() {
 		try {
-//			fail("Should throw exception when Y position < 0");
+			View.keyCodeToControllerOrder(userOrder);
+//			fail("Should throw exception when X position < 0");
 		} catch (final Exception e) {
-			final String expected = "Invalid order.";
+			final String expected = "Position X out of range";
 			assertEquals(expected, e.getMessage());
 		}
 	}
 
-	public ControllerOrder getUserOrder() {
-		return userOrder;
-	}
-
-	public void setUserOrder(ControllerOrder userOrder) {
-		this.userOrder = userOrder;
-	}
 }

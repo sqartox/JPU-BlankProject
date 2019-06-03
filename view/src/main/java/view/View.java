@@ -19,7 +19,7 @@ import contract.IView;
 public final class View implements IView, Runnable {
 
 	/** The frame. */
-	private final ViewFrame viewFrame;
+	protected final ViewFrame viewFrame;
 
 	/**
 	 * Instantiates a new view.

@@ -13,7 +13,7 @@ import org.junit.Test;
 import contract.ControllerOrder;
 
 public class ViewTest {
-	
+
 	private int userOrder;
 
 	@BeforeClass
@@ -38,8 +38,7 @@ public class ViewTest {
 		final ControllerOrder expected = ControllerOrder.Map1;
 		assertEquals(expected, View.keyCodeToControllerOrder(userOrder));
 	}
-	
-	
+
 	@Test
 	public void excepKeyCodeToControllerOrder() {
 		try {

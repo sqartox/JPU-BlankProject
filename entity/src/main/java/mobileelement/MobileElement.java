@@ -51,7 +51,7 @@ public abstract class MobileElement extends Element {
 		case 4:
 			return Direction.RIGHT;
 		default:
-			throw new Exception("Position Y out of range");
+			throw new Exception("Expected Direction id out of range");
 		}
 	}
 }

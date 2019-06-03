@@ -1,6 +1,6 @@
 package element;
 
-import static org.junit.Assert.fail;
+import static org.junit.Assert.assertEquals;
 
 import org.junit.After;
 import org.junit.AfterClass;
@@ -8,12 +8,10 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import mobileelement.Player;
 
 public class ElementTest {
 	
-	Element element;
-	Sprite sprite;
+	private Map map;
 	
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
@@ -22,34 +20,20 @@ public class ElementTest {
 	@AfterClass
 	public static void tearDownAfterClass() throws Exception {
 	}
-
+	
 	@Before
 	public void setUp() throws Exception {
-		this.element = new Player(0, 1, 10);
+		this.map = new Map(0, "pe");
 	}
 
 	@After
 	public void tearDown() throws Exception {
+		
 	}
 	
 	@Test
-	public void testChangePosition() {
-		fail("Not yet implemented");
-	}
-
-	@Test
 	public void testCheckForExit() {
-		fail("Not yet implemented");
+		final boolean expected = true;
+		assertEquals(expected,this.map.getMapObjects(0, 0).checkForExit(1, 0));
 	}
-
-	@Test
-	public void testGetDiamond() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testGetMap() {
-		fail("Not yet implemented");
-	}
-
 }

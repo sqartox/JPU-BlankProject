@@ -151,7 +151,7 @@ public final class Controller implements IController {
 				}
 				break;
 			default :
-				throw new Exception("Invalid order.");
+				throw new Exception("Invalid order");
 			}
 		
 	}

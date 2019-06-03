@@ -8,7 +8,12 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import element.Direction;
+
+
 public class MobileElementTest {
+	
+	private Player player;
 	
 	private int direction;
 	
@@ -23,6 +28,7 @@ public class MobileElementTest {
 
 	@Before
 	public void setUp() throws Exception {
+		this.player = new Player(1, 10, 10);
 		this.direction = 1;
 	}
 
@@ -32,8 +38,8 @@ public class MobileElementTest {
 
 	@Test
 	public void testChooseDirection() throws Exception {
-		final int expected = 1;
-		assertEquals(expected, direction);
+		final Direction expected = Direction.UP;
+		assertEquals(expected, this.player.chooseDirection(direction));
 	}
 	
 	@Test
@@ -42,7 +48,7 @@ public class MobileElementTest {
 			new Stone(2, 10);
 //			fail("Should throw exception when direction id < 1");
 		} catch (final Exception e) {
-			final String expected = "Expected Direction id out of range.";
+			final String expected = "Expected Direction id out of range";
 			assertEquals(expected, e.getMessage());
 		}
 	}

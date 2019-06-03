@@ -9,11 +9,14 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import contract.ControllerOrder;
+import contract.IModel;
+import contract.IView;
 
 public class ControllerTest {
 	
-	private ControllerOrder userOrder;
+
+	private IView view;
+	private IModel model;
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
@@ -25,34 +28,22 @@ public class ControllerTest {
 
 	@Before
 	public void setUp() throws Exception {
-		this.setUserOrder(ControllerOrder.NOTHING);
+		
 	}
 
 	@After
 	public void tearDown() throws Exception {
+		
 	}
 
-	@Test
-	public void testOrderPerform() {
-		final ControllerOrder expected = ControllerOrder.NOTHING;
-		assertEquals(expected, this.getUserOrder());
-	}
-	
 	@Test
 	public void testUserOrder() {
 		try {
+			new Controller(view, model);
 //			fail("Should throw exception when Y position < 0");
 		} catch (final Exception e) {
-			final String expected = "Invalid order.";
+			final String expected = "Invalid order";
 			assertEquals(expected, e.getMessage());
 		}
-	}
-
-	public ControllerOrder getUserOrder() {
-		return userOrder;
-	}
-
-	public void setUserOrder(ControllerOrder userOrder) {
-		this.userOrder = userOrder;
 	}
 }

@@ -37,9 +37,10 @@ public abstract class MobileElement extends Element {
 	 *
 	 * @param choice the choice
 	 * @return the direction
+	 * @throws Exception 
 	 */
 	//Set Mobiles direction method
-	public Direction chooseDirection(int choice) {
+	public Direction chooseDirection(int choice) throws Exception {
 		switch (choice) {
 		case 1:
 			return Direction.UP;
@@ -50,7 +51,7 @@ public abstract class MobileElement extends Element {
 		case 4:
 			return Direction.RIGHT;
 		default:
-			return null;
+			throw new Exception("Position Y out of range");
 		}
 	}
 }

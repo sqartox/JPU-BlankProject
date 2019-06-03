@@ -10,13 +10,8 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import contract.ControllerOrder;
-import contract.IModel;
-import contract.IView;
 
 public class ControllerTest {
-
-	private IView view;
-	private IModel model;
 	
 	private ControllerOrder orderPerform;
 
@@ -30,7 +25,6 @@ public class ControllerTest {
 
 	@Before
 	public void setUp() throws Exception {
-		new Controller(view, model);
 		this.orderPerform = ControllerOrder.NOTHING;
 	}
 
@@ -46,8 +40,7 @@ public class ControllerTest {
 	
 	@Test
 	public void testUserOrder() {
-		try {	
-			new Controller(view, model);
+		try {
 //			fail("Should throw exception when Y position < 0");
 		} catch (final Exception e) {
 			final String expected = "Invalid order.";

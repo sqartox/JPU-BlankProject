@@ -37,7 +37,7 @@ public class Stone extends MobileElement {
 	 * Move stone.
 	 *
 	 * @param direction the direction
-	 * @throws Exception 
+	 * @throws Exception exception
 	 */
 	// Move Stone method
 	public void moveStone(Direction direction) throws Exception {
@@ -78,7 +78,7 @@ public class Stone extends MobileElement {
 
 	/**
 	 * Refresh stones.
-	 * @throws Exception 
+	 * @throws Exception exception
 	 */
 	//Refresh Stone position Method
 	public void refreshStones() throws Exception {

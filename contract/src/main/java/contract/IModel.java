@@ -8,9 +8,7 @@ import element.Map;
 /**
  * The Interface IModel.
  *
- * @author Jean michel crapaud
- * The class IModel
- * Saved as file IModel.java
+ * @author Jean michel crapaud The class IModel Saved as file IModel.java
  */
 public interface IModel {
 
@@ -24,11 +22,10 @@ public interface IModel {
 	/**
 	 * Load the Map.
 	 *
-	 * @param i
-	 *          the code
-	 * @throws Exception 
-	 * @throws SQLException 
-	 */	
+	 * @param i the code
+	 * @throws Exception exception
+	 * @throws SQLException SQLException
+	 */
 	void loadMap(int i) throws SQLException, Exception;
 
 	/**

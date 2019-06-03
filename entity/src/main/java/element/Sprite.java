@@ -37,10 +37,11 @@ public class Sprite {
 	/**
 	 * Sets the sprite name.
 	 *
-	 * @param sprite_name the new sprite name
+	 * @return sprite_name Sprite name
+	 * @throws Exception exception
 	 */
 	// Set the Sprite name
-	public String getSpriteName() {
+	public String getSpriteName() throws Exception{
 		return this.sprite_name;
 	}
 	

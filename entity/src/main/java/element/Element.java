@@ -94,7 +94,7 @@ public abstract class Element {
 	 *
 	 * @param x the x
 	 * @param y the y
-	 * @throws Exception 
+	 * @throws Exception exception
 	 */
 	// Change the Element position
 	public void changePosition(int x, int y) throws Exception {
@@ -202,8 +202,7 @@ public abstract class Element {
 	 *
 	 * @param x the x
 	 * @param y the y
-	 * @return the diamond
-	 * @throws Exception 
+	 * @throws Exception exception
 	 */
 	// Check for Diamond position and increment Diamond count
 	public void getDiamond(int x, int y) throws Exception {

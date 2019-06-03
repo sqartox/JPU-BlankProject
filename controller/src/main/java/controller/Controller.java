@@ -76,7 +76,7 @@ public final class Controller implements IController {
 	 * Order perform.
 	 *
 	 * @param controllerOrder the controller order
-	 * @throws Exception 
+	 * @throws Exception exception
 	 */
 	/*
 	 * (non-Javadoc)
@@ -249,8 +249,8 @@ public final class Controller implements IController {
 	 * Sets the map.
 	 *
 	 * @param map the new map
-	 * @throws Exception 
-	 * @throws SQLException 
+	 * @throws Exception exception
+	 * @throws SQLException SQLException
 	 */
 	// Set the Map
 	public void setMap(int map) throws SQLException, Exception {

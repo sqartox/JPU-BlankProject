@@ -20,7 +20,7 @@ public class Position {
 	 *
 	 * @param x the x
 	 * @param y the y
-	 * @throws Exception 
+	 * @throws Exception exception
 	 */
 	// Sprite constructor
 	public Position(int x, int y) throws Exception {

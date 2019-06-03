@@ -35,7 +35,7 @@ public class Opponent extends MobileElement {
 
 	/**
 	 * Move opponent.
-	 * @throws Exception 
+	 * @throws Exception exception
 	 */
 	// Move Opponent method
 	public void moveOpponent() throws Exception {
@@ -80,7 +80,7 @@ public class Opponent extends MobileElement {
 
 	/**
 	 * Refresh opponents.
-	 * @throws Exception 
+	 * @throws Exception exception
 	 */
 	// Refresh Opponent position Method
 	public void refreshOpponents() throws Exception {

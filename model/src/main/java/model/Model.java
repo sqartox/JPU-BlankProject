@@ -20,7 +20,7 @@ public final class Model extends Observable implements IModel {
 
 	/**
 	 * Instantiates a new model.
-	 * @throws Exception 
+	 * @throws Exception exception
 	 */
 	// Model constructor
 	public Model() throws Exception {
@@ -55,8 +55,8 @@ public final class Model extends Observable implements IModel {
 	 * Load map.
 	 *
 	 * @param id the id
-	 * @throws Exception 
-	 * @throws SQLException 
+	 * @throws Exception exception
+	 * @throws SQLException SQLException 
 	 */
 	// Load a game Map
 	@Override

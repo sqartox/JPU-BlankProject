@@ -37,7 +37,7 @@ public class Diamond extends MobileElement {
 	 * Move diamond.
 	 *
 	 * @param direction the direction
-	 * @throws Exception 
+	 * @throws Exception exception
 	 */
 	// Move Diamonds method
 	public void moveDiamond(Direction direction) throws Exception {
@@ -78,7 +78,7 @@ public class Diamond extends MobileElement {
 
 	/**
 	 * Refresh diamonds.
-	 * @throws Exception 
+	 * @throws Exception exception
 	 */
 	//Refresh Diamond position Method
 	public void refreshDiamonds() throws Exception {

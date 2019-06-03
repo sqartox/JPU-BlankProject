@@ -21,8 +21,8 @@ public abstract class Main {
     /**
      * The main method.
      *
-     * @param args            the arguments
-     * @throws Exception 
+     * @param args the arguments
+	 * @throws Exception exception
      */
 	
     public static void main(final String[] args) throws Exception {

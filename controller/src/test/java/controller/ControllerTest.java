@@ -37,7 +37,7 @@ public class ControllerTest {
 	}
 
 	@Test
-	public void testUserOrder() {
+	public void testUserOrder(){
 		try {
 			new Controller(view, model);
 //			fail("Should throw exception when Y position < 0");

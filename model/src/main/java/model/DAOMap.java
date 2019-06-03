@@ -49,7 +49,7 @@ class DAOMap<M extends Map> {
 	 *
 	 * @param id the id
 	 * @return the map
-	 * @throws Exception 
+	 * @throws Exception exception
 	 */
 	// Find Map in database using ID
 	public Map find(final int id) throws Exception {

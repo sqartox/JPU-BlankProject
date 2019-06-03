@@ -22,7 +22,6 @@ public abstract class MobileElement extends Element {
 	 * @param direction the direction
 	 * @param x the x
 	 * @param y the y
-	 * @param speed the speed
 	 */
 	//Mobile Element constructor
 	MobileElement(Sprite sprite, Direction direction, int x, int y) {
@@ -37,7 +36,7 @@ public abstract class MobileElement extends Element {
 	 *
 	 * @param choice the choice
 	 * @return the direction
-	 * @throws Exception 
+	 * @throws Exception exception
 	 */
 	//Set Mobiles direction method
 	public Direction chooseDirection(int choice) throws Exception {

@@ -125,7 +125,7 @@ public class Collision {
 	 *
 	 * @param x the x
 	 * @param y the y
-	 * @throws Exception 
+	 * @throws Exception exception
 	 */
 	// Check Collision to move Stone by Player
 	public void moveStoneByPlayer(int x, int y) throws Exception {
@@ -151,7 +151,7 @@ public class Collision {
 	 *
 	 * @param x the x
 	 * @param y the y
-	 * @throws Exception 
+	 * @throws Exception exception
 	 */
 	// Check Collision to move Stone or Diamond by gravity
 	public void gravityFall(int x, int y) throws Exception {

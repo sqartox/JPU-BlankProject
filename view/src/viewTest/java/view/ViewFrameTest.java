@@ -16,6 +16,7 @@ public class ViewFrameTest {
 	private static final double DELTA = 1e-3;
 	
 	private ViewFrame viewFrame;
+	private View view;
 	private IModel model;
 	
 	@BeforeClass
@@ -28,8 +29,8 @@ public class ViewFrameTest {
 
 	@Before
 	public void setUp() throws Exception {
-		this.viewFrame = new ViewFrame(model);
-		this.viewFrame.setCount(1);
+		this.view = new View(model);
+		this.view.setCount(1);
 	}
 
 	@After

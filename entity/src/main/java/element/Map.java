@@ -119,7 +119,7 @@ public class Map {
 	 * 
 	 * @throws Exception exception
 	 */
-	// Set the different Map objects
+	// Set the different Map objects	
 	public void setMapObjects() throws Exception {
 		// Get the level Map design
 		String map = this.getMapDesign();
@@ -316,7 +316,7 @@ public class Map {
 	 *
 	 * @return the total diamonds
 	 */
-	// Get the Player Diamond total count
+	// Get the total of Diamond in the map
 	public int getTotalDiamonds() {
 		return TOTALDIAMONDS;
 	}
